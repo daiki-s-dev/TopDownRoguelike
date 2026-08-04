@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2468987575832612227, guid: 0fdcc0d3271df62418a39c05de757704, type: 3}
       propertyPath: m_Name
-      value: DungeonGenerator
+      value: RoomGenerator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
