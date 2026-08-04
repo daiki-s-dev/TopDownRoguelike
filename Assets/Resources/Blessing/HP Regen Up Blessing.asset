@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da96d5c18adb1644aff1a9e5d0a8e5c, type: 3}
+  m_Name: HP Regen Up Blessing
+  m_EditorClassIdentifier: 
+  blessingName: "HP\u81EA\u52D5\u56DE\u5FA9\u901F\u5EA6\u30A2\u30C3\u30D7"
+  type: 4
+  icon: {fileID: 2296585619312613221, guid: c5b32885547623542b53a9b71a5d1cf7, type: 3}
+  value: 1
+  isMultiplier: 0
+  description: "HP\u81EA\u52D5\u56DE\u5FA9\u901F\u5EA6 + 1 / s"

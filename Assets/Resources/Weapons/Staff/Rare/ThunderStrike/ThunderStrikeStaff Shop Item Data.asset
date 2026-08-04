@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8807bbc6aeed60418656ecca98c2843, type: 3}
+  m_Name: ThunderStrikeStaff Shop Item Data
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: 
+  icon: {fileID: -2542511471266841883, guid: 9019487738231d441832fb92293f66c5, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#0038FF>\u4E0A\u7D1A\u96F7\u9B54\u8853\u5E2B\u306E\u6756</color>\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#0038FF>\u30EC\u30A2</color>\n\u30FB\u9B54\u6CD5\n\u3000\u30B5\u30F3\u30C0\u30FC\u30B9\u30C8\u30E9\u30A4\u30AF\n\u3000\u6307\u5B9A\u5730\u70B9\u306B\u843D\u96F7\u3092\u767A\u751F\u3055\u305B\u308B\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30005\n\u30FB\u7279\u5FB4\n\u3000\u4E0A\u7D1A\u96F7\u9B54\u8853\u5E2B\u304C\u4F7F\u3046\u6756\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300020
+    + <color=#AA46FF>\u9B54\u529B\u306E75%</color>\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000<color=#AA46FF>\u9B54\u529B</color>
+    + 30"
+  price: 250
+  weaponData: {fileID: 11400000, guid: e7f33e834a6427d42b5c0e75bcfea7ea, type: 2}
+  potionData: {fileID: 0}

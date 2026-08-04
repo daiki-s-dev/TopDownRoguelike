@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8807bbc6aeed60418656ecca98c2843, type: 3}
+  m_Name: VolcanoSword Shop Item Data
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: 
+  icon: {fileID: 6430048399189552519, guid: fbb6a5d6b94d9da4aaf9726e8b5eeac5, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#AB00FF>\u706B\u5C71\u306E\u6012\u308A</color>\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#AB00FF>\u30A8\u30D4\u30C3\u30AF</color>\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30000\n\u30FB\u7279\u5FB4\n\u3000\u706B\u5C71\u306E\u5674\u706B\u306B\u3088\u3063\u3066\u751F\u307E\u308C\u305F\u5263\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300025
+    + <color=#FFAA64>\u653B\u6483\u529B\u306E100%</color>\n\u3000+ <color=#AA46FF>\u9B54\u529B\u306E50%</color>\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000<color=#FFAA64>\u653B\u6483\u529B</color>
+    + 50\n\u3000<color=#FF6464>\u6700\u5927HP</color> + 20\n\u3000<color=#FF0000>\u30AF\u30EA\u30C6\u30A3\u30AB\u30EB\u30C0\u30E1\u30FC\u30B8</color>
+    + 1\xD7"
+  price: 500
+  weaponData: {fileID: 11400000, guid: aba7fff1eb5ae964aa5c486cd90ec95d, type: 2}
+  potionData: {fileID: 0}

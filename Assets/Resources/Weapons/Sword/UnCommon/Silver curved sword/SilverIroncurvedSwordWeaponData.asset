@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ce83d15245fd4d83faa6450d9058c, type: 3}
+  m_Name: SilverIroncurvedSwordWeaponData
+  m_EditorClassIdentifier: 
+  category: 0
+  rarity: 1
+  weaponType: 0
+  weaponName: "<color=#57FF00>\u9280\u306E\u66F2\u5263</color>"
+  icon: {fileID: -8120167823569116996, guid: 0222db0dcc058bd4fb453293c7dd2f40, type: 3}
+  attackSE: {fileID: 8300000, guid: 330334241823aa344abcf7d2459de677, type: 3}
+  mpCost: 0
+  baseDamage: 17
+  attackScale: 0.5
+  magicScale: 0
+  attackRate: 0
+  weaponPrefab: {fileID: 5605109673309027502, guid: 040f4d248ebb6534aacb1cc0ef78d013, type: 3}
+  arrowPrefab: {fileID: 0}
+  arrowSpeed: 0
+  bonusAttack: 0
+  bonusMaxHP: 0
+  bonusMaxMP: 0
+  bonusMagic: 0
+  bonusCriticalRate: 0
+  bonusCriticalDamage: 0
+  dropPrefab: {fileID: 1117496363210493937, guid: bae199cae3e62d44c9c70919230ed30f, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#57FF00>\u9280\u306E\u66F2\u5263</color>\n\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#57FF00>\u30A2\u30F3\u30B3\u30E2\u30F3</color>\n\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30000\n\n\u30FB\u7279\u5FB4\n\u3000\u9280\u3067\u3067\u304D\u305F\u66F2\u5263\n\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300017
+    + <color=#FFAA64>\u653B\u6483\u529B\u306E50%</color>\n\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000\u306A\u3057"

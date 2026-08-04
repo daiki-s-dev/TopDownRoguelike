@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ce83d15245fd4d83faa6450d9058c, type: 3}
+  m_Name: Dark BowWeaponData
+  m_EditorClassIdentifier: 
+  category: 0
+  rarity: 2
+  weaponType: 1
+  weaponName: "<color=#0038FF>\u95C7\u306E\u5F13</color>"
+  icon: {fileID: -5349802386859639745, guid: ee9f159089a700a40b9a61acb57c41d2, type: 3}
+  attackSE: {fileID: 8300000, guid: 64741501de2326947a746ec2d37cacab, type: 3}
+  mpCost: 5
+  baseDamage: 20
+  attackScale: 0.5
+  magicScale: 0.5
+  attackRate: 1
+  weaponPrefab: {fileID: 5751295062549575851, guid: 4cb5b1f7ad5fdc24193001f3a1438be4, type: 3}
+  arrowPrefab: {fileID: 6044696383541887532, guid: 41fba1ce349a2b444b466f16793d30d6, type: 3}
+  arrowSpeed: 0
+  bonusAttack: 20
+  bonusMaxHP: 0
+  bonusMaxMP: 0
+  bonusMagic: 20
+  bonusCriticalRate: 0
+  bonusCriticalDamage: 0
+  dropPrefab: {fileID: 2397574036823157196, guid: c9cd0c9afaa37ad46b12d6d93debf32e, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#0038FF>\u95C7\u306E\u5F13</color>\n\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#0038FF>\u30EC\u30A2</color>\n\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30005\n\n\u30FB\u7279\u5FB4\n\u3000\u95C7\u304B\u3089\u751F\u307E\u308C\u305F\u5F13\n\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300020
+    + <color=#FFAA64>\u653B\u6483\u529B\u306E50%</color> \n\u3000+ <color=#AA46FF>\u9B54\u529B\u306E50%</color>\n\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000<color=#FFAA64>\u653B\u6483\u529B</color>
+    + 20\n\u3000<color=#AA46FF>\u9B54\u529B</color> + 20"

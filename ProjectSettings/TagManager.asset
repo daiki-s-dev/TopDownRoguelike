@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Portal
+  - SpawnPoint
+  - Wall
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BackGround
+    uniqueID: 1014460839
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 2183615855
+    locked: 0
+  - name: GateWall
+    uniqueID: 3678034757
+    locked: 0
+  - name: Wall
+    uniqueID: 2428713675
+    locked: 0
+  - name: AttackWarning
+    uniqueID: 1162220843
+    locked: 0
+  - name: Portal
+    uniqueID: 3109810577
+    locked: 0
+  - name: Ornaments
+    uniqueID: 2329164161
+    locked: 0
+  - name: Box
+    uniqueID: 3013025155
+    locked: 0
+  - name: Drop
+    uniqueID: 3999140565
+    locked: 0
+  - name: Enemy
+    uniqueID: 3558682247
+    locked: 0
+  - name: Shadow
+    uniqueID: 613763109
+    locked: 0
+  - name: Player
+    uniqueID: 1729672171
+    locked: 0
+  - name: Weapon
+    uniqueID: 3522513317
+    locked: 0
+  - name: UI
+    uniqueID: 3329383613
+    locked: 0
+  m_RenderingLayers:
+  - Default

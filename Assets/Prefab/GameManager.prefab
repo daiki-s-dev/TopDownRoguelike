@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8841194908132871400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1428907852294609512}
+  - component: {fileID: 1391466939780272770}
+  - component: {fileID: 5733254501419154028}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1428907852294609512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841194908132871400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7374772, y: 0.8929052, z: -0.1988101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1391466939780272770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841194908132871400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd14b9b02f9b8714d899f698c0af3abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  floor: 1
+  maxFloor: 5
+  blessingUI: {fileID: 0}
+  allBlessings:
+  - {fileID: 11400000, guid: 013ec7371f0c10447bfb6d0726dcf4a8, type: 2}
+  - {fileID: 11400000, guid: ecc725a96c905b94e9cf6171bcc106a6, type: 2}
+  - {fileID: 11400000, guid: ae1fc121f0dbcdb449ddbba392745fda, type: 2}
+  - {fileID: 11400000, guid: dc0c41d4a55455747b3bcd932b0f66ef, type: 2}
+  - {fileID: 11400000, guid: 42da5287113728248b11660fc04a42c4, type: 2}
+  - {fileID: 11400000, guid: 023c4b0e1b17eae49ba4aeb396599d4e, type: 2}
+  - {fileID: 11400000, guid: c2c152ba60f348a4ca7f5987b3fb8e2e, type: 2}
+  - {fileID: 11400000, guid: 0f6623ea413a6fa429e3f63e484fe915, type: 2}
+  - {fileID: 11400000, guid: cb8762a2463dd1e46aadc77c3a60618f, type: 2}
+  - {fileID: 11400000, guid: 5139a27272b00374a9088bf1c59739b2, type: 2}
+  stageNameUI: {fileID: 0}
+  lobbySceneName: LobbyScene
+  dungeonSceneName: DungeonScene
+  clearSceneName: ClearScene
+--- !u!114 &5733254501419154028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841194908132871400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd71b28616523c43807bc4784dcce14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

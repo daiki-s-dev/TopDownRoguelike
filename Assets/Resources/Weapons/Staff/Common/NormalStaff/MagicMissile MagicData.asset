@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c693f417805f8f4eb31bf19df0304fb, type: 3}
+  m_Name: MagicMissile MagicData
+  m_EditorClassIdentifier: 
+  magicName: "\u30DE\u30B8\u30C3\u30AF\u30DF\u30B5\u30A4\u30EB"
+  castType: 0
+  magicPrefab: {fileID: 3120354285046191537, guid: 5e49a48365689b740971cd47fcacca2a, type: 3}

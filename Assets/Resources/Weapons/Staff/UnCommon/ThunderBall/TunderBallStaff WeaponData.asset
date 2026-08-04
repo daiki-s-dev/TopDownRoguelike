@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ce83d15245fd4d83faa6450d9058c, type: 3}
+  m_Name: TunderBallStaff WeaponData
+  m_EditorClassIdentifier: 
+  category: 0
+  rarity: 1
+  weaponType: 2
+  weaponName: "<color=#57FF00>\u4E2D\u7D1A\u96F7\u9B54\u8853\u5E2B\u306E\u6756</color>"
+  icon: {fileID: 1518857635050163292, guid: ac3397aa1ddab044e939e1757e5c0e06, type: 3}
+  attackSE: {fileID: 8300000, guid: 112236d3cecbfcf459c382ac291d6e59, type: 3}
+  mpCost: 2
+  baseDamage: 15
+  attackScale: 0
+  magicScale: 0.5
+  attackRate: 1
+  weaponPrefab: {fileID: 6331911782500886872, guid: 9f96126d88e3fdd46a9753de50b820b0, type: 3}
+  arrowPrefab: {fileID: 0}
+  arrowSpeed: 10
+  bonusAttack: 0
+  bonusMaxHP: 0
+  bonusMaxMP: 0
+  bonusMagic: 15
+  bonusCriticalRate: 0
+  bonusCriticalDamage: 0
+  dropPrefab: {fileID: 4809952298254203112, guid: 3be49651dcc7925449d7e1566096a38f, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#57FF00>\u4E2D\u7D1A\u96F7\u9B54\u8853\u5E2B\u306E\u6756</color>\n\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#57FF00>\u30A2\u30F3\u30B3\u30E2\u30F3</color>\n\n\u30FB\u9B54\u6CD5\n\u3000\u30B5\u30F3\u30C0\u30FC\u30DC\u30FC\u30EB\n\u3000\u524D\u65B9\u306B\u96F7\u306E\u7403\u3092\u653E\u3064\n\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30001\n\n\u30FB\u7279\u5FB4\n\u3000\u4E2D\u7D1A\u96F7\u9B54\u8853\u5E2B\u304C\u4F7F\u3046\u6756\n\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300015
+    + <color=#AA46FF>\u9B54\u529B\u306E50%</color>\n\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000<color=#AA46FF>\u9B54\u529B</color>
+    + 15"

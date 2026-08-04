@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ce83d15245fd4d83faa6450d9058c, type: 3}
+  m_Name: HunterBowWeaponData
+  m_EditorClassIdentifier: 
+  category: 0
+  rarity: 0
+  weaponType: 1
+  weaponName: "\u72E9\u4EBA\u306E\u5F13"
+  icon: {fileID: 7181388066864569564, guid: e764ab52a3d04664792c8fa3274dbbab, type: 3}
+  attackSE: {fileID: 8300000, guid: 64741501de2326947a746ec2d37cacab, type: 3}
+  mpCost: 1
+  baseDamage: 14
+  attackScale: 0.15
+  magicScale: 0.15
+  attackRate: 1
+  weaponPrefab: {fileID: 7496230324170283468, guid: 56f24e5a7f7622443a8d9d66452fe8cb, type: 3}
+  arrowPrefab: {fileID: 246587347552651584, guid: cf2b567a50f01da4d9a9f60ca16d6650, type: 3}
+  arrowSpeed: 0
+  bonusAttack: 0
+  bonusMaxHP: 0
+  bonusMaxMP: 0
+  bonusMagic: 0
+  bonusCriticalRate: 0
+  bonusCriticalDamage: 0
+  dropPrefab: {fileID: 5159470355781404227, guid: 4f2ff9b7a8990e04fa4a4df14c2eb867, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000\u72E9\u4EBA\u306E\u5F13\n\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000\u30B3\u30E2\u30F3\n\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30001\n\n\u30FB\u7279\u5FB4\n\u3000\u304B\u3064\u3066\u72E9\u4EBA\u304C\u3088\u304F\u7528\u3044\u3066\u3044\u305F\u5F13\n\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300014
+    + <color=#FFAA64>\u653B\u6483\u529B\u306E15%</color> \n\u3000+ <color=#AA46FF>\u9B54\u529B\u306E15%</color>\n\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000\u306A\u3057"

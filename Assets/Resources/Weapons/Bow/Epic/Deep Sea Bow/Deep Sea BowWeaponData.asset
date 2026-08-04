@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ce83d15245fd4d83faa6450d9058c, type: 3}
+  m_Name: Deep Sea BowWeaponData
+  m_EditorClassIdentifier: 
+  category: 0
+  rarity: 3
+  weaponType: 1
+  weaponName: "<color=#AB00FF>\u6DF1\u6D77\u306E\u5F13</color>"
+  icon: {fileID: 1708141900530535132, guid: f198487e7bf68e14db4dba49a87d3d7a, type: 3}
+  attackSE: {fileID: 8300000, guid: 64741501de2326947a746ec2d37cacab, type: 3}
+  mpCost: 8
+  baseDamage: 25
+  attackScale: 0.25
+  magicScale: 1
+  attackRate: 1
+  weaponPrefab: {fileID: 4668518735693181203, guid: 2587ef3dbd543ca4abfed77dcfa93219, type: 3}
+  arrowPrefab: {fileID: 8557002798686137796, guid: 418673a34f427cd4b9477b8a7bb16b69, type: 3}
+  arrowSpeed: 0
+  bonusAttack: 0
+  bonusMaxHP: 0
+  bonusMaxMP: 50
+  bonusMagic: 50
+  bonusCriticalRate: 0
+  bonusCriticalDamage: 0
+  dropPrefab: {fileID: 2090852783016112037, guid: bfcb31726600fa94984d3bdd97987795, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#AB00FF>\u6DF1\u6D77\u306E\u5F13</color>\n\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#AB00FF>\u30A8\u30D4\u30C3\u30AF</color>\n\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30008\n\n\u30FB\u7279\u5FB4\n\u3000\u6DF1\u6D77\u3067\u767A\u898B\u3055\u308C\u305F\u5F13\n\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300025
+    + <color=#FFAA64>\u653B\u6483\u529B\u306E25%</color> \n\u3000+ <color=#AA46FF>\u9B54\u529B\u306E100%</color>\n\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000<color=#AA46FF>\u9B54\u529B</color>
+    + 50 \n\u3000<color=#6464FF>\u6700\u5927MP</color> + 50"

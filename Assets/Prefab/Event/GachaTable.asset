@@ -1,0 +1,244 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ef07dcbf5a8df4388b90b2a3a017f1, type: 3}
+  m_Name: GachaTable
+  m_EditorClassIdentifier: 
+  weapons:
+  - itemName: "\u58CA\u308C\u304B\u3051\u306E\u9244\u306E\u5263"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 6397943217545030880, guid: 0f7e9749acaa4314fad7bd9dee304415, type: 3}
+  - itemName: "\u6728\u306E\u5F13"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 1348421870899451852, guid: 26e6f9e44856cab4e9ad814fbeb021cf, type: 3}
+  - itemName: "\u898B\u7FD2\u3044\u306E\u6756"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 1703954576902103006, guid: eefcfcecb3f7a0f43858926ea8ce77ae, type: 3}
+  - itemName: "\u58CA\u308C\u304B\u3051\u306E\u9285\u306E\u5263"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 1882933844631287290, guid: 1b02c9f91285568419f92d756c7619e4, type: 3}
+  - itemName: "\u58CA\u308C\u304B\u3051\u306E\u6728\u306E\u5263"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 2224316726207406969, guid: df0306b3d71e0b147a22ea2e083e9d57, type: 3}
+  - itemName: "\u58CA\u308C\u304B\u3051\u306E\u9280\u306E\u5263"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 5670762920998883021, guid: 941123f0aadf31148bc29dbefd0d1771, type: 3}
+  - itemName: "\u58CA\u308C\u304B\u3051\u306E\u8840\u5857\u3089\u308C\u305F\u5263"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 275246988099409073, guid: 37382cf8fa64ea74fac02089c9f76096, type: 3}
+  - itemName: "\u9285\u306E\u66F2\u5263"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 3705565057212222801, guid: 9851dc05e885dad44acca802d40e4a04, type: 3}
+  - itemName: "\u9244\u306E\u66F2\u5263"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 5142947835554284933, guid: 5275aeebb0291e94f966b6c1679199df, type: 3}
+  - itemName: "\u9280\u306E\u66F2\u5263"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 1117496363210493937, guid: bae199cae3e62d44c9c70919230ed30f, type: 3}
+  - itemName: "\u8840\u5857\u3089\u308C\u305F\u66F2\u5263"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 2302765301909407477, guid: 670f56e76ca5fc746ab2904dd32eb0be, type: 3}
+  - itemName: "\u95C7\u306E\u5263"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 3861130772238518362, guid: f1ee66210932ee545a267c1980510d47, type: 3}
+  - itemName: "\u5149\u306E\u5263"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 8676917862806762511, guid: 25f9c5aeb869781428b0b5386d7c41d8, type: 3}
+  - itemName: "\u9EC4\u91D1\u306E\u5263"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 5650443143782106080, guid: 6d7a69e90f6b5e94eafdf44e40a3420f, type: 3}
+  - itemName: "\u706B\u5C71\u306E\u6012\u308A"
+    itemType: 0
+    rarity: 3
+    prefab: {fileID: 8575880005493095554, guid: 9c70a024899daee4b882e1e62b6a057e, type: 3}
+  - itemName: "\u6C37\u5C71\u306E\u4E00\u89D2"
+    itemType: 0
+    rarity: 3
+    prefab: {fileID: 2513555535336728039, guid: b3ff51146871408449f8caa3b7a404b5, type: 3}
+  - itemName: "\u8056\u5263\u30A8\u30AF\u30B9\u30AB\u30EA\u30D0\u30FC"
+    itemType: 0
+    rarity: 4
+    prefab: {fileID: 7767883219744324927, guid: 992907708d2db9b49b74981b0ac13441, type: 3}
+  - itemName: "\u30C0\u30FC\u30AF\u30A6\u30C3\u30C9\u306E\u5F13"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 5481329332143136149, guid: 6548ab7bd6eafbc428b89a4f4ec5de1b, type: 3}
+  - itemName: "\u6728\u306E\u30EA\u30AB\u30FC\u30D6\u30DC\u30A6"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 6507351552682508079, guid: ad665f88e76703442a61086f5476cc34, type: 3}
+  - itemName: "\u30C0\u30FC\u30AF\u30A6\u30C3\u30C9\u306E\u30EA\u30AB\u30FC\u30D6\u30DC\u30A6"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 5990899961199689971, guid: 43be1fcfc4aff034fa8c819cca3562d1, type: 3}
+  - itemName: "\u72E9\u4EBA\u306E\u5F13"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 5159470355781404227, guid: 4f2ff9b7a8990e04fa4a4df14c2eb867, type: 3}
+  - itemName: "\u706B\u306E\u5F13"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 529198419887253719, guid: 20bb89e144c0ce64998d74226cf3f9b9, type: 3}
+  - itemName: "\u96F7\u306E\u5F13"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 8567176565249339258, guid: ed822d4ed70a76543ae47361e0994e15, type: 3}
+  - itemName: "\u6C34\u306E\u5F13"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 2539500785001652687, guid: 879f1ffee471b284b82153b8367b99ef, type: 3}
+  - itemName: "\u98A8\u306E\u5F13"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 5469314845539586979, guid: a85206dda5ecf7e47be4fe8d18911a58, type: 3}
+  - itemName: "\u95C7\u306E\u5F13"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 2397574036823157196, guid: c9cd0c9afaa37ad46b12d6d93debf32e, type: 3}
+  - itemName: "\u60AA\u9B54\u306E\u5F13"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 8259017986551485250, guid: e11035562eb8fec4eac00f49fc566eb6, type: 3}
+  - itemName: "\u5149\u306E\u5F13"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 88247061024822759, guid: ec97d7b8b3ee8ff4d8a360bb8371d308, type: 3}
+  - itemName: "\u6DF1\u6D77\u306E\u5F13"
+    itemType: 0
+    rarity: 3
+    prefab: {fileID: 2090852783016112037, guid: bfcb31726600fa94984d3bdd97987795, type: 3}
+  - itemName: "\u696D\u706B\u306E\u5F13"
+    itemType: 0
+    rarity: 3
+    prefab: {fileID: 228622974340292174, guid: 6dbd9067709d96f45b33a5c2679ddf66, type: 3}
+  - itemName: "\u9B54\u738B\u306E\u5F13"
+    itemType: 0
+    rarity: 4
+    prefab: {fileID: 1022741200410311836, guid: a0473c8de2f9d96438243111b400073e, type: 3}
+  - itemName: "\u4E0B\u7D1A\u708E\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 6302065535021023717, guid: 341e526dd9d55374f906b589bdf5fb4e, type: 3}
+  - itemName: "\u4E0B\u7D1A\u96F7\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 8524300540377491267, guid: 1c93819e86ec1134f82c205bf81f02e6, type: 3}
+  - itemName: "\u4E0B\u7D1A\u6C34\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 5664153443758003244, guid: c3ebdbc675af16042a573dd710f49c94, type: 3}
+  - itemName: "\u4E0B\u7D1A\u98A8\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 0
+    prefab: {fileID: 5202081468272211396, guid: e47ca8ee1cef5f34f8bcab6f61892ab6, type: 3}
+  - itemName: "\u4E2D\u7D1A\u708E\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 6106713092186008087, guid: 062e2f050ff86eb44b9c4366f29ce502, type: 3}
+  - itemName: "\u4E2D\u7D1A\u6C37\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 8569139365119855392, guid: 100447bbcacd85043a026d7e25ffc6ab, type: 3}
+  - itemName: "\u4E2D\u7D1A\u96F7\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 4809952298254203112, guid: 3be49651dcc7925449d7e1566096a38f, type: 3}
+  - itemName: "\u4E2D\u7D1A\u6C34\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 1
+    prefab: {fileID: 288100577595542635, guid: e4b376b4f3500564f98a0662a9b5219a, type: 3}
+  - itemName: "\u4E0A\u7D1A\u6C37\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 8695625361157647421, guid: 87d9ab0dc681fb447a648f283ba27894, type: 3}
+  - itemName: "\u4E0A\u7D1A\u96F7\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 5582981507679238845, guid: 7a3c4494d264ee344a0dabe76e3ec1c5, type: 3}
+  - itemName: "\u4E0A\u7D1A\u6C34\u9B54\u8853\u5E2B\u306E\u6756"
+    itemType: 0
+    rarity: 2
+    prefab: {fileID: 2976706741434262343, guid: 74b998517557a1c4a9528bd0f7b9c99d, type: 3}
+  - itemName: "\u708E\u306E\u8CE2\u8005\u306E\u6756"
+    itemType: 0
+    rarity: 3
+    prefab: {fileID: 3147667623939813760, guid: 2f92872c24881b34a86d5189422eae61, type: 3}
+  - itemName: "\u6C34\u306E\u8CE2\u8005\u306E\u6756"
+    itemType: 0
+    rarity: 3
+    prefab: {fileID: 2330960423270220788, guid: dfd2af0b941df7f469bd58c70a54d59c, type: 3}
+  - itemName: "\u795E\u306E\u6756"
+    itemType: 0
+    rarity: 4
+    prefab: {fileID: 692339018088713883, guid: c3978580f088baf4090248f7a02de6ce, type: 3}
+  accessories:
+  - itemName: 
+    itemType: 1
+    rarity: 0
+    prefab: {fileID: 0}
+  - itemName: 
+    itemType: 1
+    rarity: 1
+    prefab: {fileID: 0}
+  - itemName: 
+    itemType: 1
+    rarity: 2
+    prefab: {fileID: 0}
+  - itemName: 
+    itemType: 1
+    rarity: 3
+    prefab: {fileID: 0}
+  - itemName: 
+    itemType: 1
+    rarity: 4
+    prefab: {fileID: 0}
+  potions:
+  - itemName: "HP\u30DD\u30FC\u30B7\u30E7\u30F3"
+    itemType: 2
+    rarity: 0
+    prefab: {fileID: 6473325152852658572, guid: 116ab5eba73d08e4792a0a3dd3663d02, type: 3}
+  - itemName: "MP\u30DD\u30FC\u30B7\u30E7\u30F3"
+    itemType: 2
+    rarity: 0
+    prefab: {fileID: 17460425115909533, guid: 1747a68e50ce6ea4f83fdb15902faeb8, type: 3}
+  noDropRate: 0.7
+  magicStoneRate: 0.15
+  itemRate: 0.15
+  magicStoneDrops:
+  - amount: 2
+    probability: 0.7
+  - amount: 5
+    probability: 0.2
+  - amount: 10
+    probability: 0.05
+  - amount: 100
+    probability: 0.03
+  - amount: 200
+    probability: 0.02
+  commonRate: 0.7
+  uncommonRate: 0.2
+  rareRate: 0.05
+  epicRate: 0.03
+  legendaryRate: 0.02

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ce83d15245fd4d83faa6450d9058c, type: 3}
+  m_Name: IcebergSwordWeaponData
+  m_EditorClassIdentifier: 
+  category: 0
+  rarity: 3
+  weaponType: 0
+  weaponName: "<color=#AB00FF>\u6C37\u5C71\u306E\u4E00\u89D2</color>"
+  icon: {fileID: -8889073073959013419, guid: f3b1390209d3ee847a3eb114f148aba2, type: 3}
+  attackSE: {fileID: 8300000, guid: 330334241823aa344abcf7d2459de677, type: 3}
+  mpCost: 0
+  baseDamage: 25
+  attackScale: 0.75
+  magicScale: 0.75
+  attackRate: 0
+  weaponPrefab: {fileID: 345483804597105834, guid: 252303ecb159cb14b949377164e75489, type: 3}
+  arrowPrefab: {fileID: 0}
+  arrowSpeed: 0
+  bonusAttack: 30
+  bonusMaxHP: 0
+  bonusMaxMP: 0
+  bonusMagic: 30
+  bonusCriticalRate: 0.25
+  bonusCriticalDamage: 0
+  dropPrefab: {fileID: 2513555535336728039, guid: b3ff51146871408449f8caa3b7a404b5, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#AB00FF>\u6C37\u5C71\u306E\u4E00\u89D2</color>\n\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#AB00FF>\u30A8\u30D4\u30C3\u30AF</color>\n\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30000\n\n\u30FB\u7279\u5FB4\n\u3000\u6C37\u5C71\u306E\u4E00\u89D2\u3092\u5207\u308A\u53D6\u3063\u3066\u3067\u304D\u305F\u5263\n\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300025
+    + <color=#FFAA64>\u653B\u6483\u529B\u306E75%</color>\n\u3000+ <color=#AA46FF>\u9B54\u529B\u306E75%</color>\n\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000<color=#FFAA64>\u653B\u6483\u529B</color>
+    + 30\n\u3000<color=#AA46FF>\u9B54\u529B</color> + 30\n\u3000<color=#FFFF00>\u30AF\u30EA\u30C6\u30A3\u30AB\u30EB\u7387</color>
+    + 25%"

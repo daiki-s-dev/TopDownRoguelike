@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2468987575832612227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219681303166265419}
+  - component: {fileID: 6975165372615359868}
+  m_Layer: 0
+  m_Name: DungeonGenerator 1
+  m_TagString: Portal
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219681303166265419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468987575832612227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6975165372615359868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468987575832612227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2a5662903a66a4e9a92e8287a91f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomCount: 10
+  roomSize: 16
+  goalPrefab: {fileID: 3916603512516420483, guid: 881e856f55d914c4a95764491af422a1, type: 3}
+  enemyRoomContents:
+  - {fileID: 8994729469082467713, guid: b65211b099161f8439c49b6cdccbbb1e, type: 3}
+  - {fileID: 7772308111390095878, guid: dfc66e7254677eb47b2cf4d30f0bc1c1, type: 3}
+  eventRoomContents:
+  - {fileID: 353273078105615592, guid: 742d45662ecaeb945a3d804104f31ec4, type: 3}
+  - {fileID: 353273078105615592, guid: 7b909fbcd04a42d43a6102005d6a2eb1, type: 3}
+  - {fileID: 353273078105615592, guid: 5f67c37637871ea4fae680bf84b05ea8, type: 3}
+  - {fileID: 353273078105615592, guid: 5c849d2763296e4478c2e12e38b59974, type: 3}
+  - {fileID: 353273078105615592, guid: 0638b54541b6d994981e74f2d7884357, type: 3}
+  - {fileID: 353273078105615592, guid: ddbf97fa23454d846a7e6a4929a471ef, type: 3}
+  - {fileID: 353273078105615592, guid: 3d7bd967c94ff26479625affa5919c01, type: 3}
+  roomPrefabs: []
+  portalPos: {x: 0, y: 0}

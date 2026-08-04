@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4011393472528bb4ba8ccd43962809f9, type: 3}
+  m_Name: HP Potion Data
+  m_EditorClassIdentifier: 
+  itemName: "HP\u30DD\u30FC\u30B7\u30E7\u30F3"
+  icon: {fileID: 8646018360407841495, guid: 0830cdf699f09934aa54027616f06350, type: 3}
+  type: 0
+  restoreAmount: 20
+  description: "\u4F53\u529B\u307E\u305F\u306F\u9B54\u529B\u3092\u56DE\u5FA9\u3059\u308B\u30DD\u30FC\u30B7\u30E7\u30F3\u3067\u3059\u3002"

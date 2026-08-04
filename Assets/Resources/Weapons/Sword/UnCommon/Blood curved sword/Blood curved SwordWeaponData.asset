@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ce83d15245fd4d83faa6450d9058c, type: 3}
+  m_Name: Blood curved SwordWeaponData
+  m_EditorClassIdentifier: 
+  category: 0
+  rarity: 1
+  weaponType: 0
+  weaponName: "<color=#57FF00>\u8840\u5857\u3089\u308C\u305F\u66F2\u5263</color>"
+  icon: {fileID: -8375699192149495196, guid: 7a35b140823b00043bfa252e453c346d, type: 3}
+  attackSE: {fileID: 8300000, guid: 330334241823aa344abcf7d2459de677, type: 3}
+  mpCost: 0
+  baseDamage: 1
+  attackScale: 1.5
+  magicScale: 0
+  attackRate: 0
+  weaponPrefab: {fileID: 7481900250823540119, guid: 67463dbabd3e450459de9f2879b8d2a3, type: 3}
+  arrowPrefab: {fileID: 0}
+  arrowSpeed: 0
+  bonusAttack: 0
+  bonusMaxHP: 0
+  bonusMaxMP: 0
+  bonusMagic: 0
+  bonusCriticalRate: 0
+  bonusCriticalDamage: 0
+  dropPrefab: {fileID: 2302765301909407477, guid: 670f56e76ca5fc746ab2904dd32eb0be, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#57FF00>\u8840\u5857\u3089\u308C\u305F\u66F2\u5263</color>\n\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#57FF00>\u30A2\u30F3\u30B3\u30E2\u30F3</color>\n\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30000\n\n\u30FB\u7279\u5FB4\n\u3000\u8840\u5857\u3089\u308C\u305F\u66F2\u5263\n\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u30001
+    + <color=#FFAA64>\u653B\u6483\u529B\u306E150%</color>\n\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000\u306A\u3057"

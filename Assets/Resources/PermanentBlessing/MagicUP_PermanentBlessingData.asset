@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72aca1cc2a495914195a009e0410371a, type: 3}
+  m_Name: MagicUP_PermanentBlessingData
+  m_EditorClassIdentifier: 
+  blessingName: "\u9B54\u529B\u30A2\u30C3\u30D7"
+  type: 1
+  value: 5
+  isMultiplier: 0
+  icon: {fileID: -3047395893449010149, guid: c5b32885547623542b53a9b71a5d1cf7, type: 3}
+  description: "\u9B54\u529B + 5"
+  cost: 50

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ce83d15245fd4d83faa6450d9058c, type: 3}
+  m_Name: WaterSprashStaffWeaponData
+  m_EditorClassIdentifier: 
+  category: 0
+  rarity: 2
+  weaponType: 2
+  weaponName: "<color=#0038FF>\u4E0A\u7D1A\u6C34\u9B54\u8853\u5E2B\u306E\u6756</color>"
+  icon: {fileID: 2558138144628438282, guid: 9019487738231d441832fb92293f66c5, type: 3}
+  attackSE: {fileID: 8300000, guid: 3e259bf0f76516043b06b7f76b122dde, type: 3}
+  mpCost: 5
+  baseDamage: 20
+  attackScale: 0
+  magicScale: 0.75
+  attackRate: 1
+  weaponPrefab: {fileID: 864463433047398396, guid: 24e373928531ed441ba434e54545a754, type: 3}
+  arrowPrefab: {fileID: 0}
+  arrowSpeed: 10
+  bonusAttack: 0
+  bonusMaxHP: 0
+  bonusMaxMP: 30
+  bonusMagic: 0
+  bonusCriticalRate: 0
+  bonusCriticalDamage: 0
+  dropPrefab: {fileID: 2976706741434262343, guid: 74b998517557a1c4a9528bd0f7b9c99d, type: 3}
+  description: "\u30FB\u540D\u524D\n\u3000<color=#0038FF>\u4E0A\u7D1A\u6C34\u9B54\u8853\u5E2B\u306E\u6756</color>\n\n\u30FB\u30EC\u30A2\u30EA\u30C6\u30A3\n\u3000<color=#0038FF>\u30EC\u30A2</color>\n\n\u30FB\u9B54\u6CD5\n\u3000\u30A6\u30A9\u30FC\u30BF\u30FC\u30B9\u30D7\u30E9\u30C3\u30B7\u30E5\n\u3000\u6307\u5B9A\u5730\u70B9\u306B\u6C34\u306E\u5F3E\u7206\u767A\u3092\u8D77\u3053\u3059\n\n\u30FB\u6D88\u8CBB\u30DE\u30CA\n\u30005\n\n\u30FB\u7279\u5FB4\n\u3000\u4E0A\u7D1A\u6C34\u9B54\u8853\u5E2B\u304C\u4F7F\u3046\u6756\n\n\u30FB\u30C0\u30E1\u30FC\u30B8\n\u300020
+    + <color=#AA46FF>\u9B54\u529B\u306E75%</color>\n\n\u30FB\u8FFD\u52A0\u52B9\u679C\n\u3000<color=#6464FF>\u6700\u5927MP</color>
+    + 30"

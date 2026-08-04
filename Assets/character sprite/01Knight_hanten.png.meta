@@ -1,0 +1,1391 @@
+fileFormatVersion: 2
+guid: 81d5238f34083a847904e55a138c497b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4687659726350537411
+    second: 01Knight_hanten_0
+  - first:
+      213: -7628691759037969552
+    second: 01Knight_hanten_1
+  - first:
+      213: -1508897948347074488
+    second: 01Knight_hanten_2
+  - first:
+      213: -9085327693558923767
+    second: 01Knight_hanten_3
+  - first:
+      213: 2307985262202438980
+    second: 01Knight_hanten_4
+  - first:
+      213: 1110249196617710793
+    second: 01Knight_hanten_5
+  - first:
+      213: -4979879898744438832
+    second: 01Knight_hanten_6
+  - first:
+      213: 5164888215830280375
+    second: 01Knight_hanten_7
+  - first:
+      213: 8928842930521929195
+    second: 01Knight_hanten_8
+  - first:
+      213: 6465966730567402036
+    second: 01Knight_hanten_9
+  - first:
+      213: -5078821757970000751
+    second: 01Knight_hanten_10
+  - first:
+      213: 3821436398949838340
+    second: 01Knight_hanten_11
+  - first:
+      213: 6491578680926184761
+    second: 01Knight_hanten_12
+  - first:
+      213: 7684466076505386531
+    second: 01Knight_hanten_13
+  - first:
+      213: -1173786977708717763
+    second: 01Knight_hanten_14
+  - first:
+      213: 2376596163528241001
+    second: 01Knight_hanten_15
+  - first:
+      213: -1771343322433012780
+    second: 01Knight_hanten_16
+  - first:
+      213: 9211136986808349434
+    second: 01Knight_hanten_17
+  - first:
+      213: 3375964931275080316
+    second: 01Knight_hanten_18
+  - first:
+      213: -8196128399431235029
+    second: 01Knight_hanten_19
+  - first:
+      213: 5603993529763352975
+    second: 01Knight_hanten_20
+  - first:
+      213: 2109696074052635161
+    second: 01Knight_hanten_21
+  - first:
+      213: -6754360782592147281
+    second: 01Knight_hanten_22
+  - first:
+      213: -5358825331254353593
+    second: 01Knight_hanten_23
+  - first:
+      213: -8848937674533021321
+    second: 01Knight_hanten_24
+  - first:
+      213: -380846995695875751
+    second: 01Knight_hanten_25
+  - first:
+      213: 1379401352382294721
+    second: 01Knight_hanten_26
+  - first:
+      213: 2698137041277415368
+    second: 01Knight_hanten_27
+  - first:
+      213: -5339698947146030169
+    second: 01Knight_hanten_28
+  - first:
+      213: -1043719602999704488
+    second: 01Knight_hanten_29
+  - first:
+      213: -8898595758132897481
+    second: 01Knight_hanten_30
+  - first:
+      213: 6200354470956964112
+    second: 01Knight_hanten_31
+  - first:
+      213: -1754507283848121418
+    second: 01Knight_hanten_32
+  - first:
+      213: -1049547212839354390
+    second: 01Knight_hanten_33
+  - first:
+      213: 9019841139782504526
+    second: 01Knight_hanten_34
+  - first:
+      213: -7813233612693272836
+    second: 01Knight_hanten_35
+  - first:
+      213: 5329698652428943823
+    second: 01Knight_hanten_36
+  - first:
+      213: 1310552770782348098
+    second: 01Knight_hanten_37
+  - first:
+      213: -2008230161012499620
+    second: 01Knight_hanten_38
+  - first:
+      213: -6266136121747116427
+    second: 01Knight_hanten_39
+  - first:
+      213: -662907564002663947
+    second: 01Knight_hanten_40
+  - first:
+      213: 7383739087417484103
+    second: 01Knight_hanten_41
+  - first:
+      213: 4543780551527368503
+    second: 01Knight_hanten_42
+  - first:
+      213: 5951573727840213921
+    second: 01Knight_hanten_43
+  - first:
+      213: 2849420707473377508
+    second: 01Knight_hanten_44
+  - first:
+      213: 8018358887153227762
+    second: 01Knight_hanten_45
+  - first:
+      213: 8867891829320462042
+    second: 01Knight_hanten_46
+  - first:
+      213: 8367426326602904698
+    second: 01Knight_hanten_47
+  - first:
+      213: 1793085255508169689
+    second: 01Knight_hanten_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 01Knight_hanten_0
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 283
+        width: 13
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3da8fea05612feb0800000000000000
+      internalID: -4687659726350537411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 239
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b87918341712690800000000000000
+      internalID: -7628691759037969552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_2
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 239
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848f47a7f415f0be0800000000000000
+      internalID: -1508897948347074488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_3
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 239
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90eb66d499e6ae180800000000000000
+      internalID: -9085327693558923767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_4
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 239
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 445c9642e5c970020800000000000000
+      internalID: 2307985262202438980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_5
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 239
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ccbf8013c5686f00800000000000000
+      internalID: 1110249196617710793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_6
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 239
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dfba3bdd99e3eab0800000000000000
+      internalID: -4979879898744438832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_7
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 239
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b83a21b77e5da740800000000000000
+      internalID: 5164888215830280375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_8
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 239
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be57409965f99eb70800000000000000
+      internalID: 8928842930521929195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_9
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 191
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432c6f8bb7abbb950800000000000000
+      internalID: 6465966730567402036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_10
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 191
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1945ca615866489b0800000000000000
+      internalID: -5078821757970000751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_11
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 191
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e27237828780530800000000000000
+      internalID: 3821436398949838340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_12
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 191
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935aa1c9a68b61a50800000000000000
+      internalID: 6491578680926184761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_13
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 191
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ea4aabe25b4aa60800000000000000
+      internalID: 7684466076505386531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_14
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 191
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3941b776fed5bfe0800000000000000
+      internalID: -1173786977708717763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_15
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 191
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96f28a57e9d5bf020800000000000000
+      internalID: 2376596163528241001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_16
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 191
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dbbe1b12acea67e0800000000000000
+      internalID: -1771343322433012780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_17
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 145
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af27c2c694884df70800000000000000
+      internalID: 9211136986808349434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_18
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 146
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c72c3d6e736d9de20800000000000000
+      internalID: 3375964931275080316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_19
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 145
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a096a45a0814e80800000000000000
+      internalID: -8196128399431235029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_20
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 143
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f81d1219c6265cd40800000000000000
+      internalID: 5603993529763352975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_21
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 145
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a81f5d665274d10800000000000000
+      internalID: 2109696074052635161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_22
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 146
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa004c487a0b342a0800000000000000
+      internalID: -6754360782592147281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_23
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 145
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7412835e0c0a1a5b0800000000000000
+      internalID: -5358825331254353593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_24
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 143
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77953e59112423580800000000000000
+      internalID: -8848937674533021321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_25
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 95
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 959c5cbdca5f6baf0800000000000000
+      internalID: -380846995695875751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_26
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 95
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1caa07bb83e942310800000000000000
+      internalID: 1379401352382294721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_27
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 95
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cfe9acf755b17520800000000000000
+      internalID: 2698137041277415368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_28
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 95
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a365d7391495e5b0800000000000000
+      internalID: -5339698947146030169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_29
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 95
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854471a0d86f381f0800000000000000
+      internalID: -1043719602999704488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_30
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 95
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 739d0b40e46d18480800000000000000
+      internalID: -8898595758132897481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_31
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 95
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01915ea5a851c0650800000000000000
+      internalID: 6200354470956964112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_32
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 95
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b3b56ecbecb6a7e0800000000000000
+      internalID: -1754507283848121418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_33
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 47
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef75b3ee524f61f0800000000000000
+      internalID: -1049547212839354390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_34
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 47
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e40d03b3ab9ec2d70800000000000000
+      internalID: 9019841139782504526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_35
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 47
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf68640fc61d19390800000000000000
+      internalID: -7813233612693272836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_36
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 47
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1c7e9bfa4e6f940800000000000000
+      internalID: 5329698652428943823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_37
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 47
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 243c2e92dc4003210800000000000000
+      internalID: 1310552770782348098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_38
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 47
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5bdf910f455124e0800000000000000
+      internalID: -2008230161012499620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_39
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 47
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ee40d85663a09a0800000000000000
+      internalID: -6266136121747116427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_40
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 48
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f1a3b03511ecc6f0800000000000000
+      internalID: -662907564002663947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_41
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743afab449f487660800000000000000
+      internalID: 7383739087417484103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_42
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 0
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7370e1f6650ce0f30800000000000000
+      internalID: 4543780551527368503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_43
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab967ec5cc389250800000000000000
+      internalID: 5951573727840213921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_44
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8c79c590d2b8720800000000000000
+      internalID: 2849420707473377508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_45
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f75d5ebceee64f60800000000000000
+      internalID: 8018358887153227762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_46
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 0
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade2c3972a4111b70800000000000000
+      internalID: 8867891829320462042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_47
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a74fa6959e11f1470800000000000000
+      internalID: 8367426326602904698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01Knight_hanten_48
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 0
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d31e8a2a8152e810800000000000000
+      internalID: 1793085255508169689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      01Knight_hanten_0: -4687659726350537411
+      01Knight_hanten_1: -7628691759037969552
+      01Knight_hanten_10: -5078821757970000751
+      01Knight_hanten_11: 3821436398949838340
+      01Knight_hanten_12: 6491578680926184761
+      01Knight_hanten_13: 7684466076505386531
+      01Knight_hanten_14: -1173786977708717763
+      01Knight_hanten_15: 2376596163528241001
+      01Knight_hanten_16: -1771343322433012780
+      01Knight_hanten_17: 9211136986808349434
+      01Knight_hanten_18: 3375964931275080316
+      01Knight_hanten_19: -8196128399431235029
+      01Knight_hanten_2: -1508897948347074488
+      01Knight_hanten_20: 5603993529763352975
+      01Knight_hanten_21: 2109696074052635161
+      01Knight_hanten_22: -6754360782592147281
+      01Knight_hanten_23: -5358825331254353593
+      01Knight_hanten_24: -8848937674533021321
+      01Knight_hanten_25: -380846995695875751
+      01Knight_hanten_26: 1379401352382294721
+      01Knight_hanten_27: 2698137041277415368
+      01Knight_hanten_28: -5339698947146030169
+      01Knight_hanten_29: -1043719602999704488
+      01Knight_hanten_3: -9085327693558923767
+      01Knight_hanten_30: -8898595758132897481
+      01Knight_hanten_31: 6200354470956964112
+      01Knight_hanten_32: -1754507283848121418
+      01Knight_hanten_33: -1049547212839354390
+      01Knight_hanten_34: 9019841139782504526
+      01Knight_hanten_35: -7813233612693272836
+      01Knight_hanten_36: 5329698652428943823
+      01Knight_hanten_37: 1310552770782348098
+      01Knight_hanten_38: -2008230161012499620
+      01Knight_hanten_39: -6266136121747116427
+      01Knight_hanten_4: 2307985262202438980
+      01Knight_hanten_40: -662907564002663947
+      01Knight_hanten_41: 7383739087417484103
+      01Knight_hanten_42: 4543780551527368503
+      01Knight_hanten_43: 5951573727840213921
+      01Knight_hanten_44: 2849420707473377508
+      01Knight_hanten_45: 8018358887153227762
+      01Knight_hanten_46: 8867891829320462042
+      01Knight_hanten_47: 8367426326602904698
+      01Knight_hanten_48: 1793085255508169689
+      01Knight_hanten_5: 1110249196617710793
+      01Knight_hanten_6: -4979879898744438832
+      01Knight_hanten_7: 5164888215830280375
+      01Knight_hanten_8: 8928842930521929195
+      01Knight_hanten_9: 6465966730567402036
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
