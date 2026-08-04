@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// ロビーに設置されたダンジョン入口ポータル。
+/// プレイヤーが触れるとタイマーを開始し、指定シーンへ遷移する。
+/// </summary>
 public class LobbyPortal : MonoBehaviour
 {
     [Header("移動先のシーン名")]
@@ -12,7 +16,7 @@ public class LobbyPortal : MonoBehaviour
         {
             AudioManager.Instance?.PlaySE(SEType.PortalEnter);
 
-            // ? タイマー開始
+            // タイマー開始
             TimeManager.Instance.StartTimer();
 
             // シーン遷移

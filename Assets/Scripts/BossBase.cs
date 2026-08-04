@@ -2,6 +2,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// 全ボス共通の基底クラス。
+/// 移動・追跡・攻撃シーケンス・ノックバック・死亡処理などの
+/// 共通ロジックを提供し、各ボス固有の攻撃内容は DoAttack で実装する。
+/// </summary>
 public abstract class BossBase : MonoBehaviour
 {
     public Action<BossBase> onBossDead;
@@ -34,9 +39,8 @@ public abstract class BossBase : MonoBehaviour
 
     protected float attackTimer = 0f;
 
-    // =========================
-    // 初期化
-    // =========================
+    #region 初期化
+
     protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -47,9 +51,10 @@ public abstract class BossBase : MonoBehaviour
         hp = maxHp;
     }
 
-    // =========================
-    // Update（完全ボス専用）
-    // =========================
+    #endregion
+
+    #region Update（ボス専用の行動判断）
+
     protected virtual void Update()
     {
         if (player == null || isKnockedBack)
@@ -72,9 +77,10 @@ public abstract class BossBase : MonoBehaviour
         }
     }
 
-    // =========================
-    // 攻撃シーケンス（唯一の入口）
-    // =========================
+    #endregion
+
+    #region 攻撃シーケンス（唯一の入口）
+
     private IEnumerator AttackSequence()
     {
         if (attackLocked)
@@ -106,9 +112,10 @@ public abstract class BossBase : MonoBehaviour
         Debug.Log("[Boss] 攻撃終了 → クールダウン");
     }
 
-    // =========================
-    // 移動
-    // =========================
+    #endregion
+
+    #region 移動
+
     protected virtual void MoveTowardsPlayer()
     {
         Vector2 dir = (player.position - transform.position).normalized;
@@ -121,9 +128,10 @@ public abstract class BossBase : MonoBehaviour
         UpdateAnimation(dir);
     }
 
-    // =========================
-    // ダメージ処理
-    // =========================
+    #endregion
+
+    #region ダメージ処理
+
     public virtual void TakeDamage(int damage, Vector2 hitSourcePosition)
     {
         if (hp <= 0) return;
@@ -157,13 +165,20 @@ public abstract class BossBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // =========================
-    // アニメ
-    // =========================
+    #endregion
+
+    #region アニメーション
+
     protected virtual void UpdateAnimation(Vector2 dir) { }
 
-    // =========================
-    // ★ ボス専用攻撃本体
-    // =========================
+    #endregion
+
+    #region ボス固有の攻撃（サブクラスで実装）
+
+    /// <summary>
+    /// ボス固有の攻撃本体。AttackSequence から呼び出される。
+    /// </summary>
     protected abstract IEnumerator DoAttack();
+
+    #endregion
 }

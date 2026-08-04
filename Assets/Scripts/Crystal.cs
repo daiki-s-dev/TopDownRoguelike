@@ -1,16 +1,22 @@
 using UnityEngine;
 
+/// <summary>
+/// 敵ドロップ等で出現するクリスタル。
+/// プレイヤーが一定距離まで近づくと引き寄せられ、回収される。
+/// </summary>
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Crystal : MonoBehaviour
 {
     [Header("引き寄せ設定")]
-    public float magnetRadius = 3.0f;      // この距離以内で引き寄せが始まる
-    public float magnetSpeed = 6.0f;       // 引き寄せ時の移動速度
-    public float pickupDistance = 0.3f;    // この距離で回収扱い
+    public float magnetRadius = 3.0f;    // この距離以内で引き寄せが始まる
+    public float magnetSpeed = 6.0f;     // 引き寄せ時の移動速度
+    public float pickupDistance = 0.3f;  // この距離で回収扱い
 
     private Transform player;
     private Rigidbody2D rb;
+
+    #region Unity Lifecycle
 
     private void Awake()
     {
@@ -73,6 +79,10 @@ public class Crystal : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region 回収処理
+
     private void Pickup()
     {
         // 回収処理：インベントリへ渡してログ出力
@@ -87,4 +97,6 @@ public class Crystal : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    #endregion
 }

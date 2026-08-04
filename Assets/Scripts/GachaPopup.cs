@@ -1,6 +1,9 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
+/// <summary>
+/// ガチャの結果メッセージを一定時間表示するポップアップ。
+/// </summary>
 public class GachaPopup : MonoBehaviour
 {
     [Header("UI")]
@@ -9,7 +12,7 @@ public class GachaPopup : MonoBehaviour
     [Header("表示時間")]
     public float displayTime = 2f;
 
-    void Awake()
+    private void Awake()
     {
         if (text != null)
             text.gameObject.SetActive(false);
@@ -26,7 +29,7 @@ public class GachaPopup : MonoBehaviour
         Invoke(nameof(Hide), displayTime);
     }
 
-    void Hide()
+    private void Hide()
     {
         if (text != null)
             text.gameObject.SetActive(false);

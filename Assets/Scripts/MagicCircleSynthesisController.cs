@@ -1,14 +1,17 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
+/// <summary>
+/// 合成ボタンの操作と合成結果メッセージの表示を担当する。
+/// </summary>
 public class MagicCircleSynthesisController : MonoBehaviour
 {
     public MagicCircleSynthesis synthesis;
     public Button synthesizeButton;
     public TMP_Text messageText;
 
-    void Awake()
+    private void Awake()
     {
         ResetMessage();
 
@@ -16,7 +19,7 @@ public class MagicCircleSynthesisController : MonoBehaviour
             synthesizeButton.onClick.AddListener(OnClickSynthesize);
     }
 
-    void OnClickSynthesize()
+    private void OnClickSynthesize()
     {
         ResetMessage();
 

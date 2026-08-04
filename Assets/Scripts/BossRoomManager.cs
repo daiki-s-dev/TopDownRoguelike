@@ -1,6 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// ボス部屋の進行を管理する。
+/// プレイヤー侵入時にゲート（結界）を張り、ボスを生成。
+/// ボス撃破でゲートを解除する。
+/// </summary>
 public class BossRoomManager : MonoBehaviour
 {
     [Header("Boss設定")]
@@ -19,9 +24,8 @@ public class BossRoomManager : MonoBehaviour
     private GameObject gateWallInstance;
     private Animator[] gateAnims;
 
-    // ==========================
-    // プレイヤー侵入
-    // ==========================
+    #region プレイヤー侵入
+
     public void OnPlayerEnterRoom()
     {
         if (playerInRoom) return;
@@ -31,9 +35,10 @@ public class BossRoomManager : MonoBehaviour
         SpawnBoss();
     }
 
-    // ==========================
-    // GateWall生成
-    // ==========================
+    #endregion
+
+    #region GateWall生成
+
     private void SpawnGateWall()
     {
         if (gateWallPrefab == null) return;
@@ -50,9 +55,10 @@ public class BossRoomManager : MonoBehaviour
             a.SetTrigger("Rise");
     }
 
-    // ==========================
-    // ボス生成
-    // ==========================
+    #endregion
+
+    #region ボス生成
+
     private void SpawnBoss()
     {
         if (bossWave == null || bossWave.bossPrefabs.Length == 0)
@@ -78,9 +84,10 @@ public class BossRoomManager : MonoBehaviour
         }
     }
 
-    // ==========================
-    // ボス死亡時
-    // ==========================
+    #endregion
+
+    #region ボス死亡時
+
     private void OnBossDead(EnemyBase boss)
     {
         aliveBossCount--;
@@ -93,9 +100,10 @@ public class BossRoomManager : MonoBehaviour
         }
     }
 
-    // ==========================
-    // GateWall解除
-    // ==========================
+    #endregion
+
+    #region GateWall解除
+
     private IEnumerator FallAndDestroyGateWall()
     {
         if (gateWallInstance != null && gateAnims != null)
@@ -113,9 +121,10 @@ public class BossRoomManager : MonoBehaviour
         }
     }
 
-    // ==========================
-    // ボス部屋クリア時
-    // ==========================
+    #endregion
+
+    #region ボス部屋クリア時
+
     private void OnBossRoomCleared()
     {
         Debug.Log("BossRoom Cleared!");
@@ -127,4 +136,6 @@ public class BossRoomManager : MonoBehaviour
         // ・GameManager通知
         // などを追加できる
     }
+
+    #endregion
 }

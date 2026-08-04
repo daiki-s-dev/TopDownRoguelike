@@ -1,9 +1,13 @@
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
+/// <summary>
+/// ダンジョン内のミニマップを表示するUI。
+/// 各部屋のアイコン配置・訪問済み表示・現在地ハイライトを管理する。
+/// </summary>
 public class MiniMapUI : MonoBehaviour
 {
     [Header("UI設定")]
@@ -34,9 +38,11 @@ public class MiniMapUI : MonoBehaviour
     private Dictionary<Vector2Int, GameObject> iconDict = new();
     private const int iconSize = 64;
 
-    void Start()
+    #region Unity Lifecycle
+
+    private void Start()
     {
-        // ★ ダンジョンシーン以外ではミニマップを使わない
+        // ダンジョンシーン以外ではミニマップを使わない
         if (SceneManager.GetActiveScene().name != dungeonSceneName)
         {
             gameObject.SetActive(false);
@@ -47,7 +53,7 @@ public class MiniMapUI : MonoBehaviour
         GenerateMiniMap();
     }
 
-    void Update()
+    private void Update()
     {
         bool inventoryOpen =
             InventoryUIController.Instance != null &&
@@ -61,9 +67,10 @@ public class MiniMapUI : MonoBehaviour
         }
     }
 
-    // ============================
-    // ミニマップ生成
-    // ============================
+    #endregion
+
+    #region ミニマップ生成
+
     public void GenerateMiniMap()
     {
         iconDict.Clear();
@@ -72,7 +79,7 @@ public class MiniMapUI : MonoBehaviour
         Vector2Int startPos = Vector2Int.zero;
         Vector2Int goalPos = RoomGenerator.Instance.portalPos;
 
-        // ★ マップ中心計算
+        // マップ中心計算
         int minX = int.MaxValue, maxX = int.MinValue;
         int minY = int.MaxValue, maxY = int.MinValue;
 
@@ -87,7 +94,7 @@ public class MiniMapUI : MonoBehaviour
 
         Vector2 mapCenter = new Vector2((minX + maxX) * 0.5f, (minY + maxY) * 0.5f);
 
-        // ★ アイコン生成
+        // アイコン生成
         foreach (var kvp in rooms)
         {
             Vector2Int pos = kvp.Key;
@@ -125,7 +132,7 @@ public class MiniMapUI : MonoBehaviour
             SetRoomVisited(icon, false);
         }
 
-        // ★ 開始部屋を訪問済みに
+        // 開始部屋を訪問済みに
         if (iconDict.ContainsKey(startPos))
         {
             SetRoomVisited(iconDict[startPos], true);
@@ -133,9 +140,10 @@ public class MiniMapUI : MonoBehaviour
         }
     }
 
-    // ============================
-    // 現在部屋ハイライト
-    // ============================
+    #endregion
+
+    #region 現在部屋ハイライト
+
     public void HighlightRoom(Vector2Int roomPos)
     {
         foreach (var icon in iconDict.Values)
@@ -174,9 +182,10 @@ public class MiniMapUI : MonoBehaviour
         }
     }
 
-    // ============================
-    // フロア表示
-    // ============================
+    #endregion
+
+    #region フロア表示
+
     private void UpdateFloorText()
     {
         if (floorText == null || GameManager.Instance == null) return;
@@ -184,9 +193,13 @@ public class MiniMapUI : MonoBehaviour
         floorText.text = $"{GameManager.Instance.stage}-{GameManager.Instance.floor}";
     }
 
-    // GameManager から呼ぶ用（次フロア）
+    /// <summary>
+    /// GameManager から呼ぶ用（次フロア）。
+    /// </summary>
     public void RefreshFloorText()
     {
         UpdateFloorText();
     }
+
+    #endregion
 }

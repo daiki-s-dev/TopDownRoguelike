@@ -1,6 +1,9 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// ガチャで排出されるアイテムの大分類。
+/// </summary>
 [System.Serializable]
 public enum GachaItemType
 {
@@ -10,7 +13,9 @@ public enum GachaItemType
     MagicStone
 }
 
-// アンコモン追加 + NoDropも扱う
+/// <summary>
+/// アイテムのレアリティ（アンコモンを含む5段階、NoDropは別枠）。
+/// </summary>
 [System.Serializable]
 public enum Rarity
 {
@@ -21,6 +26,9 @@ public enum Rarity
     Legendary
 }
 
+/// <summary>
+/// ガチャで排出される1アイテム分のデータ。
+/// </summary>
 [System.Serializable]
 public class GachaItem
 {
@@ -30,13 +38,21 @@ public class GachaItem
     public GameObject prefab;  // 実際に取得したときに生成する場合
 }
 
+/// <summary>
+/// 魔石ドロップ1パターン分のデータ（個数と確率）。
+/// </summary>
 [System.Serializable]
 public class MagicStoneDrop
 {
-    public int amount;                 // 何個出るか
+    public int amount;                        // 何個出るか
     [Range(0f, 1f)] public float probability; // 魔石カテゴリ内の確率
 }
 
+/// <summary>
+/// ガチャの抽選テーブル。
+/// 大カテゴリ（ハズレ/魔石/アイテム）を抽選し、
+/// アイテムの場合はさらにレアリティとアイテム本体を抽選する。
+/// </summary>
 [CreateAssetMenu(fileName = "GachaTable", menuName = "Gacha/GachaTable")]
 public class GachaTable : ScriptableObject
 {
@@ -61,7 +77,8 @@ public class GachaTable : ScriptableObject
     [Range(0f, 1f)] public float legendaryRate = 0.02f;
 
     /// <summary>
-    /// ガチャを回してアイテムまたは魔石を取得
+    /// ガチャを回してアイテムまたは魔石を取得する。
+    /// 戻り値は null（ハズレ）/ int（魔石個数）/ GachaItem（アイテム）のいずれか。
     /// </summary>
     public object Roll()
     {
@@ -93,7 +110,7 @@ public class GachaTable : ScriptableObject
     }
 
     /// <summary>
-    /// 魔石ドロップを決定
+    /// 魔石ドロップを決定する。
     /// </summary>
     public int RollMagicStone()
     {
@@ -115,7 +132,7 @@ public class GachaTable : ScriptableObject
     }
 
     /// <summary>
-    /// アイテムドロップを決定
+    /// アイテムドロップを決定する。
     /// </summary>
     public GachaItem RollItem()
     {

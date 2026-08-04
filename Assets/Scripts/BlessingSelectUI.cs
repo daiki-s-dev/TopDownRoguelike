@@ -1,23 +1,25 @@
-// ============================================
-// BlessingSelectUI.cs
-// ============================================
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Collections.Generic;
 
+/// <summary>
+/// フロア移動時などに表示される祝福選択UI。
+/// 選択された祝福をプレイヤーに付与し、次のフロアへ進む。
+/// </summary>
 public class BlessingSelectUI : MonoBehaviour
 {
     [Header("参照")]
-    public PlayerStatus playerStatus;          // プレイヤー操作無効化用
-    public Transform buttonParent;             // ボタンを生成する親
-    public GameObject blessingButtonPrefab;    // ボタンPrefab
-    public GameObject panel;                   // 背景パネル
-    public TextMeshProUGUI descriptionText;    // 説明文表示用
+    public PlayerStatus playerStatus;        // プレイヤー操作無効化用
+    public Transform buttonParent;           // ボタンを生成する親
+    public GameObject blessingButtonPrefab;  // ボタンPrefab
+    public GameObject panel;                 // 背景パネル
+    public TextMeshProUGUI descriptionText;  // 説明文表示用
 
     private List<Blessing> currentBlessings = new List<Blessing>();
 
-    // ★ UI表示
+    #region UI表示
+
     public void ShowBlessings(List<Blessing> blessings)
     {
         if (blessings == null || blessings.Count == 0) return;
@@ -46,7 +48,10 @@ public class BlessingSelectUI : MonoBehaviour
         if (playerStatus != null) playerStatus.enabled = false;
     }
 
-    // ★ 祝福選択時
+    #endregion
+
+    #region 選択処理
+
     private void OnBlessingSelected(Blessing selected)
     {
         if (playerStatus != null)
@@ -62,7 +67,10 @@ public class BlessingSelectUI : MonoBehaviour
             GameManager.Instance.LoadNextFloor();
     }
 
-    // ★ 説明文表示
+    #endregion
+
+    #region 説明文
+
     public void ShowDescription(string desc)
     {
         if (descriptionText != null)
@@ -78,7 +86,10 @@ public class BlessingSelectUI : MonoBehaviour
             descriptionText.gameObject.SetActive(false);
     }
 
-    // ★ ボタン削除
+    #endregion
+
+    #region ボタン管理
+
     private void ClearButtons()
     {
         if (buttonParent == null) return;
@@ -89,7 +100,9 @@ public class BlessingSelectUI : MonoBehaviour
         }
     }
 
-    // ★ 強制非表示
+    /// <summary>
+    /// 強制非表示。
+    /// </summary>
     public void HideUI()
     {
         if (panel != null) panel.SetActive(false);
@@ -97,4 +110,6 @@ public class BlessingSelectUI : MonoBehaviour
         HideDescription();
         ClearButtons();
     }
+
+    #endregion
 }

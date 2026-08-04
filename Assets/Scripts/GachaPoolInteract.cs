@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 魔法の池（ガチャ）とのインタラクション。
+/// 魔石を消費してガチャを回し、結果をポップアップで表示する。
+/// </summary>
 public class GachaPoolInteract : MonoBehaviour, IInteractable
 {
     [Header("ガチャ設定")]
@@ -16,9 +20,8 @@ public class GachaPoolInteract : MonoBehaviour, IInteractable
     [Header("アイテムドロップポイント")]
     public Transform dropPoint; // ここにアイテムを生成
 
-    // -----------------------
-    // ■ IInteractable 実装
-    // -----------------------
+    #region IInteractable 実装
+
     public string GetInteractName() => interactName;
 
     public void Interact(PlayerInventory inv)
@@ -74,4 +77,6 @@ public class GachaPoolInteract : MonoBehaviour, IInteractable
 
         Debug.Log("ガチャ回転完了");
     }
+
+    #endregion
 }

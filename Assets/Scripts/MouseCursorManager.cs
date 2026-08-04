@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// カスタムマウスカーソルを設定する。
+/// </summary>
 public class MouseCursorManager : MonoBehaviour
 {
     [Header("カーソル設定")]
@@ -7,7 +10,7 @@ public class MouseCursorManager : MonoBehaviour
     public Vector2 hotspot = Vector2.zero;
     public CursorMode cursorMode = CursorMode.Auto;
 
-    void Start()
+    private void Start()
     {
         if (cursorTexture == null)
         {

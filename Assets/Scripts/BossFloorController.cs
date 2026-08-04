@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// ボスフロア入場時にプレイヤー・ボス・クリアポータルを配置するコントローラー。
+/// </summary>
 public class BossFloorController : MonoBehaviour
 {
     [Header("ボス設定")]
@@ -16,17 +19,16 @@ public class BossFloorController : MonoBehaviour
     private GameObject currentBoss;
     private GameObject clearPortalInstance;
 
-    void Start()
+    private void Start()
     {
         SpawnPlayer();
         SpawnBoss();
         SpawnClearPortal();
     }
 
-    // =========================
-    // プレイヤー出現
-    // =========================
-    void SpawnPlayer()
+    #region プレイヤー出現
+
+    private void SpawnPlayer()
     {
         if (playerSpawnPoint == null) return;
 
@@ -41,16 +43,16 @@ public class BossFloorController : MonoBehaviour
         player.transform.rotation = playerSpawnPoint.rotation;
     }
 
-    // =========================
-    // ボス生成
-    // =========================
-    void SpawnBoss()
+    #endregion
+
+    #region ボス生成
+
+    private void SpawnBoss()
     {
         if (bossPrefabs == null || bossPrefabs.Length == 0) return;
         if (bossSpawnPoint == null) return;
 
-        GameObject prefab =
-            bossPrefabs[Random.Range(0, bossPrefabs.Length)];
+        GameObject prefab = bossPrefabs[Random.Range(0, bossPrefabs.Length)];
 
         currentBoss = Instantiate(
             prefab,
@@ -59,10 +61,11 @@ public class BossFloorController : MonoBehaviour
         );
     }
 
-    // =========================
-    // クリアポータル生成（最初から）
-    // =========================
-    void SpawnClearPortal()
+    #endregion
+
+    #region クリアポータル生成（最初から）
+
+    private void SpawnClearPortal()
     {
         if (clearPortalPrefab == null || clearPortalSpawnPoint == null) return;
 
@@ -72,4 +75,6 @@ public class BossFloorController : MonoBehaviour
             Quaternion.identity
         );
     }
+
+    #endregion
 }

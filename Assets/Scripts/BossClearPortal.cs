@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// ボス撃破後に出現するクリアポータル。
+/// プレイヤーが触れるとクリアシーンへ遷移する。
+/// </summary>
 public class BossClearPortal : MonoBehaviour
 {
     [Header("遷移先シーン名")]

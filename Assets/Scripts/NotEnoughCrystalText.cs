@@ -1,13 +1,16 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
+/// <summary>
+/// 魔石不足時に一定時間だけ表示される警告テキスト。
+/// </summary>
 public class NotEnoughCrystalText : MonoBehaviour
 {
-    [SerializeField] float displayTime = 1.5f;
+    [SerializeField] private float displayTime = 1.5f;
 
-    Coroutine hideCoroutine;
+    private Coroutine hideCoroutine;
 
-    void Awake()
+    private void Awake()
     {
         gameObject.SetActive(false);
     }
@@ -21,7 +24,7 @@ public class NotEnoughCrystalText : MonoBehaviour
         hideCoroutine = StartCoroutine(HideAfterTime());
     }
 
-    IEnumerator HideAfterTime()
+    private IEnumerator HideAfterTime()
     {
         yield return new WaitForSeconds(displayTime);
         gameObject.SetActive(false);

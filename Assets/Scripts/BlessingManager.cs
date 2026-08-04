@@ -1,20 +1,26 @@
-using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
+/// <summary>
+/// 画面に表示中の祝福アイコン一覧（バフUI）を管理するシングルトン。
+/// インベントリやポーズメニューが開いている間は非表示にする。
+/// </summary>
 public class BlessingManager : MonoBehaviour
 {
     public static BlessingManager Instance;
 
     [Header("UI")]
-    public Transform panel;               // BlessingIcon の親
-    public TextMeshProUGUI titleText;     // タイトル
+    public Transform panel;            // BlessingIcon の親
+    public TextMeshProUGUI titleText;  // タイトル
     public GameObject blessingIconPrefab;
 
-    private Dictionary<BlessingType, BlessingUI> uiDict
+    private readonly Dictionary<BlessingType, BlessingUI> uiDict
         = new Dictionary<BlessingType, BlessingUI>();
 
-    void Awake()
+    #region Unity Lifecycle
+
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -27,7 +33,7 @@ public class BlessingManager : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         // インベントリ or ポーズ中なら非表示
         bool inventoryOpen =
@@ -45,23 +51,27 @@ public class BlessingManager : MonoBehaviour
             titleText.gameObject.SetActive(!hideUI);
     }
 
+    #endregion
+
+    #region UI更新
+
     public void UpdateBlessingUI(List<PlayerStatus.ActiveBlessing> activeBlessings)
     {
         if (panel == null || blessingIconPrefab == null) return;
 
+        // 新規に取得した祝福のアイコンを追加
         foreach (var ab in activeBlessings)
         {
-            if (!uiDict.ContainsKey(ab.blessing.type))
-            {
-                GameObject newIcon = Instantiate(blessingIconPrefab, panel);
-                newIcon.transform.localScale = Vector3.one;
+            if (uiDict.ContainsKey(ab.blessing.type)) continue;
 
-                BlessingUI ui = newIcon.GetComponent<BlessingUI>();
-                if (ui != null)
-                {
-                    ui.SetBlessing(ab.blessing);
-                    uiDict.Add(ab.blessing.type, ui);
-                }
+            GameObject newIcon = Instantiate(blessingIconPrefab, panel);
+            newIcon.transform.localScale = Vector3.one;
+
+            BlessingUI ui = newIcon.GetComponent<BlessingUI>();
+            if (ui != null)
+            {
+                ui.SetBlessing(ab.blessing);
+                uiDict.Add(ab.blessing.type, ui);
             }
         }
 
@@ -92,4 +102,6 @@ public class BlessingManager : MonoBehaviour
 
         uiDict.Clear();
     }
+
+    #endregion
 }

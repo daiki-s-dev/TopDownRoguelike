@@ -1,14 +1,17 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
+/// <summary>
+/// MP不足時の警告表示を管理するシングルトン。
+/// </summary>
 public class MPWarningUI : MonoBehaviour
 {
     public static MPWarningUI Instance;
     public GameObject textObj;
 
-    void Awake()
+    private void Awake()
     {
-        // ★ 二重生成防止
+        // 二重生成防止
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -16,10 +19,16 @@ public class MPWarningUI : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // ★ シーン跨ぎ対応
+        DontDestroyOnLoad(gameObject); // シーン跨ぎ対応
 
         if (textObj != null)
             textObj.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
     }
 
     public void ShowNotEnoughMP()
@@ -29,7 +38,7 @@ public class MPWarningUI : MonoBehaviour
 
     public void Show()
     {
-        // ★ Destroy 済み対策
+        // Destroy 済み対策
         if (this == null || gameObject == null)
             return;
 
@@ -37,18 +46,12 @@ public class MPWarningUI : MonoBehaviour
         StartCoroutine(ShowRoutine());
     }
 
-    IEnumerator ShowRoutine()
+    private IEnumerator ShowRoutine()
     {
         if (textObj == null) yield break;
 
         textObj.SetActive(true);
         yield return new WaitForSeconds(1.2f);
         textObj.SetActive(false);
-    }
-
-    void OnDestroy()
-    {
-        if (Instance == this)
-            Instance = null;
     }
 }

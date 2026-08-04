@@ -1,15 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// ゲームオーバー画面のUIを管理する。
+/// ロビー/タイトルへ戻る際にプレイヤー状態のリセットとセッションのリセットを行う。
+/// </summary>
 public class GameOverUIController : MonoBehaviour
 {
-public GameObject gameOverPanel;
+    public GameObject gameOverPanel;
 
     private GameManager gameManager;
     private PlayerStatus playerStatus;
     private PlayerCrystalInventory crystalInventory;
 
-    void Start()
+    private void Start()
     {
         // 最初は非表示
         if (gameOverPanel != null)
@@ -33,7 +37,7 @@ public GameObject gameOverPanel;
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 
-        // ★ Time.timeScale は変更せずゲームは動かしたまま
+        // Time.timeScale は変更せずゲームは動かしたまま
     }
 
     public void OnLobbyButton()
@@ -63,5 +67,4 @@ public GameObject gameOverPanel;
 
         SceneManager.LoadScene("TitleScene");
     }
-
 }

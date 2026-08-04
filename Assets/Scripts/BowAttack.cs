@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 弓による攻撃を制御する。左クリックで矢を発射し、
+/// MPを消費してダメージを算出する。
+/// </summary>
 public class BowAttack : MonoBehaviour
 {
     [Header("弓設定")]
@@ -8,7 +12,7 @@ public class BowAttack : MonoBehaviour
     public Transform firePoint;
     public float arrowSpeed = 12f;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -16,12 +20,12 @@ public class BowAttack : MonoBehaviour
         }
     }
 
-    void FireArrow()
+    private void FireArrow()
     {
         if (weaponData == null || arrowPrefab == null || firePoint == null)
             return;
 
-        // ★ MP消費チェック
+        // MP消費チェック
         if (weaponData.mpCost > 0)
         {
             if (!PlayerStatus.Instance.UseMP(weaponData.mpCost))

@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーがボス部屋の入り口に触れたことを検知し、
+/// BossRoomManager にボス部屋開始を通知するトリガー。
+/// </summary>
 public class BossRoomTrigger : MonoBehaviour
 {
     [Header("Bossルーム管理")]

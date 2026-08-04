@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
+/// <summary>
+/// マスター/BGM/SE 音量を操作する設定画面のUI。
+/// スライダー操作を AudioManager に反映し、パーセント表示も更新する。
+/// </summary>
 public class AudioSettingsUI : MonoBehaviour
 {
     [Header("スライダー")]
@@ -18,17 +22,29 @@ public class AudioSettingsUI : MonoBehaviour
     {
         if (AudioManager.Instance == null) return;
 
-        // 初期値セット（Notifyなしで1回だけ）
+        InitializeSliders();
+        RegisterSliderCallbacks();
+    }
+
+    /// <summary>
+    /// 初期値セット（Notifyなしで1回だけ）＋パーセント表示の初期化。
+    /// </summary>
+    private void InitializeSliders()
+    {
         if (masterSlider != null) masterSlider.SetValueWithoutNotify(AudioManager.Instance.masterVolume);
         if (bgmSlider != null) bgmSlider.SetValueWithoutNotify(AudioManager.Instance.bgmVolume);
         if (seSlider != null) seSlider.SetValueWithoutNotify(AudioManager.Instance.seVolume);
 
-        // パーセント表示も初期値で更新
         UpdateText(masterText, masterSlider.value);
         UpdateText(bgmText, bgmSlider.value);
         UpdateText(seText, seSlider.value);
+    }
 
-        // スライダーを触ったときのみ AudioManager に反映 + パーセント表示更新
+    /// <summary>
+    /// スライダーを触ったときのみ AudioManager に反映 + パーセント表示更新。
+    /// </summary>
+    private void RegisterSliderCallbacks()
+    {
         if (masterSlider != null)
             masterSlider.onValueChanged.AddListener(v =>
             {

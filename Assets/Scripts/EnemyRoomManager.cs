@@ -1,13 +1,21 @@
 using System.Collections;
 using UnityEngine;
 
-[System.Serializable] // Inspectorで編集可能にする
+/// <summary>
+/// 1つの敵Waveの構成データ（出現する敵の種類とスポーンポイントごとの数）。
+/// </summary>
+[System.Serializable]
 public class EnemyWave
 {
     public GameObject[] enemyPrefabs;  // このWaveで出す敵の種類
     public int spawnCountPerPoint = 1; // スポーン数
 }
 
+/// <summary>
+/// 通常の敵部屋を管理する。
+/// プレイヤー侵入でゲートを張り、Waveを順番に消化しながら敵を出現させる。
+/// 全Wave撃破でゲートを解除する。
+/// </summary>
 public class EnemyRoomManager : MonoBehaviour
 {
     [Header("Wave設定")]
@@ -24,24 +32,31 @@ public class EnemyRoomManager : MonoBehaviour
     private GameObject gateWallInstance;
     private Animator[] gateAnims;
 
-    void Awake()
+    private void Awake()
     {
         spawnPoints = GetComponentsInChildren<EnemySpawnPoint>();
         if (spawnPoints.Length == 0)
             Debug.LogWarning($"{name}: SpawnPointがありません");
     }
 
-    // プレイヤーが部屋に入った時
+    #region プレイヤー侵入
+
+    /// <summary>
+    /// プレイヤーが部屋に入った時に呼ばれる。
+    /// </summary>
     public void OnPlayerEnterRoom()
     {
         if (playerInRoom) return;
         playerInRoom = true;
 
-        SpawnGateWall();         // 壁を生成してRiseアニメ
-        StartWave(currentWaveIndex); // 最初のWaveを開始
+        SpawnGateWall();              // 壁を生成してRiseアニメ
+        StartWave(currentWaveIndex);  // 最初のWaveを開始
     }
 
-    // GateWall生成とRiseアニメ
+    #endregion
+
+    #region GateWall生成
+
     private void SpawnGateWall()
     {
         if (gateWallPrefab == null) return;
@@ -57,7 +72,10 @@ public class EnemyRoomManager : MonoBehaviour
             a.SetTrigger("Rise");
     }
 
-    // Wave開始
+    #endregion
+
+    #region Wave進行
+
     private void StartWave(int waveIndex)
     {
         if (waveIndex >= waves.Length) return;
@@ -89,7 +107,6 @@ public class EnemyRoomManager : MonoBehaviour
         }
     }
 
-    // 敵死亡時
     private void OnEnemyDead(EnemyBase enemy)
     {
         aliveEnemies--;
@@ -110,7 +127,10 @@ public class EnemyRoomManager : MonoBehaviour
         }
     }
 
-    // GateWallのFallアニメ再生と削除
+    #endregion
+
+    #region GateWall解除
+
     private IEnumerator FallAndDestroyGateWall()
     {
         if (gateWallInstance != null && gateAnims != null)
@@ -126,4 +146,6 @@ public class EnemyRoomManager : MonoBehaviour
             gateWallInstance = null;
         }
     }
+
+    #endregion
 }

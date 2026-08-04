@@ -1,9 +1,14 @@
-using UnityEngine;
-using TMPro;
 using System.Collections;
+using TMPro;
+using UnityEngine;
 
+/// <summary>
+/// HP/MP回復量を表示するポップアップ。
+/// 上に浮かびながら一定時間後に消える。
+/// </summary>
 public class HealPopup : MonoBehaviour
 {
+    [Header("設定")]
     public TMP_Text text;
     public float floatSpeed = 1f;
     public float lifeTime = 1f;
@@ -28,7 +33,7 @@ public class HealPopup : MonoBehaviour
         StartCoroutine(Animate());
     }
 
-    IEnumerator Animate()
+    private IEnumerator Animate()
     {
         float t = 0;
         while (t < lifeTime)

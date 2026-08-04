@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
+/// <summary>
+/// 現在装備中の武器のアイコンと消費MPを表示するUI。
+/// インベントリやポーズメニューが開いている間は非表示にする。
+/// </summary>
 public class EquippedWeaponUI : MonoBehaviour
 {
     [Header("装備中武器参照")]
@@ -16,13 +20,11 @@ public class EquippedWeaponUI : MonoBehaviour
     [Header("UI全体のパネル")]
     public GameObject panel;
 
-    void Update()
+    private void Update()
     {
         if (playerWeaponEquip == null || weaponIcon == null) return;
 
-        // -----------------------------
         // インベントリ or ポーズ中なら非表示
-        // -----------------------------
         bool inventoryOpen =
             InventoryUIController.Instance != null &&
             InventoryUIController.Instance.IsOpen;
@@ -36,9 +38,14 @@ public class EquippedWeaponUI : MonoBehaviour
 
         if (hideUI) return;
 
-        // -----------------------------
-        // 装備中武器のUI更新
-        // -----------------------------
+        UpdateWeaponUI();
+    }
+
+    /// <summary>
+    /// 装備中武器のUI更新。
+    /// </summary>
+    private void UpdateWeaponUI()
+    {
         WeaponData weapon = playerWeaponEquip.EquippedWeapon;
 
         if (weapon != null)
@@ -54,7 +61,7 @@ public class EquippedWeaponUI : MonoBehaviour
                 weaponIcon.enabled = false;
             }
 
-            // ★ 消費MP表示（0でも表示）
+            // 消費MP表示（0でも表示）
             if (mpCostText != null)
             {
                 mpCostText.text = $"{weapon.mpCost}";

@@ -1,7 +1,11 @@
 using UnityEngine;
 
+/// <summary>
+/// 自身の位置を基準に回復量ポップアップを生成するヘルパー。
+/// </summary>
 public class HealPopupSpawner : MonoBehaviour
 {
+    [Header("設定")]
     public GameObject popupPrefab;
     public float offsetY = 2f;
 

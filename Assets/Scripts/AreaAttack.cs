@@ -1,26 +1,32 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
+/// <summary>
+/// 敵などが発生させる範囲攻撃。
+/// 出現後、少し遅れて当たり判定が有効になり、一定時間で消滅する。
+/// </summary>
 public class AreaAttack : MonoBehaviour
 {
     [Header("範囲攻撃設定")]
     public int damage = 5;
-    public float lifeTime = 0.5f;   // 表示されている時間
-    public float hitDelay = 0.1f;    // 発生から当たり判定までの遅延
+    public float lifeTime = 0.5f;  // 表示されている時間
+    public float hitDelay = 0.1f;  // 発生から当たり判定までの遅延
 
     private Collider2D col;
-    private bool hasHit = false;     // ★ 1回ヒット管理フラグ
+    private bool hasHit = false;   // 1回ヒット管理フラグ
 
-    void Awake()
+    #region Unity Lifecycle
+
+    private void Awake()
     {
         col = GetComponent<Collider2D>();
 
-        // 警告 → 本体演出用に最初は当たり判定オフ
+        // 警告 → 本体演出用に、最初は当たり判定オフ
         if (col != null)
             col.enabled = false;
     }
 
-    void Start()
+    private void Start()
     {
         // 少し遅らせて当たり判定ON
         StartCoroutine(EnableHit());
@@ -29,7 +35,11 @@ public class AreaAttack : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    IEnumerator EnableHit()
+    #endregion
+
+    #region 当たり判定
+
+    private IEnumerator EnableHit()
     {
         yield return new WaitForSeconds(hitDelay);
 
@@ -37,19 +47,20 @@ public class AreaAttack : MonoBehaviour
             col.enabled = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (hasHit) return;
         if (!other.CompareTag("Player")) return;
 
         PlayerStatus player = other.GetComponent<PlayerStatus>();
-        if (player != null)
-        {
-            hasHit = true;
+        if (player == null) return;
 
-            // 範囲攻撃の中心をヒット元として渡す
-            Vector2 hitSource = transform.position;
-            player.TakeDamage(damage, hitSource);
-        }
+        hasHit = true;
+
+        // 範囲攻撃の中心をヒット元として渡す
+        Vector2 hitSource = transform.position;
+        player.TakeDamage(damage, hitSource);
     }
+
+    #endregion
 }

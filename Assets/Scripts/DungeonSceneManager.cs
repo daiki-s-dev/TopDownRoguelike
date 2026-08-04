@@ -1,11 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// ダンジョンシーンで DontDestroyOnLoad の GameManager / PlayerStatus を参照するためのマネージャー。
+/// </summary>
 public class DungeonSceneManager : MonoBehaviour
 {
-private GameManager gameManager;
-private PlayerStatus playerStatus;
+    private GameManager gameManager;
+    private PlayerStatus playerStatus;
 
-    void Start()
+    private void Start()
     {
         // DontDestroyOnLoad の GameManager と Player を参照
         gameManager = GameManager.Instance;
@@ -16,7 +19,4 @@ private PlayerStatus playerStatus;
         if (playerStatus == null)
             Debug.LogError("DungeonSceneManager: PlayerStatus が見つかりません！");
     }
-
-
-
 }

@@ -1,7 +1,11 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 祝福を獲得した際に表示するポップアップ。
+/// 一定時間表示後、自動で非表示になる。
+/// </summary>
 public class BlessingGetPopup : MonoBehaviour
 {
     [Header("UI")]
@@ -13,7 +17,7 @@ public class BlessingGetPopup : MonoBehaviour
 
     private CanvasGroup canvasGroup;
 
-    void Awake()
+    private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
 
@@ -50,12 +54,12 @@ public class BlessingGetPopup : MonoBehaviour
         Invoke(nameof(Hide), displayTime);
     }
 
-    void Hide()
+    private void Hide()
     {
         SetVisible(false);
     }
 
-    void SetVisible(bool visible)
+    private void SetVisible(bool visible)
     {
         if (iconImage != null)
             iconImage.enabled = visible;

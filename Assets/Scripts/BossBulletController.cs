@@ -1,7 +1,12 @@
 using UnityEngine;
 
+/// <summary>
+/// ボスが発射する弾。指定方向へ直進し、
+/// プレイヤーか壁に当たると消滅する。
+/// </summary>
 public class BossBulletController : MonoBehaviour
 {
+    [Header("弾設定")]
     public float speed = 6f;
     public float lifeTime = 3f;
     public int damage = 1;
@@ -14,14 +19,14 @@ public class BossBulletController : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    void Update()
+    private void Update()
     {
         transform.position += (Vector3)(moveDir * speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // ★ PlayerHP ではなく PlayerStatus を使う
+        // PlayerHP ではなく PlayerStatus を使う
         if (other.CompareTag("Player"))
         {
             PlayerStatus player = other.GetComponent<PlayerStatus>();

@@ -1,6 +1,9 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// 神像本体のロジック。祈ることで祝福をランダムに1つ付与する。
+/// </summary>
 public class BlessingStatue : MonoBehaviour
 {
     [Header("排出される祝福一覧")]
@@ -20,10 +23,9 @@ public class BlessingStatue : MonoBehaviour
         }
 
         // ランダム抽選
-        Blessing blessing =
-            blessings[Random.Range(0, blessings.Count)];
+        Blessing blessing = blessings[Random.Range(0, blessings.Count)];
 
-        // プレイヤーに付与（★ここ重要）
+        // プレイヤーに付与
         playerStatus.ApplyBlessing(blessing);
 
         // 獲得演出

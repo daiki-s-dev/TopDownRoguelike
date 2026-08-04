@@ -1,6 +1,10 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// 魔法陣での武器合成ロジック。
+/// 同レアリティの武器2つを消費し、1段階上のレアリティの武器を排出する。
+/// </summary>
 public class MagicCircleSynthesis : MonoBehaviour
 {
     [Header("合成スロット")]
@@ -17,7 +21,7 @@ public class MagicCircleSynthesis : MonoBehaviour
     // PlayerInventory はコードで取得
     private PlayerInventory playerInventory;
 
-    void Awake()
+    private void Awake()
     {
         // シーン内の PlayerInventory を取得
         playerInventory = FindFirstObjectByType<PlayerInventory>();
@@ -29,7 +33,7 @@ public class MagicCircleSynthesis : MonoBehaviour
     }
 
     /// <summary>
-    /// 魔法陣で合成を試みる
+    /// 魔法陣で合成を試みる。
     /// </summary>
     public SynthesisResult TrySynthesize()
     {
@@ -74,7 +78,7 @@ public class MagicCircleSynthesis : MonoBehaviour
     }
 
     /// <summary>
-    /// スロットをクリア
+    /// スロットをクリアする。
     /// </summary>
     public void ResetSlots()
     {
@@ -83,7 +87,7 @@ public class MagicCircleSynthesis : MonoBehaviour
     }
 
     /// <summary>
-    /// 指定レアリティのランダムドロップを取得
+    /// 指定レアリティのランダムドロップを取得する。
     /// </summary>
     private GameObject GetRandomDrop(ItemRarity rarity)
     {

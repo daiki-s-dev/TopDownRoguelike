@@ -1,6 +1,9 @@
 using UnityEngine;
 
-// プレイヤーが触れる魔法陣インタラクト用
+/// <summary>
+/// プレイヤーが触れる魔法陣とのインタラクション。
+/// 魔法陣UIの開閉を管理し、範囲外に出ると自動で閉じる。
+/// </summary>
 public class MagicCircleInteract : MonoBehaviour, IInteractable
 {
     [Header("表示名")]
@@ -24,7 +27,8 @@ public class MagicCircleInteract : MonoBehaviour, IInteractable
             Debug.LogError("MagicCircleUIController が見つかりません！");
     }
 
-    // IInteractable 実装
+    #region IInteractable 実装
+
     public string GetInteractName()
     {
         return interactName;
@@ -38,13 +42,19 @@ public class MagicCircleInteract : MonoBehaviour, IInteractable
         magicCircleUI.Open(this);
     }
 
-    // UIから呼ばれる閉じる通知
+    #endregion
+
+    /// <summary>
+    /// UIから呼ばれる閉じる通知。
+    /// </summary>
     public void OnUIClose()
     {
         isOpen = false;
     }
 
-    // ★ 2D用：プレイヤーが範囲から離れたら自動でUIを閉じる
+    /// <summary>
+    /// 2D用：プレイヤーが範囲から離れたら自動でUIを閉じる。
+    /// </summary>
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log($"Trigger exited: {other.name}, isOpen={isOpen}");

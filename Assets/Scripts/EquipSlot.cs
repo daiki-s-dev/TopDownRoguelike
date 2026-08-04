@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// 武器を装備するための専用スロット。
+/// インベントリの DragSlot からドラッグ＆ドロップされたアイテムを受け取り装備する。
+/// </summary>
 public class EquipSlot : MonoBehaviour, IDropHandler
 {
     [Header("このスロット内のアイコン")]

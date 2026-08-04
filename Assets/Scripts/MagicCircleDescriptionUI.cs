@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// 魔法陣UIで武器の説明文を表示するコンポーネント。
+/// </summary>
 public class MagicCircleDescriptionUI : MonoBehaviour
 {
     public TextMeshProUGUI descriptionText;
@@ -9,8 +12,7 @@ public class MagicCircleDescriptionUI : MonoBehaviour
     {
         if (data == null) return;
 
-        descriptionText.text =
-            data.description;
+        descriptionText.text = data.description;
     }
 
     public void Clear()
@@ -18,7 +20,7 @@ public class MagicCircleDescriptionUI : MonoBehaviour
         descriptionText.text = "";
     }
 
-    string GetRarityColor(ItemRarity rarity)
+    private string GetRarityColor(ItemRarity rarity)
     {
         switch (rarity)
         {

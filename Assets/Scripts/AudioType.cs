@@ -1,3 +1,6 @@
+/// <summary>
+/// BGMの種類。
+/// </summary>
 public enum BGMType
 {
     Title,
@@ -6,26 +9,30 @@ public enum BGMType
     Boss
 }
 
+/// <summary>
+/// SE（効果音）の種類。
+/// </summary>
 public enum SEType
 {
+    // プレイヤー / 敵
     PlayerDamage,
     EnemyDamage,
 
+    // 攻撃
     MeleeAttack,
     BowAttack,
     MagicAttack,
 
+    // イベント
     PortalEnter,
     MagicStoneGet,
     BlessingGet,
 
-    // ★ UI
+    // UI
     ButtonHover,
     ButtonClick,
 
-    // ★ アイテム
+    // アイテム
     PotionUse,
-
     ChestOpen
 }
-

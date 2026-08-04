@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
+/// <summary>
+/// BGM / SE の再生と音量設定を一括管理するシングルトン。
+/// シーン読み込みに合わせて自動でBGMを切り替える。
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
@@ -33,9 +37,11 @@ public class AudioManager : MonoBehaviour
     private BGMType? currentBGM = null;
 
     [Header("音量設定")]
-    [Range(0f,1f)] public float masterVolume = 1f;
-    [Range(0f,1f)] public float bgmVolume = 1f;
-    [Range(0f,1f)] public float seVolume = 1f;
+    [Range(0f, 1f)] public float masterVolume = 1f;
+    [Range(0f, 1f)] public float bgmVolume = 1f;
+    [Range(0f, 1f)] public float seVolume = 1f;
+
+    #region Unity Lifecycle
 
     private void Awake()
     {
@@ -62,9 +68,10 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // =====================
-    // シーン読み込み時
-    // =====================
+    #endregion
+
+    #region シーン読み込み時
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         switch (scene.name)
@@ -77,9 +84,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // =====================
-    // 音量設定
-    // =====================
+    #endregion
+
+    #region 音量設定
+
     public void SetMasterVolume(float v) { masterVolume = Mathf.Clamp01(v); UpdateVolumes(); }
     public void SetBGMVolume(float v) { bgmVolume = Mathf.Clamp01(v); UpdateVolumes(); }
     public void SetSEVolume(float v) { seVolume = Mathf.Clamp01(v); UpdateVolumes(); }
@@ -90,9 +98,10 @@ public class AudioManager : MonoBehaviour
         if (seSource != null) seSource.volume = seVolume * masterVolume;
     }
 
-    // =====================
-    // BGM
-    // =====================
+    #endregion
+
+    #region BGM
+
     public void PlayBGM(BGMType type, bool loop = true)
     {
         BGMSlot bgm = bgms.Find(x => x.type == type);
@@ -114,9 +123,10 @@ public class AudioManager : MonoBehaviour
         currentBGM = null;
     }
 
-    // =====================
-    // SE
-    // =====================
+    #endregion
+
+    #region SE
+
     public void PlaySE(SEType type, float volume = 1f)
     {
         SESlot se = ses.Find(x => x.type == type);
@@ -130,4 +140,6 @@ public class AudioManager : MonoBehaviour
         if (clip == null) return;
         seSource.PlayOneShot(clip, volume * masterVolume * seVolume);
     }
+
+    #endregion
 }

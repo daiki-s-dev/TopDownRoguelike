@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 傭兵NPCとのインタラクション。
+/// onlyOnce が true の場合、一度話すと再度話しかけられなくなる。
+/// </summary>
 public class MercenaryInteract : MonoBehaviour, IInteractable
 {
     [Header("傭兵ロジック")]
@@ -11,7 +15,9 @@ public class MercenaryInteract : MonoBehaviour, IInteractable
 
     private bool hasGivenWeapon = false;
 
-    // UIに表示される名前
+    /// <summary>
+    /// UIに表示される名前。
+    /// </summary>
     public string GetInteractName()
     {
         if (onlyOnce && hasGivenWeapon)
@@ -20,7 +26,9 @@ public class MercenaryInteract : MonoBehaviour, IInteractable
         return "傭兵に話しかける";
     }
 
-    // PlayerInteractor から呼ばれる
+    /// <summary>
+    /// PlayerInteractor から呼ばれる。
+    /// </summary>
     public void Interact(PlayerInventory inventory)
     {
         if (onlyOnce && hasGivenWeapon)
@@ -35,7 +43,7 @@ public class MercenaryInteract : MonoBehaviour, IInteractable
             DisableInteraction();
     }
 
-    void DisableInteraction()
+    private void DisableInteraction()
     {
         var col = GetComponent<Collider2D>();
         if (col != null)

@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 神像とのインタラクション（会話・調べる系操作）を扱うコンポーネント。
+/// onlyOnce が true の場合、一度祈ると再度祈れなくなる。
+/// </summary>
 public class BlessingStatueInteract : MonoBehaviour, IInteractable
 {
     [Header("神像ロジック")]
@@ -38,7 +42,7 @@ public class BlessingStatueInteract : MonoBehaviour, IInteractable
             DisableInteraction();
     }
 
-    void DisableInteraction()
+    private void DisableInteraction()
     {
         var col = GetComponent<Collider2D>();
         if (col != null)

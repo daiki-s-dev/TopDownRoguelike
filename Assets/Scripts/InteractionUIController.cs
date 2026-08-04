@@ -1,10 +1,14 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// インタラクト可能なオブジェクトに近づいた際の選択肢UIを管理する。
+/// プレイヤーに追従表示し、スクロール/矢印キーで選択肢を切り替える。
+/// </summary>
 public class InteractionUIController : MonoBehaviour
 {
     [Header("基本")]
-    public RectTransform panel;         // ★ Destroy しない
+    public RectTransform panel;         // Destroy しない
     public Camera uiCamera;
     public Transform player;
     public Vector3 offset = new Vector3(80f, 0f, 0f);
@@ -15,13 +19,15 @@ public class InteractionUIController : MonoBehaviour
     private List<InteractOptionUI> options = new List<InteractOptionUI>();
     private int currentIndex = 0;
 
-    void Awake()
+    #region Unity Lifecycle
+
+    private void Awake()
     {
         if (panel != null)
             panel.gameObject.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
         // panel が無い（破棄済み）なら何もしない
         if (panel == null) return;
@@ -50,9 +56,10 @@ public class InteractionUIController : MonoBehaviour
         UpdateHighlight();
     }
 
-    // ================================
-    // 表示
-    // ================================
+    #endregion
+
+    #region 表示
+
     public void ShowOptions(List<string> names)
     {
         if (panel == null) return;
@@ -80,20 +87,21 @@ public class InteractionUIController : MonoBehaviour
         panel.gameObject.SetActive(false);
     }
 
-    // ================================
-    // 内部処理
-    // ================================
-    void ClearOptions()
+    #endregion
+
+    #region 内部処理
+
+    private void ClearOptions()
     {
         foreach (var o in options)
         {
             if (o != null)
-                Destroy(o.gameObject);   // ★ Destroy するのは option だけ
+                Destroy(o.gameObject);   // Destroy するのは option だけ
         }
         options.Clear();
     }
 
-    void HandleScrollInput()
+    private void HandleScrollInput()
     {
         if (options.Count == 0) return;
 
@@ -108,7 +116,7 @@ public class InteractionUIController : MonoBehaviour
         currentIndex = Mathf.Clamp(currentIndex, 0, options.Count - 1);
     }
 
-    void UpdateHighlight()
+    private void UpdateHighlight()
     {
         for (int i = 0; i < options.Count; i++)
         {
@@ -122,12 +130,15 @@ public class InteractionUIController : MonoBehaviour
         }
     }
 
-    // ================================
-    // PlayerInteract 用
-    // ================================
+    #endregion
+
+    #region PlayerInteract 用
+
     public string GetSelectedName()
     {
         if (options.Count == 0) return null;
         return options[currentIndex].label.text.Replace("[E] ", "");
     }
+
+    #endregion
 }

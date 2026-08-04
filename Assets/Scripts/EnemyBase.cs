@@ -2,6 +2,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// 全ザコ敵共通の基底クラス。
+/// 追跡・距離維持・徘徊・攻撃・被ダメージ・ノックバック・ドロップなど
+/// 敵の基本行動をまとめて提供する。
+/// </summary>
 public abstract class EnemyBase : MonoBehaviour
 {
     public Action<EnemyBase> onEnemyDead;   // 死亡通知イベント
@@ -54,9 +59,9 @@ public abstract class EnemyBase : MonoBehaviour
     protected Vector2 wanderDirection = Vector2.zero;
     protected float lastDamageTime = -999f;
 
-    // =========================
-    // ★追加：向き管理
-    // =========================
+    /// <summary>
+    /// 敵の向き（アニメーション・攻撃方向の参照用）。
+    /// </summary>
     public enum FacingDirection
     {
         Up,
@@ -65,7 +70,9 @@ public abstract class EnemyBase : MonoBehaviour
         Right
     }
 
-    protected FacingDirection facing = FacingDirection.Down; // ★追加
+    protected FacingDirection facing = FacingDirection.Down;
+
+    #region 初期化・Update
 
     protected virtual void Start()
     {
@@ -117,11 +124,15 @@ public abstract class EnemyBase : MonoBehaviour
                 PlayIdleAnimation();
             else
             {
-                UpdateFacing(wanderDirection);      // ★追加
+                UpdateFacing(wanderDirection);
                 UpdateAnimation(wanderDirection);
             }
         }
     }
+
+    #endregion
+
+    #region 移動
 
     protected virtual void MoveTowardsPlayer()
     {
@@ -130,7 +141,7 @@ public abstract class EnemyBase : MonoBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
-        UpdateFacing(direction);                    // ★追加
+        UpdateFacing(direction);
         UpdateAnimation(direction);
     }
 
@@ -158,13 +169,17 @@ public abstract class EnemyBase : MonoBehaviour
             );
         }
 
-        UpdateFacing(-direction);                   // ★追加
+        UpdateFacing(-direction);
         UpdateAnimation(-direction);
     }
 
-    // =========================
-    // ★追加：向きを更新
-    // =========================
+    #endregion
+
+    #region 向き管理
+
+    /// <summary>
+    /// 移動方向から向きを更新する。
+    /// </summary>
     protected void UpdateFacing(Vector2 dir)
     {
         if (dir == Vector2.zero) return;
@@ -175,9 +190,9 @@ public abstract class EnemyBase : MonoBehaviour
             facing = dir.y > 0 ? FacingDirection.Up : FacingDirection.Down;
     }
 
-    // =========================
-    // ★追加：向きをVector2で取得
-    // =========================
+    /// <summary>
+    /// 現在の向きを Vector2 として取得する。
+    /// </summary>
     protected Vector2 GetFacingVector()
     {
         switch (facing)
@@ -190,12 +205,16 @@ public abstract class EnemyBase : MonoBehaviour
         return Vector2.down;
     }
 
+    #endregion
+
+    #region 攻撃・徘徊ルーチン
+
     protected virtual IEnumerator AttackRoutine()
     {
         isAttacking = true;
         attackTimer = attackCooldown;
 
-        PlayAttackAnimation(GetFacingVector());     // ★修正（向きを渡す）
+        PlayAttackAnimation(GetFacingVector());
 
         yield return new WaitForSeconds(0.5f);
         isAttacking = false;
@@ -225,6 +244,10 @@ public abstract class EnemyBase : MonoBehaviour
             yield return new WaitForSeconds(wanderInterval);
         }
     }
+
+    #endregion
+
+    #region 被ダメージ・ノックバック
 
     public virtual void TakeDamage(int damage, Vector2 hitSourcePosition)
     {
@@ -284,6 +307,10 @@ public abstract class EnemyBase : MonoBehaviour
         isKnockedBack = false;
     }
 
+    #endregion
+
+    #region 死亡・ドロップ
+
     protected virtual void Die()
     {
         DropItem();
@@ -314,6 +341,10 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region アニメーション（サブクラスで実装）
+
     protected virtual void UpdateAnimation(Vector2 dir) { }
     protected virtual void PlayAttackAnimation(Vector2 dir) { }
 
@@ -322,4 +353,6 @@ public abstract class EnemyBase : MonoBehaviour
         if (animator != null)
             animator.Play("Idle", -1, 0f);
     }
+
+    #endregion
 }

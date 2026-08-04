@@ -1,7 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+/// <summary>
+/// 魔法陣の一時インベントリに表示される武器スロット。
+/// ドラッグして合成スロットへ渡すことができる。
+/// </summary>
 public class MagicCircleDragSlot : MonoBehaviour,
     IBeginDragHandler, IDragHandler, IEndDragHandler,
     IPointerEnterHandler, IPointerExitHandler,
@@ -14,11 +18,13 @@ public class MagicCircleDragSlot : MonoBehaviour,
     [Header("Data")]
     public WeaponData weaponData;
 
-    Canvas canvas;
-    Image draggingIcon;
-    MagicCircleDescriptionUI descriptionUI;
+    private Canvas canvas;
+    private Image draggingIcon;
+    private MagicCircleDescriptionUI descriptionUI;
 
-    void Awake()
+    #region Unity Lifecycle
+
+    private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
 
@@ -31,6 +37,9 @@ public class MagicCircleDragSlot : MonoBehaviour,
         Clear();
     }
 
+    #endregion
+
+    #region スロット操作
 
     public void Setup(WeaponData data)
     {
@@ -47,6 +56,10 @@ public class MagicCircleDragSlot : MonoBehaviour,
         if (highlightFrame != null) highlightFrame.enabled = false;
     }
 
+    #endregion
+
+    #region ホバー表示
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (highlightFrame != null) highlightFrame.enabled = true;
@@ -58,6 +71,10 @@ public class MagicCircleDragSlot : MonoBehaviour,
         if (highlightFrame != null) highlightFrame.enabled = false;
         descriptionUI?.Clear();
     }
+
+    #endregion
+
+    #region ドラッグ＆ドロップ
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -92,4 +109,6 @@ public class MagicCircleDragSlot : MonoBehaviour,
             sourceSlot.Clear();
         }
     }
+
+    #endregion
 }

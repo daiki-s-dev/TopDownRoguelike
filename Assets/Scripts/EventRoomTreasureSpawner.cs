@@ -1,7 +1,10 @@
-// Assets/Scripts/EventRoomTreasureSpawner.cs
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// イベント部屋に宝箱を確率で配置するスポナー。
+/// 子オブジェクトのうち指定タグを持つものをスポーンポイントとして使用する。
+/// </summary>
 public class EventRoomTreasureSpawner : MonoBehaviour
 {
     [Header("宝箱プレハブ")]
@@ -15,12 +18,12 @@ public class EventRoomTreasureSpawner : MonoBehaviour
     [Header("SpawnPoint 設定")]
     public string spawnPointTag = "SpawnPoint";
 
-    void Start()
+    private void Start()
     {
         SpawnTreasures();
     }
 
-    void SpawnTreasures()
+    private void SpawnTreasures()
     {
         var spawnPoints = GetSpawnPoints();
         foreach (var point in spawnPoints)
@@ -32,7 +35,7 @@ public class EventRoomTreasureSpawner : MonoBehaviour
         }
     }
 
-    List<Transform> GetSpawnPoints()
+    private List<Transform> GetSpawnPoints()
     {
         List<Transform> points = new();
 
@@ -45,7 +48,7 @@ public class EventRoomTreasureSpawner : MonoBehaviour
         return points;
     }
 
-    GameObject DrawTreasurePrefab()
+    private GameObject DrawTreasurePrefab()
     {
         float total = normalRate + rareRate;
         if (total <= 0) return null;

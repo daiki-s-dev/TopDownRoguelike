@@ -1,7 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+/// <summary>
+/// 合成に使う武器をセットするスロット。
+/// 一時インベントリ／もう一方の合成スロットの双方からドロップを受け付ける。
+/// </summary>
 public class MagicCircleSynthesisSlot : MonoBehaviour,
     IDropHandler,
     IPointerEnterHandler,
@@ -21,7 +25,7 @@ public class MagicCircleSynthesisSlot : MonoBehaviour,
     private Image draggingIcon;
     private MagicCircleDescriptionUI descriptionUI;
 
-    void Awake()
+    private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
 
@@ -35,6 +39,7 @@ public class MagicCircleSynthesisSlot : MonoBehaviour,
     }
 
     #region Drag & Drop
+
     public bool CanAccept(WeaponData incoming)
     {
         if (incoming == null) return false;
@@ -69,9 +74,11 @@ public class MagicCircleSynthesisSlot : MonoBehaviour,
             }
         }
     }
+
     #endregion
 
     #region Hover
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (highlightFrame != null) highlightFrame.enabled = true;
@@ -83,9 +90,11 @@ public class MagicCircleSynthesisSlot : MonoBehaviour,
         if (highlightFrame != null) highlightFrame.enabled = false;
         descriptionUI?.Clear();
     }
+
     #endregion
 
     #region Drag Visual
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (weaponData == null) return;
@@ -106,6 +115,7 @@ public class MagicCircleSynthesisSlot : MonoBehaviour,
     {
         if (draggingIcon != null) Destroy(draggingIcon.gameObject);
     }
+
     #endregion
 
     public void Clear()

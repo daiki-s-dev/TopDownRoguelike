@@ -1,8 +1,11 @@
-
 using UnityEngine;
 
+/// <summary>
+/// 敵の出現時にHPバーUIを生成し、対応する EnemyBase に紐付ける。
+/// </summary>
 public class EnemyHPBarSpawner : MonoBehaviour
 {
+    [Header("HPバー")]
     public GameObject hpBarPrefab;
 
     private void Start()

@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 傭兵NPCのロジック。話しかけるとレアリティ抽選を行い、武器を1つ排出する。
+/// </summary>
 public class MercenaryNPC : MonoBehaviour
 {
-    // =========================
-    // enum 定義（宝箱と共通）
-    // =========================
+    #region enum定義（宝箱と共通）
 
     public enum Rarity
     {
@@ -21,9 +22,9 @@ public class MercenaryNPC : MonoBehaviour
         Lv0, Lv1, Lv2, Lv3, Lv4
     }
 
-    // =========================
-    // レアリティ別武器枠
-    // =========================
+    #endregion
+
+    #region レアリティ別武器枠
 
     [System.Serializable]
     public class WeaponRaritySlot
@@ -32,9 +33,7 @@ public class MercenaryNPC : MonoBehaviour
         public List<GameObject> weaponPrefabs;
     }
 
-    // =========================
-    // Inspector 設定
-    // =========================
+    #endregion
 
     [Header("武器排出設定")]
     public List<WeaponRaritySlot> weaponSlots;
@@ -55,15 +54,9 @@ public class MercenaryNPC : MonoBehaviour
     [Header("一度きり設定")]
     public bool onlyOnce = true;
 
-    // =========================
-    // 内部状態
-    // =========================
+    private bool hasGivenWeapon = false;
 
-    bool hasGivenWeapon = false;
-
-    // =========================
-    // 外部から呼ぶ（会話）
-    // =========================
+    #region 外部から呼ぶ（会話）
 
     public void Talk()
     {
@@ -77,11 +70,11 @@ public class MercenaryNPC : MonoBehaviour
         hasGivenWeapon = true;
     }
 
-    // =========================
-    // 武器排出
-    // =========================
+    #endregion
 
-    void GiveRandomWeapon()
+    #region 武器排出
+
+    private void GiveRandomWeapon()
     {
         Rarity rarity = DrawRarity();
         GameObject weapon = DrawWeaponFromSlot(rarity);
@@ -96,11 +89,11 @@ public class MercenaryNPC : MonoBehaviour
         Debug.Log($"傭兵から武器獲得: {weapon.name} [{rarity}]");
     }
 
-    // =========================
-    // 抽選処理（宝箱と同じ）
-    // =========================
+    #endregion
 
-    Rarity DrawRarity()
+    #region 抽選処理（宝箱と同じ）
+
+    private Rarity DrawRarity()
     {
         Dictionary<Rarity, float> rates = new()
         {
@@ -130,7 +123,7 @@ public class MercenaryNPC : MonoBehaviour
         return Rarity.Common;
     }
 
-    GameObject DrawWeaponFromSlot(Rarity rarity)
+    private GameObject DrawWeaponFromSlot(Rarity rarity)
     {
         var slot = weaponSlots.Find(s => s.rarity == rarity);
         if (slot == null || slot.weaponPrefabs.Count == 0)
@@ -140,11 +133,11 @@ public class MercenaryNPC : MonoBehaviour
             Random.Range(0, slot.weaponPrefabs.Count)];
     }
 
-    // =========================
-    // レア率補正
-    // =========================
+    #endregion
 
-    void ApplyRareDropModifier(Dictionary<Rarity, float> rates)
+    #region レア率補正
+
+    private void ApplyRareDropModifier(Dictionary<Rarity, float> rates)
     {
         float multiplier = rareDropLevel switch
         {
@@ -161,4 +154,6 @@ public class MercenaryNPC : MonoBehaviour
         rates[Rarity.Legendary] *= multiplier;
         rates[Rarity.Common]    *= 1f / multiplier;
     }
+
+    #endregion
 }

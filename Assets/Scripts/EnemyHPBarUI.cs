@@ -1,8 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 敵の頭上に表示されるHPバー。
+/// 対象の敵のHP変化・死亡イベントを購読して表示を更新する。
+/// </summary>
 public class EnemyHPBarUI : MonoBehaviour
 {
+    [Header("表示設定")]
     public Image fillImage;
     public Vector3 offset = new Vector3(0, 1.2f, 0);
 
@@ -33,17 +38,17 @@ public class EnemyHPBarUI : MonoBehaviour
     private void OnHpChanged(int currentHp, int maxHp)
     {
         UpdateHP(currentHp);
-        // ★ destroy しない！
+        // destroy しない！
     }
 
-    void UpdateHP(int hp)
+    private void UpdateHP(int hp)
     {
         Debug.Log($"HP Update: {hp}/{enemy.maxHp}");
         if (fillImage != null && enemy != null)
             fillImage.fillAmount = Mathf.Clamp01((float)hp / enemy.maxHp);
     }
 
-    void OnEnemyDead(EnemyBase e)
+    private void OnEnemyDead(EnemyBase e)
     {
         if (this != null)
             Destroy(gameObject);

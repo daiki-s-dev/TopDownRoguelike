@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
+/// <summary>
+/// ゲーム全体の進行を管理するシングルトン。
+/// ダンジョンの階層進行、祝福選択の呼び出し、シーン間のプレイヤー配置などを担当する。
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -29,7 +33,7 @@ public class GameManager : MonoBehaviour
     // 再生直後かどうか
     private bool isFirstLaunch = true;
 
-    
+    #region Unity Lifecycle
 
     private void Awake()
     {
@@ -45,16 +49,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region 補助プロパティ
+
     public string GetStageName() => $"{stage}-{floor}";
     public void SetClearTime(float t) => clearTime = t;
     public void SetCrystalCount(int c) => crystalCount = c;
 
-    //==============================
-    // ダンジョン進行
-    //==============================
+    #endregion
+
+    #region ダンジョン進行
+
     public void EnterDungeon()
     {
-        
         stage = 1;
         floor = 1;
 
@@ -130,23 +138,24 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(clearSceneName);
     }
 
-    //==============================
-    // シーンロード時処理
-    //==============================
+    #endregion
+
+    #region シーンロード時処理
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // ▶ 再生直後は何もしない
+        // 再生直後は何もしない
         if (isFirstLaunch)
         {
             isFirstLaunch = false;
             return;
         }
 
-        // ▶ クリアシーンは何もしない
+        // クリアシーンは何もしない
         if (scene.name == clearSceneName)
             return;
 
-        // ▶ ロビー
+        // ロビー
         if (scene.name == lobbySceneName)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -162,7 +171,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // ▶ ダンジョン
+        // ダンジョン
         if (scene.name == dungeonSceneName)
         {
             RoomGenerator rg = Object.FindFirstObjectByType<RoomGenerator>();
@@ -173,7 +182,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // ▶ ボスフロア
+        // ボスフロア
         if (scene.name == "BossFloorScene")
         {
             BossFloorController bossFloor = Object.FindFirstObjectByType<BossFloorController>();
@@ -192,15 +201,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #endregion
 
+    #region ロビーへ戻る
 
-    //==============================
-    // ロビーへ戻る
-    //==============================
     public void ExitDungeon()
     {
-        
-
         if (PlayerStatus.Instance != null)
             PlayerStatus.Instance.ResetStatus();
 
@@ -209,7 +215,7 @@ public class GameManager : MonoBehaviour
 
         stage = 1;
         floor = 1;
-
-        
     }
+
+    #endregion
 }

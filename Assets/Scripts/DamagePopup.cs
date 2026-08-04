@@ -1,8 +1,13 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
+/// <summary>
+/// ダメージ数値を表示するポップアップ。
+/// 上に浮かびながら一定時間後に消える。
+/// </summary>
 public class DamagePopup : MonoBehaviour
 {
+    [Header("参照・設定")]
     public TMP_Text text;
     public float moveY = 1f;
     public float lifetime = 1f;
@@ -36,7 +41,7 @@ public class DamagePopup : MonoBehaviour
         transform.position = worldPos + offset;
     }
 
-    void Update()
+    private void Update()
     {
         transform.position += Vector3.up * moveY * Time.deltaTime;
 

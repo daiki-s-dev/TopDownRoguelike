@@ -1,13 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// クリアシーンでのボタン操作（ロビー/タイトルへ戻る）を管理する。
+/// 戻る前にプレイヤーの状態リセットやクリスタルの預け入れを行う。
+/// </summary>
 public class ClearSceneManager : MonoBehaviour
 {
-private GameManager gameManager;
-private PlayerStatus playerStatus;
-private PlayerCrystalInventory crystalInventory;
+    private GameManager gameManager;
+    private PlayerStatus playerStatus;
+    private PlayerCrystalInventory crystalInventory;
 
-    void Start()
+    private void Start()
     {
         // DontDestroyOnLoad の GameManager と Player を参照
         gameManager = GameManager.Instance;
@@ -22,7 +26,9 @@ private PlayerCrystalInventory crystalInventory;
             Debug.LogError("ClearSceneManager: PlayerCrystalInventory が見つかりません！");
     }
 
-    // Lobbyシーンに移動
+    /// <summary>
+    /// Lobbyシーンに移動。
+    /// </summary>
     public void GoToLobby()
     {
         if (playerStatus != null)
@@ -36,7 +42,9 @@ private PlayerCrystalInventory crystalInventory;
         SceneManager.LoadScene("LobbyScene");
     }
 
-    // Titleシーンに移動
+    /// <summary>
+    /// Titleシーンに移動。
+    /// </summary>
     public void GoToTitle()
     {
         if (playerStatus != null)
@@ -49,5 +57,4 @@ private PlayerCrystalInventory crystalInventory;
 
         SceneManager.LoadScene("TitleScene");
     }
-
 }

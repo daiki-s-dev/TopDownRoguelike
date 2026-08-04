@@ -1,14 +1,18 @@
-// Assets/Scripts/InteractOptionUI.cs
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
+/// <summary>
+/// インタラクト選択肢UIの1項目分の表示を担当する。
+/// </summary>
 public class InteractOptionUI : MonoBehaviour
 {
     public TextMeshProUGUI label;
     public Image background;
 
-    // 便利メソッド
+    /// <summary>
+    /// 表示テキストを設定する。
+    /// </summary>
     public void SetText(string s)
     {
         if (label != null) label.text = s;

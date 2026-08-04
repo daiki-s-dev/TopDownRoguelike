@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 魔法陣UI全体の開閉を統括するコントローラー。
+/// 開くたびに一時インベントリを構築し、合成スロットをリセットする。
+/// </summary>
 public class MagicCircleUIController : MonoBehaviour
 {
     private MagicCircleInventoryUI inventoryUI;
@@ -9,7 +13,7 @@ public class MagicCircleUIController : MonoBehaviour
     private MagicCircleInteract currentInteract;
     public MagicCircleSynthesis synthesis;
 
-    void Awake()
+    private void Awake()
     {
         inventoryUI = GetComponentInChildren<MagicCircleInventoryUI>(true);
         descriptionUI = GetComponentInChildren<MagicCircleDescriptionUI>(true);
@@ -37,7 +41,7 @@ public class MagicCircleUIController : MonoBehaviour
             }
         }
 
-        synthesis.ResetSlots(); // ★ 開くたびに必ずリセット
+        synthesis.ResetSlots(); // 開くたびに必ずリセット
 
         var tempInventory = new MagicCircleTempInventory(playerInventory);
         inventoryUI.Build(tempInventory);

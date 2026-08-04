@@ -1,7 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
+/// <summary>
+/// インベントリ上の装備スロット。
+/// ドラッグ＆ドロップによる入れ替え、右クリックでの破棄メニュー表示、
+/// カーソルホバー時の説明表示を担当する。
+/// </summary>
 public class DragSlot : MonoBehaviour,
     IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler,
     IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
@@ -29,7 +34,9 @@ public class DragSlot : MonoBehaviour,
     private Image draggingIcon;
     private Transform canvas;
 
-    void Start()
+    #region Unity Lifecycle
+
+    private void Start()
     {
         var canvasObj = GameObject.Find("Canvas");
         if (canvasObj != null) canvas = canvasObj.transform;
@@ -37,6 +44,10 @@ public class DragSlot : MonoBehaviour,
         if (highlightFrame != null)
             highlightFrame.enabled = false;
     }
+
+    #endregion
+
+    #region ホバー表示
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -60,7 +71,10 @@ public class DragSlot : MonoBehaviour,
         }
     }
 
-    // ★★★★★ 右クリック処理追加 ★★★★★
+    #endregion
+
+    #region 右クリックメニュー
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
@@ -72,7 +86,10 @@ public class DragSlot : MonoBehaviour,
         }
     }
 
-    // ドラッグ開始
+    #endregion
+
+    #region ドラッグ＆ドロップ
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (weaponData == null || itemIcon == null || !itemIcon.enabled)
@@ -89,7 +106,7 @@ public class DragSlot : MonoBehaviour,
         draggingIcon.raycastTarget = false;
         draggingIcon.rectTransform.sizeDelta = itemIcon.rectTransform.sizeDelta;
 
-        draggingIcon.transform.SetAsLastSibling(); // ★重要
+        draggingIcon.transform.SetAsLastSibling(); // 最前面に表示
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -109,7 +126,15 @@ public class DragSlot : MonoBehaviour,
         draggingIcon.rectTransform.localPosition = localPos;
     }
 
-    // ドロップ時のカテゴリチェック
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (draggingIcon != null)
+            Destroy(draggingIcon.gameObject);
+    }
+
+    /// <summary>
+    /// ドロップ時のカテゴリチェックと入れ替え処理。
+    /// </summary>
     public void OnDrop(PointerEventData eventData)
     {
         DragSlot originSlot = eventData.pointerDrag?.GetComponent<DragSlot>();
@@ -147,6 +172,19 @@ public class DragSlot : MonoBehaviour,
         originSlot.UpdateWeaponEquip();
     }
 
+    public void CancelDrag()
+    {
+        if (draggingIcon != null)
+        {
+            Destroy(draggingIcon.gameObject);
+            draggingIcon = null;
+        }
+    }
+
+    #endregion
+
+    #region スロット操作
+
     public bool CanAccept(WeaponData data)
     {
         if (data == null) return true;
@@ -161,12 +199,6 @@ public class DragSlot : MonoBehaviour,
                 return data.category == ItemCategory.Accessory;
         }
         return false;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (draggingIcon != null)
-            Destroy(draggingIcon.gameObject);
     }
 
     public void ClearSlot()
@@ -192,12 +224,5 @@ public class DragSlot : MonoBehaviour,
         }
     }
 
-    public void CancelDrag()
-    {
-        if (draggingIcon != null)
-        {
-            Destroy(draggingIcon.gameObject);
-            draggingIcon = null;
-        }
-    }
+    #endregion
 }
