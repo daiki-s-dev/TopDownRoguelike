@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// フロア間を移動するポータル。
+/// 最終フロアではボスフロアへ、それ以外では通常の次フロア進行を行う。
+/// </summary>
 public class Portal : MonoBehaviour
 {
-    bool isActivated;
+    [SerializeField] private string bossFloorSceneName = "BossFloorScene";
 
-    [SerializeField] string bossFloorSceneName = "BossFloorScene";
+    private bool isActivated;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,7 +24,7 @@ public class Portal : MonoBehaviour
 
         if (gm.floor == gm.maxFloor)
         {
-            // ★ 最終フロア → ボスフロアへ
+            // 最終フロア → ボスフロアへ
             SceneManager.LoadScene(bossFloorSceneName);
         }
         else

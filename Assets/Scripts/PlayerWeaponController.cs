@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 装備中の武器タイプに応じて、剣攻撃/弓攻撃コンポーネントの有効・無効を切り替える。
+/// </summary>
 public class PlayerWeaponController : MonoBehaviour
 {
     [Header("攻撃方式")]
@@ -10,7 +13,7 @@ public class PlayerWeaponController : MonoBehaviour
     public PlayerWeaponEquip weaponEquip;
     public PlayerAttackController attackController;
 
-    WeaponData currentWeapon;
+    private WeaponData currentWeapon;
 
     public void EquipWeapon(WeaponData weapon)
     {
@@ -18,7 +21,7 @@ public class PlayerWeaponController : MonoBehaviour
 
         // 攻撃方式切り替え
         swordAttack.enabled = weapon.weaponType == WeaponType.Melee;
-        bowAttack.enabled   = weapon.weaponType == WeaponType.Bow;
+        bowAttack.enabled = weapon.weaponType == WeaponType.Bow;
 
         // 見た目の装備
         weaponEquip.EquipWeapon(weapon, attackController);

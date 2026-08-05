@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// ポーズメニューの開閉と設定画面、シーン遷移時の警告表示を管理するシングルトン。
+/// </summary>
 public class PauseMenuManager : MonoBehaviour
 {
     public static PauseMenuManager Instance { get; private set; }
@@ -19,7 +22,9 @@ public class PauseMenuManager : MonoBehaviour
 
     private PlayerCrystalInventory crystalInventory;
 
-    void Awake()
+    #region Unity Lifecycle
+
+    private void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -34,7 +39,7 @@ public class PauseMenuManager : MonoBehaviour
             Debug.LogWarning("PauseMenuManager: PlayerCrystalInventory が見つかりません！");
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -48,6 +53,10 @@ public class PauseMenuManager : MonoBehaviour
                 Pause();
         }
     }
+
+    #endregion
+
+    #region ポーズ制御
 
     public void Resume()
     {
@@ -66,9 +75,9 @@ public class PauseMenuManager : MonoBehaviour
         IsPaused = true;
     }
 
-    //===============================
-    // ▼ ボタン処理
-    //===============================
+    #endregion
+
+    #region ボタン処理
 
     public void OnLobbyButton()
     {
@@ -86,16 +95,19 @@ public class PauseMenuManager : MonoBehaviour
             settingsUI.SetActive(!settingsUI.activeSelf);
     }
 
-    // 設定画面を閉じる（メニューに戻るボタン用）
+    /// <summary>
+    /// 設定画面を閉じる（メニューに戻るボタン用）。
+    /// </summary>
     public void CloseSettings()
     {
         if (settingsUI != null)
             settingsUI.SetActive(false);
     }
 
-    //===============================
-    // ▼ DungeonSceneなら警告を出す
-    //===============================
+    #endregion
+
+    #region DungeonSceneなら警告を出す
+
     private void TryChangeScene(string scene)
     {
         string current = SceneManager.GetActiveScene().name;
@@ -115,7 +127,9 @@ public class PauseMenuManager : MonoBehaviour
         }
     }
 
-    // 警告 → OK を押したとき呼ばれる
+    /// <summary>
+    /// 警告 → OK を押したとき呼ばれる。
+    /// </summary>
     public void OnWarningOK()
     {
         warningUI.SetActive(false);
@@ -123,7 +137,9 @@ public class PauseMenuManager : MonoBehaviour
         crystalInventory?.ResetCurrentSession();
     }
 
-    // 警告 → Cancel を押したとき呼ばれる
+    /// <summary>
+    /// 警告 → Cancel を押したとき呼ばれる。
+    /// </summary>
     public void OnWarningCancel()
     {
         warningUI.SetActive(false);
@@ -135,4 +151,6 @@ public class PauseMenuManager : MonoBehaviour
         Resume();  // 時間停止解除
         SceneManager.LoadScene(scene);
     }
+
+    #endregion
 }

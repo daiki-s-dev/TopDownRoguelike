@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 恒久祝福購入UIを開く神像とのインタラクション。
+/// プレイヤーが範囲から離れると自動でUIを閉じる。
+/// </summary>
 public class ShrineInteract : MonoBehaviour, IInteractable
 {
     [Header("恒久祝福UI")]
@@ -7,7 +11,7 @@ public class ShrineInteract : MonoBehaviour, IInteractable
 
     private bool playerInRange = false;
 
-    void Update()
+    private void Update()
     {
         // プレイヤーが離れた場合に自動でUIを閉じる
         if (!playerInRange && uiController.uiRoot.activeSelf)

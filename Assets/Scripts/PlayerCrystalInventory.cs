@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーが所持する魔石（クリスタル）を管理するシングルトン。
+/// 今回のダンジョンで獲得した分と、持ち帰り済みの累計分を分けて管理する。
+/// </summary>
 public class PlayerCrystalInventory : MonoBehaviour
 {
     public static PlayerCrystalInventory Instance;
@@ -23,7 +27,9 @@ public class PlayerCrystalInventory : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // ダンジョン中に魔石を獲得
+    /// <summary>
+    /// ダンジョン中に魔石を獲得する。
+    /// </summary>
     public void AddCrystal(int amount)
     {
         currentSessionCrystals += amount;
@@ -31,7 +37,9 @@ public class PlayerCrystalInventory : MonoBehaviour
         Debug.Log($"今回のセッション魔石: {currentSessionCrystals}");
     }
 
-    // ダンジョンクリア時に魔石を持ち帰る
+    /// <summary>
+    /// ダンジョンクリア時に魔石を持ち帰る。
+    /// </summary>
     public void DepositCrystals()
     {
         TotalCrystals += currentSessionCrystals;
@@ -39,17 +47,23 @@ public class PlayerCrystalInventory : MonoBehaviour
         currentSessionCrystals = 0;
     }
 
-    // 死亡や途中退出時に今回の魔石を失う
+    /// <summary>
+    /// 死亡や途中退出時に今回の魔石を失う。
+    /// </summary>
     public void ResetCurrentSession()
     {
         Debug.Log($"魔石を失った: {currentSessionCrystals}");
         currentSessionCrystals = 0;
     }
 
-    // 現在のセッションの魔石だけを確認したい場合
+    /// <summary>
+    /// 現在のセッションの魔石だけを確認したい場合。
+    /// </summary>
     public int GetCurrentSessionCrystals() => currentSessionCrystals;
 
-    // 魔石を消費（セッション魔石を優先）
+    /// <summary>
+    /// 魔石を消費する（セッション魔石を優先して消費）。
+    /// </summary>
     public bool ConsumeCrystal(int amount)
     {
         int totalAvailable = currentSessionCrystals + TotalCrystals;
@@ -76,5 +90,4 @@ public class PlayerCrystalInventory : MonoBehaviour
         Debug.Log($"魔石消費: {amount} / 残り（今回:{currentSessionCrystals}, 累計:{TotalCrystals})");
         return true;
     }
-
 }

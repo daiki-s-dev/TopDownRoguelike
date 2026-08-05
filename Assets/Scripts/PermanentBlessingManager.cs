@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーが取得済みの恒久祝福を管理するシングルトン。
+/// セーブデータ相当の永続的な強化を保持する。
+/// </summary>
 public class PermanentBlessingManager : MonoBehaviour
 {
     public static PermanentBlessingManager Instance;
@@ -29,7 +33,9 @@ public class PermanentBlessingManager : MonoBehaviour
     // プレイヤーが取得済みの恒久祝福
     public List<PermanentBlessingData> permanentBlessings = new List<PermanentBlessingData>();
 
-    // 恒久祝福を追加
+    /// <summary>
+    /// 恒久祝福を追加する。
+    /// </summary>
     public void AddBlessing(PermanentBlessing blessing)
     {
         var existing = permanentBlessings.Find(b => b.blessing.type == blessing.type);

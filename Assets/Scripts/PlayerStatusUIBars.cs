@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
+/// <summary>
+/// プレイヤーのHP/MPバーと魔石所持数を表示するUI。
+/// インベントリやポーズメニューが開いている間は非表示にする。
+/// </summary>
 public class PlayerStatusUIBars : MonoBehaviour
 {
     [Header("バー画像")]
@@ -23,18 +27,16 @@ public class PlayerStatusUIBars : MonoBehaviour
 
     private PlayerStatus status;
 
-    void Start()
+    private void Start()
     {
         status = PlayerStatus.Instance;
     }
 
-    void Update()
+    private void Update()
     {
         if (status == null) return;
 
-        // -----------------------------
         // インベントリ or ポーズ中なら非表示
-        // -----------------------------
         bool inventoryOpen =
             InventoryUIController.Instance != null &&
             InventoryUIController.Instance.IsOpen;
@@ -60,7 +62,6 @@ public class PlayerStatusUIBars : MonoBehaviour
         mpText.text = $"{status.currentMP} / {status.maxMP}";
 
         // クリスタル数更新
-        // クリスタル数更新
         if (PlayerCrystalInventory.Instance != null)
         {
             int currentCrystals = PlayerCrystalInventory.Instance.GetCurrentSessionCrystals();
@@ -72,6 +73,5 @@ public class PlayerStatusUIBars : MonoBehaviour
             if (totalCrystalText != null)
                 totalCrystalText.text = $"累計魔石: {totalCrystals}";
         }
-
     }
 }

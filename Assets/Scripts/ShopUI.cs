@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
+/// <summary>
+/// ショップ画面全体のUI。
+/// 商品スロットの表示と購入処理を管理する。
+/// </summary>
 public class ShopUI : MonoBehaviour
 {
     [Header("商品スロット（4つ）")]
@@ -79,8 +83,6 @@ public class ShopUI : MonoBehaviour
                 break;
         }
     }
-
-
 
     public void Close()
     {

@@ -1,7 +1,10 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
+/// <summary>
+/// ショップUIに並ぶ商品1つ分のスロット表示。
+/// </summary>
 public class ShopItemSlot : MonoBehaviour
 {
     public Image icon;

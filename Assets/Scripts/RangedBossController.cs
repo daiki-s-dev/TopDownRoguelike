@@ -1,21 +1,25 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// 遠距離攻撃型ボスのコントローラー。
+/// 複数の攻撃パターン（弾幕/範囲攻撃）をランダムに選択して実行する。
+/// </summary>
 public class RangedBossController : EnemyBase
 {
-    // ==============================
-    // 攻撃タイプ
-    // ==============================
+    #region 攻撃タイプ
+
     public enum AttackType
     {
         MultiProjectile,
         AreaAttack
     }
 
-    // ==============================
-    // 攻撃パターン定義
-    // ==============================
+    #endregion
+
+    #region 攻撃パターン定義
+
     [System.Serializable]
     public class AttackPattern
     {
@@ -33,25 +37,21 @@ public class RangedBossController : EnemyBase
         public float spreadAngle = 30f;
 
         [Header("範囲攻撃サイズ")]
-        public float warningRadius = 2.5f; // ⚠️ 見た目用
-        public float attackRadius  = 2.0f; // 💥 当たり判定用
+        public float warningRadius = 2.5f; // 見た目用
+        public float attackRadius = 2.0f;  // 当たり判定用
 
         [Header("警告")]
         public float warningDuration = 1.0f;
     }
 
-    // ==============================
-    // Inspector設定
-    // ==============================
+    #endregion
+
     [Header("攻撃パターンリスト")]
     public List<AttackPattern> attackPatterns = new List<AttackPattern>();
 
     [Header("死亡演出")]
     public float fadeDuration = 1.0f;
 
-    // ==============================
-    // 内部変数
-    // ==============================
     private GameObject warningInstance;
     private Vector2 lockedDirection;
     private Vector2 lockedPosition;
@@ -63,9 +63,8 @@ public class RangedBossController : EnemyBase
         base.Update();
     }
 
-    // ==============================
-    // 攻撃ルーチン
-    // ==============================
+    #region 攻撃ルーチン
+
     protected override IEnumerator AttackRoutine()
     {
         if (isDead || attackPatterns.Count == 0 || player == null)
@@ -106,10 +105,11 @@ public class RangedBossController : EnemyBase
         isCharging = false;
     }
 
-    // ==============================
-    // 弾攻撃
-    // ==============================
-    void CreateDirectionWarning(AttackPattern p)
+    #endregion
+
+    #region 弾攻撃
+
+    private void CreateDirectionWarning(AttackPattern p)
     {
         if (p.directionWarningPrefab == null) return;
 
@@ -121,7 +121,7 @@ public class RangedBossController : EnemyBase
         );
     }
 
-    void FireProjectiles(AttackPattern p)
+    private void FireProjectiles(AttackPattern p)
     {
         if (p.projectilePrefab == null) return;
 
@@ -147,10 +147,11 @@ public class RangedBossController : EnemyBase
         }
     }
 
-    // ==============================
-    // 範囲攻撃
-    // ==============================
-    void CreateAreaWarning(AttackPattern p)
+    #endregion
+
+    #region 範囲攻撃
+
+    private void CreateAreaWarning(AttackPattern p)
     {
         if (p.areaWarningPrefab == null) return;
 
@@ -160,12 +161,12 @@ public class RangedBossController : EnemyBase
             Quaternion.identity
         );
 
-        // ⚠️ 警告用サイズ
+        // 警告用サイズ
         warningInstance.transform.localScale =
             Vector3.one * p.warningRadius * 2f;
     }
 
-    void SpawnAreaAttack(AttackPattern p)
+    private void SpawnAreaAttack(AttackPattern p)
     {
         if (p.areaAttackPrefab == null) return;
 
@@ -175,27 +176,28 @@ public class RangedBossController : EnemyBase
             Quaternion.identity
         );
 
-        // 💥 攻撃判定サイズ
+        // 攻撃判定サイズ
         atk.transform.localScale =
             Vector3.one * p.attackRadius * 2f;
     }
 
-    void ClearWarning()
+    private void ClearWarning()
     {
         if (warningInstance != null)
             Destroy(warningInstance);
     }
 
-    // ==============================
-    // 死亡処理
-    // ==============================
+    #endregion
+
+    #region 死亡処理
+
     protected override void Die()
     {
         if (isDead) return;
         StartCoroutine(DieRoutine());
     }
 
-    IEnumerator DieRoutine()
+    private IEnumerator DieRoutine()
     {
         if (isDead) yield break;
         isDead = true;
@@ -207,7 +209,7 @@ public class RangedBossController : EnemyBase
         // 攻撃警告削除
         ClearWarning();
 
-        // ★ 魔石ドロップ（ここが重要）
+        // 魔石ドロップ
         DropItem();
 
         // 移動停止
@@ -237,4 +239,5 @@ public class RangedBossController : EnemyBase
         Destroy(gameObject);
     }
 
+    #endregion
 }

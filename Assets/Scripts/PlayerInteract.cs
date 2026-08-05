@@ -1,7 +1,10 @@
-// Assets/Scripts/PlayerInteract.cs
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// 近くにあるインタラクト可能オブジェクトを検知し、
+/// 選択中の対象に対してEキーで Interact を実行する。
+/// </summary>
 public class PlayerInteract : MonoBehaviour
 {
     public PlayerInventory inventory;
@@ -9,7 +12,7 @@ public class PlayerInteract : MonoBehaviour
 
     private List<IInteractable> nearbyObjects = new List<IInteractable>();
 
-    void Update()
+    private void Update()
     {
         // E キーで現在選択中の対象を実行
         if (nearbyObjects.Count > 0 && Input.GetKeyDown(KeyCode.E))
@@ -20,13 +23,13 @@ public class PlayerInteract : MonoBehaviour
             // 名前で探す（同名が複数あるなら距離で優先するなど拡張可）
             IInteractable target = nearbyObjects.Find(obj => obj.GetInteractName() == selectedName);
             target?.Interact(inventory);
-            
+
             // 実行後 UI 再更新（例：拾ったらリストから消える）
             RefreshUI();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent(out IInteractable interact))
         {
@@ -36,7 +39,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.TryGetComponent(out IInteractable interact))
         {
@@ -45,7 +48,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void RefreshUI()
+    private void RefreshUI()
     {
         if (nearbyObjects.Count == 0)
         {
@@ -60,5 +63,3 @@ public class PlayerInteract : MonoBehaviour
         uiController.ShowOptions(names);
     }
 }
-
-

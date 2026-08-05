@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// 主要シーンへの遷移をまとめて呼び出せるようにするシングルトン。
+/// </summary>
 public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;

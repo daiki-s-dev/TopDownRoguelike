@@ -1,21 +1,28 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
+/// <summary>
+/// プレイヤーのアニメーション制御。
+/// 移動・向き・被ダメージ・死亡演出を管理する。
+/// </summary>
 public class PlayerAnimation : MonoBehaviour
 {
+    public Transform playerBody;
+
     private Animator animator;
     private SpriteRenderer sr;
-    public Transform playerBody;
     private bool isDead = false;
     private bool isRightFacing = true; // 最後に向いていた方向を記録
 
-    void Start()
+    #region Unity Lifecycle
+
+    private void Start()
     {
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void Update()
     {
         if (isDead) return;
 
@@ -33,7 +40,13 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("isRight", isRight);
     }
 
-    // 被ダメージ時の再生処理
+    #endregion
+
+    #region 被ダメージ
+
+    /// <summary>
+    /// 被ダメージ時の再生処理。
+    /// </summary>
     public void TakeDamage(Vector2 hitDirection)
     {
         if (isDead) return;
@@ -59,7 +72,13 @@ public class PlayerAnimation : MonoBehaviour
         sr.color = Color.white;
     }
 
-    // 死亡処理
+    #endregion
+
+    #region 死亡・復帰
+
+    /// <summary>
+    /// 死亡処理。
+    /// </summary>
     public void PlayDeathAnimation(Vector2 hitDirection)
     {
         if (isDead) return;
@@ -76,7 +95,26 @@ public class PlayerAnimation : MonoBehaviour
         Debug.Log($"死亡アニメ固定再生: {(isRightFacing ? "右向き" : "左向き")}");
     }
 
-    // アニメーションクリップの長さ取得
+    public void ResetAnimation()
+    {
+        isDead = false;
+        animator.SetBool("isDead", false);
+        animator.SetBool("isWalking", false);
+
+        // 向きは最後の向きに固定
+        animator.SetBool("isRight", isRightFacing);
+
+        // 必要なら Idle アニメ再生
+        animator.Play(isRightFacing ? "PlayerIdle_right" : "PlayerIdle_left", 0, 0f);
+    }
+
+    #endregion
+
+    #region ユーティリティ
+
+    /// <summary>
+    /// アニメーションクリップの長さ取得。
+    /// </summary>
     private float GetClipLength(string clipName)
     {
         if (animator == null || animator.runtimeAnimatorController == null)
@@ -90,18 +128,5 @@ public class PlayerAnimation : MonoBehaviour
         return 0.5f;
     }
 
-    public void ResetAnimation()
-    {
-    isDead = false;
-    animator.SetBool("isDead", false);
-    animator.SetBool("isWalking", false);
-
-    // 向きは最後の向きに固定
-    animator.SetBool("isRight", isRightFacing);
-
-    // 必要なら Idle アニメ再生
-    animator.Play(isRightFacing ? "PlayerIdle_right" : "PlayerIdle_left", 0, 0f);
-
-    }
-
+    #endregion
 }

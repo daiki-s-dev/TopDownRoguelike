@@ -1,21 +1,24 @@
 using UnityEngine;
-using System.Collections;
 
+/// <summary>
+/// プレイヤーの移動入力と物理移動を制御する。
+/// ノックバック中は入力・移動処理を無効化する。
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
-
     private PlayerStatus playerStatus;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerStatus = GetComponent<PlayerStatus>();
     }
 
-    void Update()
+    private void Update()
     {
         // ノックバック中は入力を無効化（動かさない）
         if (playerStatus != null && playerStatus.IsKnockedBack())
@@ -29,12 +32,12 @@ public class PlayerController : MonoBehaviour
         moveInput = new Vector2(moveX, moveY).normalized;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         // ノックバック中は物理制御をしない（上書きしない）
         if (playerStatus != null && playerStatus.IsKnockedBack())
         {
-            return; // ← velocity をゼロにしない
+            return; // velocity をゼロにしない
         }
 
         rb.linearVelocity = moveInput * moveSpeed;

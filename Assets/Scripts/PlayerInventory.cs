@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーが所持する武器とポーションを管理する。
+/// UI (InventoryUIController) への反映もあわせて行う。
+/// </summary>
 public class PlayerInventory : MonoBehaviour
 {
     [Header("武器管理")]
@@ -12,7 +16,8 @@ public class PlayerInventory : MonoBehaviour
     public int hpPotionCount = 0;
     public int mpPotionCount = 0;
 
-    // 武器追加
+    #region 武器
+
     public void AddWeapon(WeaponData weapon)
     {
         if (weapon == null) return;
@@ -23,7 +28,9 @@ public class PlayerInventory : MonoBehaviour
         uiController?.AddItemToUI(weapon);
     }
 
-    // 武器削除（魔法陣合成用）
+    /// <summary>
+    /// 武器削除（魔法陣合成用）。
+    /// </summary>
     public void RemoveWeapon(WeaponData weapon)
     {
         if (weapon == null) return;
@@ -42,7 +49,6 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    // 武器ドロップ
     public void DropWeapon(WeaponData weapon)
     {
         if (weapon == null) return;
@@ -64,7 +70,10 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    // ポーション追加・使用
+    #endregion
+
+    #region ポーション
+
     public void AddHPPotion(int amount = 1)
     {
         hpPotionCount += amount;
@@ -95,6 +104,10 @@ public class PlayerInventory : MonoBehaviour
         return true;
     }
 
+    #endregion
+
+    #region クリア
+
     public void ClearInventory()
     {
         weapons.Clear();
@@ -104,4 +117,6 @@ public class PlayerInventory : MonoBehaviour
         uiController?.UpdatePotionUI(0, 0);
         Debug.Log("[PlayerInventory] インベントリをクリアしました");
     }
+
+    #endregion
 }

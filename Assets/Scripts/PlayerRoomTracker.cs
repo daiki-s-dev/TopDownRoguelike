@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// プレイヤーの現在位置から所属する部屋を判定し、
+/// ミニマップのハイライトを更新する。
+/// </summary>
 public class PlayerRoomTracker : MonoBehaviour
 {
     private MiniMapUI miniMap;
@@ -8,38 +12,19 @@ public class PlayerRoomTracker : MonoBehaviour
     private Vector2Int currentRoom = new Vector2Int(int.MinValue, int.MinValue);
     private int halfRoomSize = 8; // 中心からの切り替え距離
 
-    void Awake()
+    #region Unity Lifecycle
+
+    private void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        miniMap = FindFirstObjectByType<MiniMapUI>();
-        roomGen = RoomGenerator.Instance;
-
-        // シーンロード直後に最初の部屋を判定して枠表示
-        if (miniMap != null && roomGen != null)
-        {
-            Vector3 pos = transform.position;
-
-            int gridX = Mathf.RoundToInt(pos.x / roomGen.roomSize) * roomGen.roomSize;
-            int gridY = Mathf.RoundToInt(pos.y / roomGen.roomSize) * roomGen.roomSize;
-            currentRoom = new Vector2Int(gridX, gridY);
-
-            if (roomGen.GetSpawnedRooms().ContainsKey(currentRoom))
-            {
-                miniMap.HighlightRoom(currentRoom);
-            }
-        }
-    }
-
-    void Update()
+    private void Update()
     {
         if (miniMap == null || roomGen == null) return;
 
@@ -61,6 +46,31 @@ public class PlayerRoomTracker : MonoBehaviour
         if (targetRoom != currentRoom)
         {
             currentRoom = targetRoom;
+
+            if (roomGen.GetSpawnedRooms().ContainsKey(currentRoom))
+            {
+                miniMap.HighlightRoom(currentRoom);
+            }
+        }
+    }
+
+    #endregion
+
+    /// <summary>
+    /// シーンロード直後に最初の部屋を判定して枠表示する。
+    /// </summary>
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        miniMap = FindFirstObjectByType<MiniMapUI>();
+        roomGen = RoomGenerator.Instance;
+
+        if (miniMap != null && roomGen != null)
+        {
+            Vector3 pos = transform.position;
+
+            int gridX = Mathf.RoundToInt(pos.x / roomGen.roomSize) * roomGen.roomSize;
+            int gridY = Mathf.RoundToInt(pos.y / roomGen.roomSize) * roomGen.roomSize;
+            currentRoom = new Vector2Int(gridX, gridY);
 
             if (roomGen.GetSpawnedRooms().ContainsKey(currentRoom))
             {

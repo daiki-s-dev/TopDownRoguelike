@@ -1,6 +1,10 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
+/// <summary>
+/// 遠距離攻撃を行う通常の敵コントローラー。
+/// 方向指定の弾攻撃、または範囲攻撃のいずれかを行う。
+/// </summary>
 public class RangedEnemyController : EnemyBase
 {
     public enum AttackType
@@ -38,9 +42,8 @@ public class RangedEnemyController : EnemyBase
         base.Update();
     }
 
-    // ==================================================
-    // 攻撃
-    // ==================================================
+    #region 攻撃
+
     protected override IEnumerator AttackRoutine()
     {
         if (isDead || isAttacking || player == null) yield break;
@@ -82,10 +85,11 @@ public class RangedEnemyController : EnemyBase
         isCharging = false;
     }
 
-    // ==================================================
-    // ① 方向攻撃
-    // ==================================================
-    void CreateDirectionWarning(Vector2 dir)
+    #endregion
+
+    #region ①方向攻撃
+
+    private void CreateDirectionWarning(Vector2 dir)
     {
         if (directionWarningPrefab == null) return;
 
@@ -97,7 +101,7 @@ public class RangedEnemyController : EnemyBase
         );
     }
 
-    void FireProjectile()
+    private void FireProjectile()
     {
         if (projectilePrefab == null) return;
 
@@ -112,10 +116,11 @@ public class RangedEnemyController : EnemyBase
             rb.linearVelocity = lockedDirection * projectileSpeed;
     }
 
-    // ==================================================
-    // ② 範囲攻撃
-    // ==================================================
-    void CreateAreaWarning(Vector2 pos)
+    #endregion
+
+    #region ②範囲攻撃
+
+    private void CreateAreaWarning(Vector2 pos)
     {
         if (areaWarningPrefab == null) return;
 
@@ -129,7 +134,7 @@ public class RangedEnemyController : EnemyBase
             Vector3.one * areaRadius * 2f;
     }
 
-    void SpawnAreaAttack()
+    private void SpawnAreaAttack()
     {
         if (areaAttackPrefab == null) return;
 
@@ -140,7 +145,7 @@ public class RangedEnemyController : EnemyBase
         );
     }
 
-    void ClearWarning()
+    private void ClearWarning()
     {
         if (warningInstance != null)
         {
@@ -149,9 +154,10 @@ public class RangedEnemyController : EnemyBase
         }
     }
 
-    // ==================================================
-    // 死亡処理（SlimeController互換）
-    // ==================================================
+    #endregion
+
+    #region 死亡処理（SlimeController互換）
+
     public override void TakeDamage(int damage, Vector2 hitSourcePosition)
     {
         if (isDead) return;
@@ -167,7 +173,7 @@ public class RangedEnemyController : EnemyBase
         StartCoroutine(DieRoutine());
     }
 
-    IEnumerator DieRoutine()
+    private IEnumerator DieRoutine()
     {
         if (isDead) yield break;
         isDead = true;
@@ -180,7 +186,7 @@ public class RangedEnemyController : EnemyBase
         if (rb != null)
             rb.linearVelocity = Vector2.zero;
 
-        // ★ 魔石ドロップ
+        // 魔石ドロップ
         DropItem();
 
         if (animator != null)
@@ -200,11 +206,11 @@ public class RangedEnemyController : EnemyBase
             }
         }
 
-    onEnemyDead?.Invoke(this);
-    Destroy(gameObject);
-}
+        onEnemyDead?.Invoke(this);
+        Destroy(gameObject);
+    }
 
-    float GetDeathClipLength()
+    private float GetDeathClipLength()
     {
         if (animator == null || animator.runtimeAnimatorController == null)
             return 0.8f;
@@ -216,9 +222,10 @@ public class RangedEnemyController : EnemyBase
         return 0.8f;
     }
 
-    // ==================================================
-    // アニメーション
-    // ==================================================
+    #endregion
+
+    #region アニメーション
+
     protected override void UpdateAnimation(Vector2 dir)
     {
         if (isDead || animator == null) return;
@@ -238,4 +245,6 @@ public class RangedEnemyController : EnemyBase
         else
             animator.Play(dir.y > 0 ? "Attack_back" : "Attack_front");
     }
+
+    #endregion
 }

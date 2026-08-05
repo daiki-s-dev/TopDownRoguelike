@@ -1,11 +1,15 @@
 using UnityEngine;
 
+/// <summary>
+/// 常時表示されるポーション所持数UIパネルの表示制御。
+/// インベントリやポーズメニューが開いている間は非表示にする。
+/// </summary>
 public class PotionAlwaysVisibleUI : MonoBehaviour
 {
     [Header("UI全体のパネル")]
     public GameObject panel;
 
-    void Update()
+    private void Update()
     {
         if (panel == null) return;
 

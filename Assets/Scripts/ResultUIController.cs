@@ -1,6 +1,10 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
+/// <summary>
+/// クリア結果画面のUI。
+/// 今回のセッションで獲得した魔石とクリアタイムを表示し、魔石を確定させる。
+/// </summary>
 public class ResultUIController : MonoBehaviour
 {
     [Header("表示テキスト")]
@@ -21,7 +25,9 @@ public class ResultUIController : MonoBehaviour
         PlayerCrystalInventory.Instance.DepositCrystals();
     }
 
-    // 時間を 00:00.00 の形式に整える
+    /// <summary>
+    /// 時間を 00:00.00 の形式に整える。
+    /// </summary>
     private string FormatTime(float time)
     {
         int minutes = Mathf.FloorToInt(time / 60f);

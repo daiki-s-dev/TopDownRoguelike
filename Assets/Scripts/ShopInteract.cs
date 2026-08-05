@@ -1,6 +1,10 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// ショップとのインタラクション。
+/// 生成時に候補からランダムに商品を確定し、以降は同じ品揃えを表示する。
+/// </summary>
 public class ShopInteract : MonoBehaviour, IInteractable
 {
     [Header("インタラクト表示名")]
@@ -16,14 +20,14 @@ public class ShopInteract : MonoBehaviour, IInteractable
     private bool canInteract;
     private PlayerInventory playerInventory;
 
-    // ★ このショップ専用の確定商品リスト
+    // このショップ専用の確定商品リスト
     private ShopItemData[] fixedItems;
 
     private void Start()
     {
         playerInventory = FindFirstObjectByType<PlayerInventory>();
 
-        // ★ ショップ生成時に一度だけ抽選
+        // ショップ生成時に一度だけ抽選
         DecideShopItems();
     }
 
@@ -37,9 +41,7 @@ public class ShopInteract : MonoBehaviour, IInteractable
         }
     }
 
-    // ================================
-    // IInteractable
-    // ================================
+    #region IInteractable
 
     public string GetInteractName()
     {
@@ -51,19 +53,21 @@ public class ShopInteract : MonoBehaviour, IInteractable
         OpenShop();
     }
 
-    // ================================
-    // 内部処理
-    // ================================
+    #endregion
+
+    #region 内部処理
 
     private void OpenShop()
     {
         if (shopUI == null || playerInventory == null) return;
 
-        // ★ 確定済みアイテムを渡す
+        // 確定済みアイテムを渡す
         shopUI.Open(fixedItems, playerInventory);
     }
 
-    // ★ ランダム抽選を一度だけ行う
+    /// <summary>
+    /// ランダム抽選を一度だけ行う。
+    /// </summary>
     private void DecideShopItems()
     {
         if (shopItems == null || shopItems.Length == 0)
@@ -88,9 +92,9 @@ public class ShopInteract : MonoBehaviour, IInteractable
         fixedItems = result.ToArray();
     }
 
-    // ================================
-    // Trigger 判定
-    // ================================
+    #endregion
+
+    #region Trigger 判定
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -105,4 +109,6 @@ public class ShopInteract : MonoBehaviour, IInteractable
         canInteract = false;
         shopUI.Close();
     }
+
+    #endregion
 }

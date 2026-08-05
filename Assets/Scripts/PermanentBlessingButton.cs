@@ -1,8 +1,12 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using TMPro;
 
+/// <summary>
+/// 恒久祝福購入UIに並ぶ1つのボタン。
+/// ホバーで説明表示、クリックで購入を試みる。
+/// </summary>
 public class PermanentBlessingButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image icon;

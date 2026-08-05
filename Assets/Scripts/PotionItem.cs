@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// デバッグ用キー入力によるポーション使用処理。
+/// インベントリのポーション所持数を消費してHP/MPを回復する。
+/// </summary>
 public class PotionItem : MonoBehaviour
 {
     [Header("使用するポーション (ScriptableObject)")]
@@ -10,7 +14,7 @@ public class PotionItem : MonoBehaviour
     public KeyCode hpKey = KeyCode.Alpha1;
     public KeyCode mpKey = KeyCode.Alpha2;
 
-    void Update()
+    private void Update()
     {
         if (PlayerStatus.Instance == null) return;
 
@@ -27,9 +31,8 @@ public class PotionItem : MonoBehaviour
         }
     }
 
-    //===============================
-    // HPポーション
-    //===============================
+    #region HPポーション
+
     public void UseHPPotion()
     {
         var inv = PlayerStatus.Instance.GetComponent<PlayerInventory>();
@@ -39,26 +42,27 @@ public class PotionItem : MonoBehaviour
             return;
         }
 
-        // ● HP を回復
+        // HP を回復
         bool ok = PlayerStatus.Instance.UsePotion(
             Mathf.RoundToInt(hpPotion.restoreAmount * PlayerStatus.Instance.GetMultiplier(BlessingType.PotionBoost))
         );
 
         if (ok)
         {
-            // ● インベントリ側のストックを減らす
+            // インベントリ側のストックを減らす
             inv.hpPotionCount--;
 
-            // ● UI 更新！！！ ← 今まで足りなかった部分
+            // UI 更新
             InventoryUIController.Instance.UpdatePotionUI(inv.hpPotionCount, inv.mpPotionCount);
 
             Debug.Log($"{hpPotion.itemName} を使用 → HP回復 / 残り：{inv.hpPotionCount}");
         }
     }
 
-    //===============================
-    // MPポーション
-    //===============================
+    #endregion
+
+    #region MPポーション
+
     public void UseMPPotion()
     {
         var inv = PlayerStatus.Instance.GetComponent<PlayerInventory>();
@@ -68,20 +72,22 @@ public class PotionItem : MonoBehaviour
             return;
         }
 
-        // ● MP を回復
+        // MP を回復
         bool ok = PlayerStatus.Instance.UsePotionMP(
             Mathf.RoundToInt(mpPotion.restoreAmount * PlayerStatus.Instance.GetMultiplier(BlessingType.PotionBoost))
         );
 
         if (ok)
         {
-            // ● インベントリ側のストックを減らす
+            // インベントリ側のストックを減らす
             inv.mpPotionCount--;
 
-            // ● UI 更新！！！ ← 超重要
+            // UI 更新
             InventoryUIController.Instance.UpdatePotionUI(inv.hpPotionCount, inv.mpPotionCount);
 
             Debug.Log($"{mpPotion.itemName} を使用 → MP回復 / 残り：{inv.mpPotionCount}");
         }
     }
+
+    #endregion
 }

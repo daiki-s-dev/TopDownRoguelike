@@ -1,6 +1,10 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
+/// <summary>
+/// プレイヤーの詳細ステータス（HP/MP/攻撃力/クリティカルなど）を
+/// テキストで表示するUI。
+/// </summary>
 public class PlayerStatusUI : MonoBehaviour
 {
     [Header("UI Text 参照")]
@@ -15,12 +19,12 @@ public class PlayerStatusUI : MonoBehaviour
 
     private PlayerStatus status;
 
-    void Start()
+    private void Start()
     {
         status = PlayerStatus.Instance;
     }
 
-    void Update()
+    private void Update()
     {
         if (status == null) return;
 

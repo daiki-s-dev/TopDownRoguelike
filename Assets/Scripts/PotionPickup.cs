@@ -1,17 +1,24 @@
 using UnityEngine;
 
-// IInteractable を実装
+/// <summary>
+/// フィールド上のポーションアイテム。
+/// プレイヤーが調べるとインベントリに追加され、自身は消滅する。
+/// </summary>
 public class PotionPickup : MonoBehaviour, IInteractable
 {
     public PotionData potionData;
 
-    // IInteractable: UI に表示される名前
+    /// <summary>
+    /// UI に表示される名前。
+    /// </summary>
     public string GetInteractName()
     {
         return potionData.itemName;
     }
 
-    // IInteractable: インタラクト時の処理
+    /// <summary>
+    /// インタラクト時の処理。
+    /// </summary>
     public void Interact(PlayerInventory inventory)
     {
         if (inventory == null) return;

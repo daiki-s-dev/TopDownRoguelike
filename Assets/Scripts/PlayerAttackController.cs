@@ -1,15 +1,20 @@
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーの左クリック攻撃を制御する。
+/// 装備中の武器タイプ（近接/弓/杖）に応じて処理を分岐する。
+/// </summary>
 public class PlayerAttackController : MonoBehaviour
 {
-    private WeaponData weaponData;
-    private WeaponDamageArea weaponArea;
-
     [Header("魔法")]
     public MagicData equippedMagic;
     public Transform magicCastPoint;
 
-    // 武器装備
+    private WeaponData weaponData;
+    private WeaponDamageArea weaponArea;
+
+    #region 武器装備・解除
+
     public void SetWeapon(WeaponDamageArea area, WeaponData data)
     {
         if (weaponArea != null)
@@ -24,7 +29,6 @@ public class PlayerAttackController : MonoBehaviour
         Debug.Log($"[AttackController] 武器装備: {(weaponData != null ? weaponData.weaponName : "なし")}");
     }
 
-    // 武器解除
     public void UnequipWeapon()
     {
         if (weaponArea != null)
@@ -35,7 +39,11 @@ public class PlayerAttackController : MonoBehaviour
         Debug.Log("[AttackController] 武器解除されました");
     }
 
-    void Update()
+    #endregion
+
+    #region Update
+
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -65,6 +73,10 @@ public class PlayerAttackController : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region 攻撃処理
+
     private void HitEnemy(Collider2D enemyCollider)
     {
         if (weaponData == null) return;
@@ -83,7 +95,7 @@ public class PlayerAttackController : MonoBehaviour
         enemy.TakeDamage(dmg, transform.position, isCritical);
     }
 
-    void CastMagic()
+    private void CastMagic()
     {
         if (equippedMagic == null || magicCastPoint == null || weaponData == null)
             return;
@@ -110,9 +122,11 @@ public class PlayerAttackController : MonoBehaviour
         if (area != null) area.Init(dmg, isCritical);
     }
 
-    void PlayAttackSE()
+    private void PlayAttackSE()
     {
         if (weaponData == null || weaponData.attackSE == null) return;
         AudioManager.Instance?.PlaySE(weaponData.attackSE);
     }
+
+    #endregion
 }

@@ -1,8 +1,12 @@
-using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 恒久祝福の購入UI全体を管理する。
+/// 魔石消費による購入、所持一覧の表示、説明文表示を担当する。
+/// </summary>
 public class PermanentBlessingUIController : MonoBehaviour
 {
     [Header("ScriptableObjectリスト")]
@@ -31,7 +35,7 @@ public class PermanentBlessingUIController : MonoBehaviour
     private List<GameObject> currentButtons = new List<GameObject>();
     private List<PermanentBlessing> availableBlessings = new List<PermanentBlessing>();
 
-    void Start()
+    private void Start()
     {
         uiRoot.SetActive(false);
 
@@ -43,6 +47,8 @@ public class PermanentBlessingUIController : MonoBehaviour
         }
     }
 
+    #region UI開閉
+
     public void OpenUI()
     {
         uiRoot.SetActive(true);
@@ -53,6 +59,10 @@ public class PermanentBlessingUIController : MonoBehaviour
     {
         uiRoot.SetActive(false);
     }
+
+    #endregion
+
+    #region UI更新
 
     public void UpdateUI()
     {
@@ -97,9 +107,10 @@ public class PermanentBlessingUIController : MonoBehaviour
         descriptionText.text = text;
     }
 
-    //========================================
-    // ■ 祝福購入処理
-    //========================================
+    #endregion
+
+    #region 祝福購入処理
+
     public void TryPurchase(PermanentBlessing blessing)
     {
         if (PlayerCrystalInventory.Instance.ConsumeCrystal(blessing.cost))
@@ -109,7 +120,7 @@ public class PermanentBlessingUIController : MonoBehaviour
         }
         else
         {
-            // ★ 魔石不足表示
+            // 魔石不足表示
             if (notEnoughCrystalText != null)
             {
                 notEnoughCrystalText.Show();
@@ -119,7 +130,11 @@ public class PermanentBlessingUIController : MonoBehaviour
         }
     }
 
-    // 戻るボタン
+    #endregion
+
+    /// <summary>
+    /// 戻るボタン。
+    /// </summary>
     public void OnBackButton()
     {
         CloseUI();

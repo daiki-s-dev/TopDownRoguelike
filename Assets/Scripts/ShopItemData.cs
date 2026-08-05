@@ -1,5 +1,17 @@
 using UnityEngine;
 
+/// <summary>
+/// ショップで扱う商品の種類。
+/// </summary>
+public enum ShopItemType
+{
+    Weapon,
+    Potion
+}
+
+/// <summary>
+/// ショップの商品1種類分のデータ。
+/// </summary>
 [CreateAssetMenu(menuName = "Shop/ShopItemData")]
 public class ShopItemData : ScriptableObject
 {
@@ -16,10 +28,4 @@ public class ShopItemData : ScriptableObject
 
     [Header("ポーション")]
     public PotionData potionData;
-}
-
-public enum ShopItemType
-{
-    Weapon,
-    Potion
 }

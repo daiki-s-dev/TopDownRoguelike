@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// ポーション1種類分のデータ。
+/// </summary>
 [CreateAssetMenu(menuName = "Item/Potion")]
 public class PotionData : ScriptableObject
 {
@@ -9,7 +12,7 @@ public class PotionData : ScriptableObject
     public string itemName = "Potion";
 
     [Header("アイコン")]
-    public Sprite icon;   // ★ 追加
+    public Sprite icon;
 
     [Header("ポーションの種類")]
     public PotionType type;

@@ -1,7 +1,12 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
+/// <summary>
+/// プレイヤーのステータス全般（HP/MP/攻撃力/クリティカルなど）を管理するシングルトン。
+/// 祝福（ダンジョン内バフ・恒久強化）や装備武器による補正の再計算、
+/// 被ダメージ演出、死亡処理、ポーション使用などを担当する。
+/// </summary>
 public class PlayerStatus : MonoBehaviour
 {
     public static PlayerStatus Instance;
@@ -10,9 +15,8 @@ public class PlayerStatus : MonoBehaviour
     [Header("回復ポップアップ")]
     public HealPopupSpawner healPopupSpawner;
 
-    //========================================
-    // ■ 元のステータス（祝福で加算する前の値）
-    //========================================
+    #region 元のステータス（祝福で加算する前の値）
+
     private int baseAttack;
     private int baseMaxHP;
     private int baseMaxMP;
@@ -22,9 +26,9 @@ public class PlayerStatus : MonoBehaviour
     private float baseCriticalRate;
     private float baseCriticalDamage;
 
-    //========================================
-    // ■ プレイヤー基本ステータス
-    //========================================
+    #endregion
+
+    #region プレイヤー基本ステータス
 
     [Header("基本ステータス")]
     public int maxHP = 100;
@@ -48,9 +52,9 @@ public class PlayerStatus : MonoBehaviour
     public float criticalRate = 0.1f;
     public float criticalDamage = 1.5f;
 
-    //========================================
-    // ■ 演出（点滅 / ノックバック / 死亡）
-    //========================================
+    #endregion
+
+    #region 演出（点滅 / ノックバック / 死亡）
 
     [Header("被ダメージ演出設定")]
     public float flashDuration = 0.1f;
@@ -64,9 +68,9 @@ public class PlayerStatus : MonoBehaviour
     private bool isKnockedBack = false;
     private bool isDead = false;
 
-    //========================================
-    // ■ 祝福（バフ）管理
-    //========================================
+    #endregion
+
+    #region 祝福（バフ）管理
 
     [System.Serializable]
     public class ActiveBlessing
@@ -77,11 +81,11 @@ public class PlayerStatus : MonoBehaviour
 
     public List<ActiveBlessing> activeBlessings = new List<ActiveBlessing>();
 
-    //========================================
-    // ■ Unity標準処理
-    //========================================
+    #endregion
 
-    void Awake()
+    #region Unity標準処理
+
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -94,7 +98,7 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -115,14 +119,14 @@ public class PlayerStatus : MonoBehaviour
         baseCriticalDamage = criticalDamage;
     }
 
-    void Update()
+    private void Update()
     {
         AutoRegen();
     }
 
-    //========================================
-    // ■ 祝福取得
-    //========================================
+    #endregion
+
+    #region 祝福取得
 
     public void ApplyBlessing(Blessing newBlessing)
     {
@@ -162,7 +166,7 @@ public class PlayerStatus : MonoBehaviour
         criticalRate = baseCriticalRate;
         criticalDamage = baseCriticalDamage;
 
-        // ★ 0. 武器補正（最優先）
+        // 0. 武器補正（最優先）
         if (weaponEquip != null && weaponEquip.EquippedWeapon != null)
         {
             ApplyWeaponBonus(weaponEquip.EquippedWeapon);
@@ -224,7 +228,6 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-
     private void ApplyPermanentBlessingEffect(PermanentBlessing b, int count)
     {
         float valueToApply = b.isMultiplier ? Mathf.Pow(b.value, count) : b.value * count;
@@ -240,10 +243,10 @@ public class PlayerStatus : MonoBehaviour
             case BlessingType.MaxMPUp:
                 maxMP = b.isMultiplier ? Mathf.RoundToInt(maxMP * valueToApply) : maxMP + Mathf.RoundToInt(valueToApply);
                 break;
-            case BlessingType.HPRegenUp:   // ★ 追加
+            case BlessingType.HPRegenUp:
                 hpRegenRate = b.isMultiplier ? hpRegenRate * valueToApply : hpRegenRate + valueToApply;
                 break;
-            case BlessingType.MPRegenUp:   // ★ 追加
+            case BlessingType.MPRegenUp:
                 mpRegenRate = b.isMultiplier ? mpRegenRate * valueToApply : mpRegenRate + valueToApply;
                 break;
             case BlessingType.MagicUp:
@@ -259,8 +262,9 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-
-    // ★ 指定のタイプの倍率を取得
+    /// <summary>
+    /// 指定のタイプの倍率を取得する。
+    /// </summary>
     public float GetMultiplier(BlessingType type)
     {
         float multiplier = 1f;
@@ -286,9 +290,9 @@ public class PlayerStatus : MonoBehaviour
         return GetMultiplier(BlessingType.CristalDropRateUp);
     }
 
-    //========================================
-    // ■ 自動回復処理
-    //========================================
+    #endregion
+
+    #region 自動回復処理
 
     private void AutoRegen()
     {
@@ -313,9 +317,9 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    //========================================
-    // ■ ダメージ処理
-    //========================================
+    #endregion
+
+    #region ダメージ処理
 
     public void TakeDamage(int damage, Vector2 hitSourcePosition)
     {
@@ -392,9 +396,9 @@ public class PlayerStatus : MonoBehaviour
             ui.ShowGameOver();
     }
 
-    //========================================
-    // ■ ユーティリティ
-    //========================================
+    #endregion
+
+    #region ユーティリティ
 
     public bool IsKnockedBack() => isKnockedBack;
 
@@ -406,9 +410,9 @@ public class PlayerStatus : MonoBehaviour
         return true;
     }
 
-    //========================================
-    // ■ 敵に与えるダメージ
-    //========================================
+    #endregion
+
+    #region 敵に与えるダメージ
 
     public void AttackEnemy(EnemyBase enemy)
     {
@@ -435,9 +439,9 @@ public class PlayerStatus : MonoBehaviour
         return dmg;
     }
 
-    //========================================
-    // ■ リセット処理
-    //========================================
+    #endregion
+
+    #region リセット処理
 
     public void ResetStatus()
     {
@@ -466,15 +470,14 @@ public class PlayerStatus : MonoBehaviour
         RecalculateStats();
     }
 
-    //========================================
-    // ■ 武器ダメージ計算
-    //========================================
+    #endregion
+
+    #region 武器ダメージ計算
 
     public int GetWeaponDamage(WeaponData weapon, out bool isCritical)
     {
         isCritical = Random.value < criticalRate;
         float total = weapon != null ? weapon.baseDamage + attack * weapon.attackScale + magic * weapon.magicScale : attack;
-        
 
         if (isCritical)
             total *= criticalDamage;
@@ -482,9 +485,9 @@ public class PlayerStatus : MonoBehaviour
         return Mathf.RoundToInt(total);
     }
 
-    //========================================
-    // ■ ポーション処理
-    //========================================
+    #endregion
+
+    #region ポーション処理
 
     public bool UsePotion(int healAmount)
     {
@@ -495,7 +498,7 @@ public class PlayerStatus : MonoBehaviour
         if (healed > 0)
             healPopupSpawner.CreatePopup(healed, HealType.HP);
 
-            AudioManager.Instance?.PlaySE(SEType.PotionUse);
+        AudioManager.Instance?.PlaySE(SEType.PotionUse);
 
         return healed > 0;
     }
@@ -509,7 +512,7 @@ public class PlayerStatus : MonoBehaviour
         if (healed > 0)
             healPopupSpawner.CreatePopup(healed, HealType.MP);
 
-            AudioManager.Instance?.PlaySE(SEType.PotionUse);
+        AudioManager.Instance?.PlaySE(SEType.PotionUse);
 
         return healed > 0;
     }
@@ -527,4 +530,5 @@ public class PlayerStatus : MonoBehaviour
         criticalDamage += weapon.bonusCriticalDamage;
     }
 
+    #endregion
 }

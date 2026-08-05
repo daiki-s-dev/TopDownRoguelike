@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// プレイヤーの武器の見た目（インスタンス生成）と、
+/// 攻撃コントローラーへの装備通知を管理する。
+/// </summary>
 public class PlayerWeaponEquip : MonoBehaviour
 {
     [Header("武器表示位置")]
@@ -11,12 +15,14 @@ public class PlayerWeaponEquip : MonoBehaviour
 
     private PlayerStatus playerStatus;
 
-    void Awake()
+    private void Awake()
     {
         playerStatus = GetComponent<PlayerStatus>();
     }
 
-    // 武器装備
+    /// <summary>
+    /// 武器を装備する。
+    /// </summary>
     public void EquipWeapon(WeaponData weapon, PlayerAttackController attackController)
     {
         // 既存武器破棄
@@ -48,7 +54,9 @@ public class PlayerWeaponEquip : MonoBehaviour
         }
     }
 
-    // 武器解除（攻撃コントローラー通知あり）
+    /// <summary>
+    /// 武器解除（攻撃コントローラー通知あり）。
+    /// </summary>
     public void UnequipWeapon(PlayerAttackController attackController)
     {
         if (currentWeapon != null)
@@ -56,13 +64,15 @@ public class PlayerWeaponEquip : MonoBehaviour
 
         equippedWeapon = null;
 
-        // ★ AttackController に解除を通知
+        // AttackController に解除を通知
         attackController?.UnequipWeapon();
 
         playerStatus?.RecalculateStats();
     }
 
-    // 武器解除（引数なしオーバーロード）
+    /// <summary>
+    /// 武器解除（引数なしオーバーロード）。
+    /// </summary>
     public void UnequipWeapon()
     {
         // もし攻撃コントローラーがシーン内に存在するなら取得して解除

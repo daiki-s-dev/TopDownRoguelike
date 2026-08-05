@@ -1,8 +1,12 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// ダンジョンの部屋をランダム生成するマネージャー。
+/// 必須部屋（分岐点）の配置後、行き止まり部屋で残数を埋め、
+/// 最後にスタートから最も遠い部屋にゴール（ポータル）を設置する。
+/// </summary>
 public class RoomGenerator : MonoBehaviour
 {
     public static RoomGenerator Instance { get; private set; }
@@ -20,7 +24,9 @@ public class RoomGenerator : MonoBehaviour
     public List<GameObject> roomPrefabs = new List<GameObject>();
     public Vector2Int portalPos = Vector2Int.zero;
 
-    void Awake()
+    #region Unity Lifecycle
+
+    private void Awake()
     {
         // シングルトン化
         if (Instance != null && Instance != this)
@@ -35,10 +41,12 @@ public class RoomGenerator : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
+    #endregion
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -63,9 +71,11 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    // ===========================
-    // プレイヤーをスタート位置に移動
-    // ===========================
+    #region プレイヤー配置
+
+    /// <summary>
+    /// プレイヤーをスタート位置に移動する。
+    /// </summary>
     public void TeleportPlayerToStart()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -75,9 +85,10 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    // ===========================
-    // ダンジョン生成
-    // ===========================
+    #endregion
+
+    #region ダンジョン生成
+
     private void GenerateDungeon()
     {
         Vector2Int startPos = Vector2Int.zero;
@@ -148,9 +159,10 @@ public class RoomGenerator : MonoBehaviour
         PlaceGoalRoom(startPos);
     }
 
-    // ===========================
-    // ゴール（ポータル）設置
-    // ===========================
+    #endregion
+
+    #region ゴール（ポータル）設置
+
     private void PlaceGoalRoom(Vector2Int startPos)
     {
         if (spawnedRooms.Count == 0 || goalPrefab == null) return;
@@ -180,9 +192,10 @@ public class RoomGenerator : MonoBehaviour
         portal.name = "Portal";
     }
 
-    // ===========================
-    // 部屋中身生成
-    // ===========================
+    #endregion
+
+    #region 部屋中身生成
+
     private void PopulateRooms()
     {
         Vector2Int startPos = Vector2Int.zero;
@@ -232,9 +245,10 @@ public class RoomGenerator : MonoBehaviour
         content.transform.SetParent(room.transform);
     }
 
-    // ===========================
-    // 補助メソッド
-    // ===========================
+    #endregion
+
+    #region 補助メソッド
+
     private GameObject SpawnMandatoryRoom(int[] exitOptions, Vector2Int pos, string requiredDir)
     {
         List<GameObject> candidates = new List<GameObject>();
@@ -316,6 +330,6 @@ public class RoomGenerator : MonoBehaviour
     {
         return spawnedRooms;
     }
+
+    #endregion
 }
-
-

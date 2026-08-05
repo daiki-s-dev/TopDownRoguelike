@@ -1,20 +1,26 @@
 using UnityEngine;
 
+/// <summary>
+/// 恒久祝福のマスターデータ（ScriptableObject）。
+/// ランタイム用の PermanentBlessing インスタンスを生成できる。
+/// </summary>
 [CreateAssetMenu(fileName = "PermanentBlessingData", menuName = "Blessing/PermanentBlessing")]
 public class PermanentBlessingSO : ScriptableObject
 {
     [Header("基本情報")]
-    public string blessingName;          // 祝福名
-    public BlessingType type;            // 元のBlessingのタイプ
-    public float value;                  // 効果値
-    public bool isMultiplier;            // 乗算か加算か
+    public string blessingName;           // 祝福名
+    public BlessingType type;             // 元のBlessingのタイプ
+    public float value;                   // 効果値
+    public bool isMultiplier;             // 乗算か加算か
 
     [Header("UI用")]
-    public Sprite icon;                  // アイコン
-    [TextArea] public string description;// 説明
-    public int cost;                     // 魔石価格
+    public Sprite icon;                   // アイコン
+    [TextArea] public string description; // 説明
+    public int cost;                      // 魔石価格
 
-    // このSOから PermanentBlessing を生成する関数
+    /// <summary>
+    /// このSOから PermanentBlessing を生成する。
+    /// </summary>
     public PermanentBlessing ToPermanentBlessing()
     {
         return new PermanentBlessing
