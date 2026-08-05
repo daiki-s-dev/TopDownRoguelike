@@ -1,6 +1,10 @@
 using UnityEngine;
 
-public class SlimeDamageArea : MonoBehaviour
+/// <summary>
+/// 敵の攻撃判定エリア。
+/// 有効化された瞬間に範囲内のプレイヤーを判定し、1回の攻撃につき1回だけダメージを与える。
+/// </summary>
+public class EnemyDamageArea : MonoBehaviour
 {
     [Header("攻撃ダメージ")]
     public int damage = 5;
@@ -11,12 +15,14 @@ public class SlimeDamageArea : MonoBehaviour
     private SpriteRenderer sr;
     private bool hasDealtDamage = false;
 
-    void Awake()
+    private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
     }
 
-    // 攻撃範囲ON/OFFを制御（外部から呼ばれる）
+    /// <summary>
+    /// 攻撃範囲ON/OFFを制御する（外部から呼ばれる）。
+    /// </summary>
     public void EnableDamage(bool enable)
     {
         if (sr != null)
@@ -28,8 +34,10 @@ public class SlimeDamageArea : MonoBehaviour
             hasDealtDamage = false; // 新しい攻撃開始
     }
 
-    // 攻撃エリアが有効化された瞬間に中のプレイヤーを強制チェック
-    void OnEnable()
+    /// <summary>
+    /// 攻撃エリアが有効化された瞬間に中のプレイヤーを強制チェックする。
+    /// </summary>
+    private void OnEnable()
     {
         hasDealtDamage = false;
 
@@ -50,17 +58,17 @@ public class SlimeDamageArea : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         DealDamage(other);
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         DealDamage(other);
     }
 
-    void DealDamage(Collider2D other)
+    private void DealDamage(Collider2D other)
     {
         if (hasDealtDamage) return;
         if (!gameObject.activeSelf) return;
@@ -71,7 +79,7 @@ public class SlimeDamageArea : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(damage, transform.position);
-                Debug.Log($"スライムの攻撃：プレイヤーに {damage} ダメージ！");
+                Debug.Log($"敵の攻撃：プレイヤーに {damage} ダメージ！");
                 hasDealtDamage = true;
             }
         }

@@ -1,9 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class SlimeController : EnemyBase
+/// <summary>
+/// 通常の敵のコントローラー。
+/// 現在の向きに合わせて攻撃警告を表示し、チャージ後に攻撃する。
+/// </summary>
+public class EnemyController : EnemyBase
 {
-    [Header("スライム専用設定")]
+    [Header("敵専用設定")]
     public GameObject attackWarningPrefab;
     private GameObject warningInstance;
 
@@ -12,8 +16,8 @@ public class SlimeController : EnemyBase
 
     private bool isDead = false;
 
-    [Header("SlimeAttack参照")]
-    public SlimeAttack slimeAttack;
+    [Header("EnemyAttack参照")]
+    public EnemyAttack enemyAttack;
 
     protected override void Start()
     {
@@ -26,6 +30,8 @@ public class SlimeController : EnemyBase
         base.Update();
     }
 
+    #region 攻撃
+
     protected override IEnumerator AttackRoutine()
     {
         if (isDead) yield break;
@@ -34,7 +40,7 @@ public class SlimeController : EnemyBase
         isCharging = true;
         attackTimer = attackCooldown;
 
-        // ★ 現在の向き（EnemyBase管理）
+        // 現在の向き（EnemyBase管理）
         Vector2 dir = GetFacingVector();
 
         // ===== 攻撃警告（位置は変えず、向きだけ）=====
@@ -46,11 +52,11 @@ public class SlimeController : EnemyBase
                 attackWarningPrefab,
                 transform.position,
                 Quaternion.Euler(0f, 0f, angle),
-                transform            // ★ 親を敵にする
+                transform            // 親を敵にする
             );
 
-            if (slimeAttack != null)
-                slimeAttack.attackWarning = warningInstance;
+            if (enemyAttack != null)
+                enemyAttack.attackWarning = warningInstance;
 
             warningInstance.SetActive(true);
         }
@@ -82,13 +88,17 @@ public class SlimeController : EnemyBase
             Destroy(warningInstance);
             warningInstance = null;
 
-            if (slimeAttack != null)
-                slimeAttack.attackWarning = null;
+            if (enemyAttack != null)
+                enemyAttack.attackWarning = null;
         }
 
         isAttacking = false;
         isCharging = false;
     }
+
+    #endregion
+
+    #region アニメーション
 
     protected override void UpdateAnimation(Vector2 dir)
     {
@@ -109,6 +119,10 @@ public class SlimeController : EnemyBase
         else
             animator.Play(dir.y > 0 ? "Attack_back" : "Attack_front");
     }
+
+    #endregion
+
+    #region ダメージ・死亡
 
     public override void TakeDamage(int damage, Vector2 hitSourcePosition)
     {
@@ -149,8 +163,8 @@ public class SlimeController : EnemyBase
             Destroy(warningInstance);
             warningInstance = null;
 
-            if (slimeAttack != null)
-                slimeAttack.attackWarning = null;
+            if (enemyAttack != null)
+                enemyAttack.attackWarning = null;
         }
 
         DropItem();
@@ -188,4 +202,6 @@ public class SlimeController : EnemyBase
 
         return 0.8f;
     }
+
+    #endregion
 }
