@@ -201,7 +201,7 @@ MonoBehaviour:
   dropChance: 1
   attackWarningPrefab: {fileID: 4836264381795516135, guid: fc708666d502722428e3cdc419976ca7, type: 3}
   fadeDuration: 1
-  slimeAttack: {fileID: 2804257239917819448}
+  enemyAttack: {fileID: 2804257239917819448}
 --- !u!114 &4325776074653269227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackArea: {fileID: 7147281251989012845}
-  attackWarning: {fileID: 4836264381795516135, guid: f9818e6501a76a740ab13cb22b9d626a, type: 3}
+  attackWarning: {fileID: 4836264381795516135, guid: fc708666d502722428e3cdc419976ca7, type: 3}
 --- !u!1 &6122258224457950396
 GameObject:
   m_ObjectHideFlags: 0
