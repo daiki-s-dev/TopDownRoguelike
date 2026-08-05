@@ -1,6 +1,10 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
+/// <summary>
+/// スライムボスのコントローラー。
+/// 単発ジャンプ、3連続ジャンプ、ジャンプ＋弾幕の3種類の攻撃をランダムに行う。
+/// </summary>
 public class SlimeBossController : EnemyBase
 {
     [Header("ボス基本状態")]
@@ -33,9 +37,8 @@ public class SlimeBossController : EnemyBase
         base.Update();
     }
 
-    // ======================================
-    // 攻撃ルーチン（3種類）
-    // ======================================
+    #region 攻撃ルーチン（3種類）
+
     protected override IEnumerator AttackRoutine()
     {
         if (isDead) yield break;
@@ -63,9 +66,9 @@ public class SlimeBossController : EnemyBase
         isCharging = false;
     }
 
-    // --------------------
-    // ① 単発ジャンプ
-    // --------------------
+    /// <summary>
+    /// ①単発ジャンプ。
+    /// </summary>
     private IEnumerator SingleJumpAttack()
     {
         ShowAttackWarning();
@@ -78,9 +81,9 @@ public class SlimeBossController : EnemyBase
         HideAttackWarning();
     }
 
-    // --------------------
-    // ② 3連続ジャンプ
-    // --------------------
+    /// <summary>
+    /// ②3連続ジャンプ。
+    /// </summary>
     private IEnumerator TripleJumpAttack()
     {
         ShowAttackWarning();
@@ -97,9 +100,9 @@ public class SlimeBossController : EnemyBase
         yield return new WaitForSeconds(0.6f);
     }
 
-    // --------------------
-    // ③ ジャンプ＋弾幕
-    // --------------------
+    /// <summary>
+    /// ③ジャンプ＋弾幕。
+    /// </summary>
     private IEnumerator JumpAndShootAttack()
     {
         ShowAttackWarning();
@@ -113,9 +116,10 @@ public class SlimeBossController : EnemyBase
         HideAttackWarning();
     }
 
-    // ======================================
-    // 共通処理
-    // ======================================
+    #endregion
+
+    #region 共通処理
+
     private void JumpToPlayer()
     {
         if (rb == null || player == null) return;
@@ -175,9 +179,10 @@ public class SlimeBossController : EnemyBase
         PlayAttackAnimation(dir);
     }
 
-    // ======================================
-    // ダメージ・死亡
-    // ======================================
+    #endregion
+
+    #region ダメージ・死亡
+
     public override void TakeDamage(int damage, Vector2 hitSourcePosition)
     {
         if (isDead) return;
@@ -236,9 +241,10 @@ public class SlimeBossController : EnemyBase
         Destroy(gameObject);
     }
 
-    // ======================================
-    // アニメーション
-    // ======================================
+    #endregion
+
+    #region アニメーション
+
     protected override void UpdateAnimation(Vector2 dir)
     {
         if (animator == null) return;
@@ -258,4 +264,6 @@ public class SlimeBossController : EnemyBase
         else
             animator.Play(dir.y > 0 ? "Attack_back" : "Attack_front");
     }
+
+    #endregion
 }
