@@ -2,6 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// 魔法陣での武器合成の結果種別。
+/// </summary>
+public enum SynthesisResult
+{
+    Success,
+    EmptySlot,
+    DifferentRarity,
+    CannotSynthesize
+}
+
+/// <summary>
 /// 魔法陣での武器合成ロジック。
 /// 同レアリティの武器2つを消費し、1段階上のレアリティの武器を排出する。
 /// </summary>
