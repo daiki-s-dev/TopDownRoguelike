@@ -2,10 +2,10 @@ using System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// スライムボスのコントローラー。
+/// ボスのコントローラー。
 /// 単発ジャンプ、3連続ジャンプ、ジャンプ＋弾幕の3種類の攻撃をランダムに行う。
 /// </summary>
-public class SlimeBossController : EnemyBase
+public class BossController : EnemyBase
 {
     [Header("ボス基本状態")]
     public bool isDead = false;
