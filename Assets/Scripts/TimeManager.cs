@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// ダンジョン攻略タイムを計測するシングルトン。
+/// </summary>
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance;
@@ -43,7 +46,9 @@ public class TimeManager : MonoBehaviour
         elapsedTime = 0f;
     }
 
-    // ★★★ リザルトUI用：経過時間取得 ★★★
+    /// <summary>
+    /// リザルトUI用：経過時間取得。
+    /// </summary>
     public float GetElapsedTime()
     {
         return elapsedTime;

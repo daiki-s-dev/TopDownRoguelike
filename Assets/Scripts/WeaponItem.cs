@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// フィールド上の武器アイテム。
+/// プレイヤーが調べるとインベントリに追加され、自身は消滅する。
+/// </summary>
 public class WeaponItem : MonoBehaviour, IInteractable
 {
     public WeaponData weaponData;

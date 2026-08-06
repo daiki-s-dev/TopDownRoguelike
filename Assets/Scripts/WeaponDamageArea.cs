@@ -1,6 +1,10 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
+/// <summary>
+/// 近接武器の当たり判定エリア。
+/// 指定タグに触れると OnHitEnemy イベントを発火する。
+/// </summary>
 public class WeaponDamageArea : MonoBehaviour
 {
     [Header("攻撃対象となるタグ")]

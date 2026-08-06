@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 宝箱とのインタラクション。
+/// 開封アニメーション再生、中身排出、SE再生を行い、以降は再インタラクト不可にする。
+/// </summary>
 public class TreasureBoxInteract : MonoBehaviour, IInteractable
 {
     [Header("宝箱ロジック")]
@@ -17,12 +21,12 @@ public class TreasureBoxInteract : MonoBehaviour, IInteractable
 
     private bool opened = false;
 
-    void Reset()
+    private void Reset()
     {
         animator = GetComponent<Animator>();
     }
 
-    void Start()
+    private void Start()
     {
         // 初期状態は非表示
         if (hintUI != null)
@@ -60,14 +64,14 @@ public class TreasureBoxInteract : MonoBehaviour, IInteractable
         DisableInteraction();
     }
 
-    void DisableInteraction()
+    private void DisableInteraction()
     {
         var col = GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (opened) return;
         if (!other.CompareTag("Player")) return;
@@ -75,20 +79,20 @@ public class TreasureBoxInteract : MonoBehaviour, IInteractable
         ShowHint();
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
         HideHint();
     }
 
-    void ShowHint()
+    private void ShowHint()
     {
         if (hintUI != null)
             hintUI.SetActive(true);
     }
 
-    void HideHint()
+    private void HideHint()
     {
         if (hintUI != null)
             hintUI.SetActive(false);

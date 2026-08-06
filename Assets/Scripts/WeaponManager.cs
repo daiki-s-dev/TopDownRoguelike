@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Resources フォルダのパス指定で武器を装備させる、汎用の武器マネージャー。
+/// </summary>
 public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance; // インベントリ側から呼ぶために追加
@@ -9,12 +12,12 @@ public class WeaponManager : MonoBehaviour
 
     private GameObject currentWeapon;
 
-    void Awake()
+    private void Awake()
     {
         Instance = this;
     }
 
-    // ▼ゲーム開始時に装備しないよう Start を削除
+    // ゲーム開始時に装備しないよう Start は使用しない
     // void Start()
     // {
     //     EquipWeapon("Weapons/Sword01Prefab");

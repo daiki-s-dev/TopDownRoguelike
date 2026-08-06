@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 杖による魔法攻撃を制御する。
+/// 魔法の発動形式（飛ばす/指定地点範囲）に応じて処理を分岐する。
+/// </summary>
 public class StaffAttack : MonoBehaviour
 {
     [Header("杖設定")]
@@ -10,14 +14,14 @@ public class StaffAttack : MonoBehaviour
     [Header("指定地点取得")]
     public LayerMask groundLayer;
 
-    Camera mainCam;
+    private Camera mainCam;
 
-    void Start()
+    private void Start()
     {
         mainCam = Camera.main;
     }
 
-    void Update()
+    private void Update()
     {
         if (mainCam == null)
         {
@@ -31,14 +35,14 @@ public class StaffAttack : MonoBehaviour
         }
     }
 
-    void CastMagic()
+    #region 魔法発動
+
+    private void CastMagic()
     {
         if (weaponData == null || magicData == null)
             return;
 
-        // =========================
         // MP消費（WeaponData）
-        // =========================
         if (weaponData.mpCost > 0)
         {
             if (!PlayerStatus.Instance.UseMP(weaponData.mpCost))
@@ -52,9 +56,7 @@ public class StaffAttack : MonoBehaviour
         int finalDamage =
             PlayerStatus.Instance.GetWeaponDamage(weaponData, out isCritical);
 
-        // =========================
         // 魔法タイプ分岐
-        // =========================
         switch (magicData.castType)
         {
             case MagicCastType.Projectile:
@@ -67,10 +69,10 @@ public class StaffAttack : MonoBehaviour
         }
     }
 
-    // =========================
-    // 飛ばす魔法
-    // =========================
-    void CastProjectile(int damage, bool isCritical)
+    /// <summary>
+    /// 飛ばす魔法。
+    /// </summary>
+    private void CastProjectile(int damage, bool isCritical)
     {
         if (firePoint == null) return;
 
@@ -87,10 +89,10 @@ public class StaffAttack : MonoBehaviour
         }
     }
 
-    // =========================
-    // 指定地点範囲魔法
-    // =========================
-    void CastTargetArea(int damage, bool isCritical)
+    /// <summary>
+    /// 指定地点範囲魔法。
+    /// </summary>
+    private void CastTargetArea(int damage, bool isCritical)
     {
         Vector3 targetPos = GetMouseWorldPosition();
 
@@ -107,17 +109,21 @@ public class StaffAttack : MonoBehaviour
         }
     }
 
-    Vector3 GetMouseWorldPosition()
+    #endregion
+
+    #region マウス座標取得
+
+    private Vector3 GetMouseWorldPosition()
     {
         Vector3 pos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         pos.z = 0f;
         return pos;
     }
 
-    // =========================
-    // マウス → 地面座標取得
-    // =========================
-    bool TryGetMouseGroundPosition(out Vector3 worldPos)
+    /// <summary>
+    /// マウス → 地面座標取得。
+    /// </summary>
+    private bool TryGetMouseGroundPosition(out Vector3 worldPos)
     {
         worldPos = Vector3.zero;
 
@@ -139,4 +145,6 @@ public class StaffAttack : MonoBehaviour
         worldPos.z = 0f;
         return true;
     }
+
+    #endregion
 }

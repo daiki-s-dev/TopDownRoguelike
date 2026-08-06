@@ -1,7 +1,11 @@
-using UnityEngine;
-using TMPro;
 using System.Collections;
+using TMPro;
+using UnityEngine;
 
+/// <summary>
+/// フロア移動時などにステージ名を一時的に表示するUI。
+/// 表示後、一定時間でフェードアウトする。
+/// </summary>
 public class StageNameUI : MonoBehaviour
 {
     [Header("表示テキスト")]
@@ -14,7 +18,7 @@ public class StageNameUI : MonoBehaviour
     private CanvasGroup canvasGroup;
     private Coroutine currentRoutine;
 
-    void Awake()
+    private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null)
@@ -26,11 +30,9 @@ public class StageNameUI : MonoBehaviour
         canvasGroup.interactable = false;
     }
 
-    void Update()
+    private void Update()
     {
-        // -----------------------------
         // インベントリ or ポーズ中なら非表示
-        // -----------------------------
         bool inventoryOpen =
             InventoryUIController.Instance != null &&
             InventoryUIController.Instance.IsOpen;

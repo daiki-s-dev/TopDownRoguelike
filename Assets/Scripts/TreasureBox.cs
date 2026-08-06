@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 宝箱の中身抽選ロジック。
+/// レアリティを抽選し、対応する枠からランダムに武器を1つ排出する。
+/// </summary>
 public class TreasureBox : MonoBehaviour
 {
-    // =========================
-    // enum 定義
-    // =========================
+    #region enum定義
 
     public enum Rarity
     {
@@ -21,9 +23,9 @@ public class TreasureBox : MonoBehaviour
         Lv0, Lv1, Lv2, Lv3, Lv4
     }
 
-    // =========================
-    // レアリティ別武器枠
-    // =========================
+    #endregion
+
+    #region レアリティ別武器枠
 
     [System.Serializable]
     public class WeaponRaritySlot
@@ -34,9 +36,7 @@ public class TreasureBox : MonoBehaviour
         public List<GameObject> weaponPrefabs;
     }
 
-    // =========================
-    // Inspector 設定
-    // =========================
+    #endregion
 
     [Header("武器排出設定")]
     public List<WeaponRaritySlot> weaponSlots;
@@ -54,9 +54,7 @@ public class TreasureBox : MonoBehaviour
     [Header("排出位置")]
     public Transform dropPoint;
 
-    // =========================
-    // 外部から呼ぶ
-    // =========================
+    #region 外部から呼ぶ
 
     public void Open()
     {
@@ -73,11 +71,11 @@ public class TreasureBox : MonoBehaviour
         Debug.Log($"武器排出: {weapon.name} [{rarity}]");
     }
 
-    // =========================
-    // 抽選処理
-    // =========================
+    #endregion
 
-    Rarity DrawRarity()
+    #region 抽選処理
+
+    private Rarity DrawRarity()
     {
         Dictionary<Rarity, float> rates = new()
         {
@@ -107,7 +105,7 @@ public class TreasureBox : MonoBehaviour
         return Rarity.Common;
     }
 
-    GameObject DrawWeaponFromSlot(Rarity rarity)
+    private GameObject DrawWeaponFromSlot(Rarity rarity)
     {
         var slot = weaponSlots.Find(s => s.rarity == rarity);
         if (slot == null || slot.weaponPrefabs.Count == 0)
@@ -117,11 +115,11 @@ public class TreasureBox : MonoBehaviour
             Random.Range(0, slot.weaponPrefabs.Count)];
     }
 
-    // =========================
-    // レアドロ率補正
-    // =========================
+    #endregion
 
-    void ApplyRareDropModifier(Dictionary<Rarity, float> rates)
+    #region レアドロ率補正
+
+    private void ApplyRareDropModifier(Dictionary<Rarity, float> rates)
     {
         float multiplier = rareDropLevel switch
         {
@@ -134,11 +132,13 @@ public class TreasureBox : MonoBehaviour
         };
 
         // Rare 以上だけ補正
-        rates[Rarity.Rare]       *= multiplier;
-        rates[Rarity.Epic]       *= multiplier;
-        rates[Rarity.Legendary]  *= multiplier;
+        rates[Rarity.Rare] *= multiplier;
+        rates[Rarity.Epic] *= multiplier;
+        rates[Rarity.Legendary] *= multiplier;
 
         // Common を少し下げる（任意）
         rates[Rarity.Common] *= 1f / multiplier;
     }
+
+    #endregion
 }

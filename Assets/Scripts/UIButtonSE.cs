@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// UIボタンにホバー音・クリック音を付与する。
+/// </summary>
 public class UIButtonSE : MonoBehaviour,
     IPointerEnterHandler,
     IPointerClickHandler

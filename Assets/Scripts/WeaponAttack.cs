@@ -1,17 +1,21 @@
 using UnityEngine;
 
+/// <summary>
+/// 近接武器（剣など）の攻撃制御。
+/// クリックで攻撃アニメーションを再生し、アニメーションイベントで当たり判定を切り替える。
+/// </summary>
 public class WeaponAttack : MonoBehaviour
 {
     [Header("攻撃判定オブジェクト")]
     public GameObject attackArea; // AttackArea をここにアタッチ
 
-    private Animator animator;
-    private bool isAttacking = false;
-
     [Header("武器データ")]
     public WeaponData weaponData;
 
-    void Start()
+    private Animator animator;
+    private bool isAttacking = false;
+
+    private void Start()
     {
         animator = GetComponent<Animator>();
 
@@ -19,7 +23,7 @@ public class WeaponAttack : MonoBehaviour
             attackArea.SetActive(false); // 初期状態は非表示
     }
 
-    void Update()
+    private void Update()
     {
         // クリックされたら攻撃
         if (Input.GetMouseButtonDown(0) && !isAttacking)
@@ -28,13 +32,15 @@ public class WeaponAttack : MonoBehaviour
         }
     }
 
-    void Attack()
+    private void Attack()
     {
         isAttacking = true;
         animator.SetTrigger("Attack");
     }
 
-    // アニメーションイベントで呼ばれる：攻撃判定ON
+    /// <summary>
+    /// アニメーションイベントで呼ばれる：攻撃判定ON。
+    /// </summary>
     public void StartAttackHitbox()
     {
         if (weaponData != null && weaponData.attackSE != null)
@@ -46,18 +52,20 @@ public class WeaponAttack : MonoBehaviour
             attackArea.SetActive(true);
     }
 
-    // アニメーションイベントで呼ばれる：攻撃判定OFF
+    /// <summary>
+    /// アニメーションイベントで呼ばれる：攻撃判定OFF。
+    /// </summary>
     public void EndAttackHitbox()
     {
         if (attackArea != null)
             attackArea.SetActive(false);
     }
 
-    // アニメーション終了時に呼ぶ：攻撃終了
+    /// <summary>
+    /// アニメーション終了時に呼ぶ：攻撃終了。
+    /// </summary>
     public void EndAttack()
     {
         isAttacking = false;
     }
-
-
 }

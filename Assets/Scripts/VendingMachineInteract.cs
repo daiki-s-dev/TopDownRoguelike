@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// 自動販売機とのインタラクション。
+/// 魔石を消費してHP/MPポーションをランダムに1つ排出する。
+/// </summary>
 public class VendingMachineInteract : MonoBehaviour, IInteractable
 {
     [Header("コスト")]
@@ -15,7 +19,7 @@ public class VendingMachineInteract : MonoBehaviour, IInteractable
 
     private bool isPlayerInside = false;
 
-    void Start()
+    private void Start()
     {
         if (hintUI != null) hintUI.SetActive(false);
         if (lackMoneyUI != null) lackMoneyUI.SetActive(false);
@@ -46,25 +50,25 @@ public class VendingMachineInteract : MonoBehaviour, IInteractable
         if (lackMoneyUI != null)
             lackMoneyUI.SetActive(false);
 
-        // ★ プレイヤーがまだ範囲内なら Hint を再表示
+        // プレイヤーがまだ範囲内なら Hint を再表示
         if (isPlayerInside && hintUI != null)
             hintUI.SetActive(true);
 
         PlayBuyEffect();
     }
 
-    GameObject DrawPotion()
+    private GameObject DrawPotion()
     {
         return Random.value < 0.5f ? hpPotionPrefab : mpPotionPrefab;
     }
 
-    void ShowLackMoney()
+    private void ShowLackMoney()
     {
         if (lackMoneyUI != null)
             lackMoneyUI.SetActive(true);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
@@ -74,7 +78,7 @@ public class VendingMachineInteract : MonoBehaviour, IInteractable
             hintUI.SetActive(true);
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
@@ -86,7 +90,7 @@ public class VendingMachineInteract : MonoBehaviour, IInteractable
             lackMoneyUI.SetActive(false);
     }
 
-    void PlayBuyEffect()
+    private void PlayBuyEffect()
     {
         // SE / エフェクト
     }

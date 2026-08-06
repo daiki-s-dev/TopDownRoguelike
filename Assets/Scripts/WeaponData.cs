@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// アイテムの大分類。
+/// </summary>
 public enum ItemCategory
 {
     Weapon,
@@ -7,9 +10,9 @@ public enum ItemCategory
     Consumable
 }
 
-// ==============================
-// レアリティ
-// ==============================
+/// <summary>
+/// アイテムのレアリティ。
+/// </summary>
 public enum ItemRarity
 {
     Common,
@@ -19,9 +22,9 @@ public enum ItemRarity
     Legendary
 }
 
-// ==============================
-// 武器タイプ
-// ==============================
+/// <summary>
+/// 武器タイプ。
+/// </summary>
 public enum WeaponType
 {
     Melee,   // 剣など近接
@@ -29,12 +32,14 @@ public enum WeaponType
     Staff    // 杖
 }
 
+/// <summary>
+/// 武器1種類分のデータ。
+/// ダメージ計算・装備補正・見た目・ドロップ情報などをまとめて保持する。
+/// </summary>
 [CreateAssetMenu(fileName = "WeaponData", menuName = "GameData/Weapon")]
 public class WeaponData : ScriptableObject
 {
-    // ==============================
-    // ■ 基本情報
-    // ==============================
+    #region 基本情報
 
     [Header("カテゴリ")]
     public ItemCategory category = ItemCategory.Weapon;
@@ -52,16 +57,16 @@ public class WeaponData : ScriptableObject
     [Header("攻撃SE（攻撃開始時）")]
     public AudioClip attackSE;
 
-    // ==============================
-    // ■ スキル / 使用コスト
-    // ==============================
+    #endregion
+
+    #region スキル / 使用コスト
 
     [Header("MP消費")]
     public int mpCost = 0;
 
-    // ==============================
-    // ■ ダメージ計算用ステータス
-    // ==============================
+    #endregion
+
+    #region ダメージ計算用ステータス
 
     [Header("基礎ダメージ")]
     public int baseDamage = 0;
@@ -73,9 +78,9 @@ public class WeaponData : ScriptableObject
     [Tooltip("プレイヤー魔力の参照率（0.5 = 50%）")]
     public float magicScale = 0f;
 
-    // ==============================
-    // ■ 攻撃速度・プレハブ
-    // ==============================
+    #endregion
+
+    #region 攻撃速度・プレハブ
 
     [Header("攻撃速度")]
     public float attackRate = 1f;
@@ -83,17 +88,17 @@ public class WeaponData : ScriptableObject
     [Header("武器プレハブ")]
     public GameObject weaponPrefab;
 
-    // ==============================
-    // ■ 弓専用設定
-    // ==============================
+    #endregion
+
+    #region 弓専用設定
 
     [Header("弓専用")]
     public GameObject arrowPrefab;
     public float arrowSpeed = 10f;
 
-    // ==============================
-    // ■ 装備時ステータス補正（★ここが追加点）
-    // ==============================
+    #endregion
+
+    #region 装備時ステータス補正
 
     [Header("装備時ステータス補正（加算）")]
     public int bonusAttack = 0;
@@ -106,9 +111,9 @@ public class WeaponData : ScriptableObject
 
     public float bonusCriticalDamage = 0f;
 
-    // ==============================
-    // ■ ドロップ / UI
-    // ==============================
+    #endregion
+
+    #region ドロップ / UI
 
     [Header("ドロップ時の拾えるプレハブ")]
     public GameObject dropPrefab;
@@ -116,4 +121,6 @@ public class WeaponData : ScriptableObject
     [Header("説明文")]
     [TextArea(2, 4)]
     public string description;
+
+    #endregion
 }
