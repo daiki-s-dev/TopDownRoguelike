@@ -2,6 +2,15 @@ using System.Collections;
 using UnityEngine;
 
 /// <summary>
+/// ボス部屋で出現するボス候補の一覧。
+/// </summary>
+[System.Serializable]
+public class BossWave
+{
+    public GameObject[] bossPrefabs; // 出現するボス候補
+}
+
+/// <summary>
 /// ボス部屋の進行を管理する。
 /// プレイヤー侵入時にゲート（結界）を張り、ボスを生成。
 /// ボス撃破でゲートを解除する。
