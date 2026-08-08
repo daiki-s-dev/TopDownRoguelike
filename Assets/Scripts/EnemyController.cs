@@ -43,7 +43,7 @@ public class EnemyController : EnemyBase
         // 現在の向き（EnemyBase管理）
         Vector2 dir = GetFacingVector();
 
-        // ===== 攻撃警告（位置は変えず、向きだけ）=====
+        // 攻撃警告（位置は変えず、向きだけ）
         if (attackWarningPrefab != null)
         {
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -61,7 +61,7 @@ public class EnemyController : EnemyBase
             warningInstance.SetActive(true);
         }
 
-        // ===== チャージ中も回転だけ追従 =====
+        // チャージ中も回転だけ追従
         float timer = 0f;
         while (timer < chargeTime)
         {
