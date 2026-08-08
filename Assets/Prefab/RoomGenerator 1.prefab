@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1219681303166265419}
   - component: {fileID: 6975165372615359868}
   m_Layer: 0
-  m_Name: DungeonGenerator 1
+  m_Name: RoomGenerator 1
   m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

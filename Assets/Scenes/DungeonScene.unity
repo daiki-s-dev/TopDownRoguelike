@@ -439,6 +439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 6975165372615359868, guid: 0fdcc0d3271df62418a39c05de757704, type: 3}
+      propertyPath: roomPrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
